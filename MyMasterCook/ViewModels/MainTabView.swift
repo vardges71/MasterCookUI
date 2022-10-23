@@ -11,7 +11,11 @@ struct MainTabView: View {
     
     @State public var tabSelected = 1
     
-    init() { UITabBarItem.appearance().badgeColor = UIColor(Colors.tabbarBadgeColor) }
+    init() {
+        UITabBarItem.appearance().badgeColor = UIColor(Colors.tabbarBadgeColor)
+        UITabBar.appearance().unselectedItemTintColor = UIColor(Colors.textColor)
+        UITabBar.appearance().backgroundColor = UIColor(Colors.navbarTintColor)
+    }
     
     var body: some View {
         
@@ -46,7 +50,7 @@ struct MainTabView: View {
             
         }
         .accentColor(Colors.textColor)
-        .onAppear() { UITabBar.appearance().backgroundColor = UIColor(Colors.navbarTintColor) }
+//        .onAppear() { UITabBar.appearance().backgroundColor = UIColor(Colors.navbarTintColor) }
     }
 }
 

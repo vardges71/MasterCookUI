@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    var backImageName = "backYellow"
+    @Binding var tabSelection: Int
+    let title = "My Mastercook"
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ZStack {
+                fullBackground(imageName: backImageName)
+                VStack(spacing: 20) {
+                    Text("Home").foregroundColor(Colors.textColor)
+                }
+            }
+            .navigationTitle(title)
+            .navigationBarTitleTextColor(Colors.textColor)
+        }
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView(tabSelection: self)
+//    }
+//}
