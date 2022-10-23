@@ -19,7 +19,7 @@ struct FavoritesView: View {
                 fullBackground(imageName: backImageName)
                 VStack(spacing: 20) {
                     Text("Favorites").foregroundColor(Colors.textColor)
-                }
+                }.hidden()
             }
             .navigationTitle(title)
             .navigationBarTitleTextColor(Colors.textColor)
