@@ -8,12 +8,22 @@
 import SwiftUI
 
 struct SettingsAboutButton: View {
+    
+    @State private var showAboutView = false
+    @State private var tagSelected: Int = 3
+    @State private var aboutView = AboutView()
+    
+    var title = "About"
+    
     var body: some View {
         
-        Button() {
+        Button {
             
+            self.showAboutView.toggle()
         } label: {
-            Label("about", systemImage: "questionmark.square")
+            NavigationLink(destination: AboutView()) {
+                Label("about", systemImage: "questionmark.square")
+            }
         }
         .foregroundColor(Colors.textColor)
     }

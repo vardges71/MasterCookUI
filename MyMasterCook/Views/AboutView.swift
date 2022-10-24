@@ -10,13 +10,19 @@ import SwiftUI
 struct AboutView: View {
     
     var backImageName = "backYellow"
+    let title = "About"
     
     var body: some View {
-        
         ZStack {
             fullBackground(imageName: backImageName)
-            Text("ABOUT")
+            VStack(spacing: 0) {
+                AboutHeaderView()
+                Divider()
+                AboutTextView()
+            }
         }
+        .navigationTitle(title)
+        .navigationBarTitleTextColor(Colors.textColor)
     }
 }
 

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct SettingsView: View {
     
@@ -13,7 +14,6 @@ struct SettingsView: View {
     let title = "Settings"
     @State var isUserExist = false
     @Binding var tabSelection: Int
-    @State public var selection = 1
     
     var body: some View {
         
@@ -23,27 +23,23 @@ struct SettingsView: View {
                 VStack(spacing: 20) {
                     HStack {
                         VStack {
-
                             HStack {
-                                
                                 SettingsAboutButton()
                                 Spacer()
                             }
                             HStack {
-                                
                                 SettingPrivacyButton()
                                 Spacer()
                             } .padding(.top, 10)
                             ZStack {
-
-                                if self.isUserExist {
+                                if Auth.auth().currentUser == nil {
                                     HStack {
-                                        SettingLogOutButton()
+                                        SettingLoginButton()
                                         Spacer()
                                     }
                                 } else {
                                     HStack {
-                                        SettingLoginButton()
+                                        SettingLogOutButton()
                                         Spacer()
                                     }
                                 }
@@ -51,13 +47,13 @@ struct SettingsView: View {
                             
                             HStack {
 
-                                if isUserExist {
+                                if Auth.auth().currentUser == nil {
                                     SettingDeleteAccountButton()
-                                } else {
-                                    SettingDeleteAccountButton().opacity(0.5)
+                                        .opacity(0.5)
                                         .disabled(true)
+                                } else {
+                                    SettingDeleteAccountButton()
                                 }
-                                
                                 Spacer()
                             } .padding(.top, 10)
                             
@@ -66,7 +62,6 @@ struct SettingsView: View {
                         Spacer()
                     } .padding(20)
                 }
-                
             }
             .navigationTitle(title)
             .navigationBarTitleTextColor(Colors.textColor)

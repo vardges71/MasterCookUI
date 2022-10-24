@@ -43,9 +43,6 @@ struct TextFieldModifier: ViewModifier {
                 .accentColor(Colors.textColor)
             
             Divider()
-                .frame(height: 1)
-                .padding(.horizontal, 10)
-                .background(Colors.textColor)
         }
     }
 }
