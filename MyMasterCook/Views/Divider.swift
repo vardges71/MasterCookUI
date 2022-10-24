@@ -9,15 +9,9 @@ import SwiftUI
 
 struct Divider: View {
     var body: some View {
-        
-        ZStack {
-            
-        }
-        .frame(maxWidth: .infinity, maxHeight: 1)
-        .padding(.horizontal, 10)
-            .background(Colors.textColor)
-            
-        
+
+        Rectangle().frame(height: 1)
+            .foregroundColor(Colors.textColor)
     }
 }
 

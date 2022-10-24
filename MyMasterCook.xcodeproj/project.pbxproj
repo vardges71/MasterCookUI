@@ -35,6 +35,14 @@
 		09F7B5CE290622AE00624256 /* LoadAboutText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7B5CD290622AE00624256 /* LoadAboutText.swift */; };
 		09F7B5D1290623D300624256 /* AboutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7B5D0290623D300624256 /* AboutHeaderView.swift */; };
 		09F7B5D32906252100624256 /* AboutTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7B5D22906252100624256 /* AboutTextView.swift */; };
+		09F7B5D52906409200624256 /* PrivacyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7B5D42906409200624256 /* PrivacyViewModel.swift */; };
+		09F7B5D729065E0700624256 /* LoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7B5D629065E0700624256 /* LoginButtonView.swift */; };
+		09F7B5DA29065E6600624256 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7B5D929065E6600624256 /* LogoView.swift */; };
+		09F7B5DC2906603900624256 /* GuestButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7B5DB2906603900624256 /* GuestButtonView.swift */; };
+		09F7B5DE290660FE00624256 /* EmailTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7B5DD290660FE00624256 /* EmailTextView.swift */; };
+		09F7B5E02906613E00624256 /* PasswordTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7B5DF2906613E00624256 /* PasswordTextView.swift */; };
+		09F7B5E229066C4700624256 /* RegisterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7B5E129066C4700624256 /* RegisterButtonView.swift */; };
+		09F7B5E429066C6300624256 /* ForgotPasswordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7B5E329066C6300624256 /* ForgotPasswordButtonView.swift */; };
 		F61659A8C7BC99CE4A50CCBB /* Pods_MyMasterCook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31C1149F79FA50ED5436AD24 /* Pods_MyMasterCook.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +76,14 @@
 		09F7B5CD290622AE00624256 /* LoadAboutText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAboutText.swift; sourceTree = "<group>"; };
 		09F7B5D0290623D300624256 /* AboutHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutHeaderView.swift; sourceTree = "<group>"; };
 		09F7B5D22906252100624256 /* AboutTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTextView.swift; sourceTree = "<group>"; };
+		09F7B5D42906409200624256 /* PrivacyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewModel.swift; sourceTree = "<group>"; };
+		09F7B5D629065E0700624256 /* LoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonView.swift; sourceTree = "<group>"; };
+		09F7B5D929065E6600624256 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		09F7B5DB2906603900624256 /* GuestButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestButtonView.swift; sourceTree = "<group>"; };
+		09F7B5DD290660FE00624256 /* EmailTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextView.swift; sourceTree = "<group>"; };
+		09F7B5DF2906613E00624256 /* PasswordTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextView.swift; sourceTree = "<group>"; };
+		09F7B5E129066C4700624256 /* RegisterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButtonView.swift; sourceTree = "<group>"; };
+		09F7B5E329066C6300624256 /* ForgotPasswordButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordButtonView.swift; sourceTree = "<group>"; };
 		1F889E78478CB1863A683B1C /* Pods-MyMasterCook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMasterCook.release.xcconfig"; path = "Target Support Files/Pods-MyMasterCook/Pods-MyMasterCook.release.xcconfig"; sourceTree = "<group>"; };
 		31C1149F79FA50ED5436AD24 /* Pods_MyMasterCook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMasterCook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A01229FCD2D5ACD3F38DF73 /* Pods-MyMasterCook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMasterCook.debug.xcconfig"; path = "Target Support Files/Pods-MyMasterCook/Pods-MyMasterCook.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,8 +183,10 @@
 			isa = PBXGroup;
 			children = (
 				09C6AE5D2903056600A9CDF4 /* MainTabView.swift */,
+				09F7B5D42906409200624256 /* PrivacyViewModel.swift */,
 				09F7B5CF290623A400624256 /* AboutViewModels */,
 				09D676762903B17200F6BE4F /* SettingsViewModels */,
+				09F7B5D829065E0D00624256 /* LoginViewModels */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -200,6 +218,20 @@
 				09F7B5D22906252100624256 /* AboutTextView.swift */,
 			);
 			path = AboutViewModels;
+			sourceTree = "<group>";
+		};
+		09F7B5D829065E0D00624256 /* LoginViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				09F7B5D629065E0700624256 /* LoginButtonView.swift */,
+				09F7B5D929065E6600624256 /* LogoView.swift */,
+				09F7B5DB2906603900624256 /* GuestButtonView.swift */,
+				09F7B5DD290660FE00624256 /* EmailTextView.swift */,
+				09F7B5DF2906613E00624256 /* PasswordTextView.swift */,
+				09F7B5E129066C4700624256 /* RegisterButtonView.swift */,
+				09F7B5E329066C6300624256 /* ForgotPasswordButtonView.swift */,
+			);
+			path = LoginViewModels;
 			sourceTree = "<group>";
 		};
 		47492FBB7233698ACBBB9E47 /* Pods */ = {
@@ -336,11 +368,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				09C6AE622903078C00A9CDF4 /* FavoritesView.swift in Sources */,
+				09F7B5DA29065E6600624256 /* LogoView.swift in Sources */,
 				09D6767C2903B2F800F6BE4F /* SettingLogOutButton.swift in Sources */,
 				09C6AE60290306D200A9CDF4 /* HomeView.swift in Sources */,
 				09F7B5C92906114500624256 /* Divider.swift in Sources */,
 				095934BD2901CBDA00BF3A98 /* Styles.swift in Sources */,
 				09D676822903C7CE00F6BE4F /* AboutView.swift in Sources */,
+				09F7B5DE290660FE00624256 /* EmailTextView.swift in Sources */,
+				09F7B5D729065E0700624256 /* LoginButtonView.swift in Sources */,
 				095934C429021A4300BF3A98 /* Colors.swift in Sources */,
 				095934B12901BE9600BF3A98 /* ContentView.swift in Sources */,
 				09D6767A2903B29E00F6BE4F /* SettingPrivacyButton.swift in Sources */,
@@ -348,9 +383,11 @@
 				09F7B5C72905DB0700624256 /* AppDelegate.swift in Sources */,
 				09C6AE5E2903056600A9CDF4 /* MainTabView.swift in Sources */,
 				09C6AE5C290303F600A9CDF4 /* SearchView.swift in Sources */,
+				09F7B5E229066C4700624256 /* RegisterButtonView.swift in Sources */,
 				095934C829023C4100BF3A98 /* RegisterView.swift in Sources */,
 				09D6767E2903B37400F6BE4F /* SettingDeleteAccountButton.swift in Sources */,
 				09F7B5CE290622AE00624256 /* LoadAboutText.swift in Sources */,
+				09F7B5E429066C6300624256 /* ForgotPasswordButtonView.swift in Sources */,
 				095934C02901F45A00BF3A98 /* LoginView.swift in Sources */,
 				09F7B5D1290623D300624256 /* AboutHeaderView.swift in Sources */,
 				095934AF2901BE9600BF3A98 /* MyMasterCookApp.swift in Sources */,
@@ -358,7 +395,10 @@
 				09D676842903C7F100F6BE4F /* PrivacyView.swift in Sources */,
 				09D676782903B1E300F6BE4F /* SettingsAboutButton.swift in Sources */,
 				09C6AE64290307A600A9CDF4 /* SettingsView.swift in Sources */,
+				09F7B5E02906613E00624256 /* PasswordTextView.swift in Sources */,
+				09F7B5D52906409200624256 /* PrivacyViewModel.swift in Sources */,
 				09D676802903BDC200F6BE4F /* SingleRecipeView.swift in Sources */,
+				09F7B5DC2906603900624256 /* GuestButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,7 +543,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 4.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ca.vgstudio.MyMasterCook;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.vgstudio.MasterCook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -538,7 +578,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 4.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ca.vgstudio.MyMasterCook;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.vgstudio.MasterCook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

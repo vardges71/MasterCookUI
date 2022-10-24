@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct SettingPrivacyButton: View {
+    
+    @State private var showPrivacyView = false
+    @State private var privacyView = PrivacyView()
+    
     var body: some View {
+        
         Button() {
             
         } label: {
-            Label("privacypolicy", systemImage: "exclamationmark.square")
+            NavigationLink(destination:	privacyView) {
+                Label("privacypolicy", systemImage: "exclamationmark.square")
+            }
         }
         .foregroundColor(Colors.textColor)
     }

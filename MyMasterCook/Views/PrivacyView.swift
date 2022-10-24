@@ -10,18 +10,33 @@ import SwiftUI
 struct PrivacyView: View {
     
     var backImageName = "backYellow"
+    private var title = "PrivacyPolicy"
+    private var privacyURL = "https://www.privacypolicies.com/live/183d1f01-e9cb-46d1-89e0-db3e27812277"
+    @State private var showLoading: Bool = false
     
     var body: some View {
-        
+            
         ZStack {
             fullBackground(imageName: backImageName)
-            Text("PRIVACY POLICY")
+            VStack(spacing: 0) {
+                
+                PrivacyViewModel(url: URL(string: privacyURL)!, showLoading: $showLoading)
+                    .overlay(showLoading ? ProgressView("Loading...").toAnyView() : EmptyView().toAnyView())
+            }
         }
+        .navigationTitle(title)
+        .navigationBarTitleTextColor(Colors.textColor)
     }
 }
 
 struct PrivacyView_Previews: PreviewProvider {
     static var previews: some View {
         PrivacyView()
+    }
+}
+
+extension View {
+    func toAnyView() -> AnyView {
+        AnyView(self)
     }
 }

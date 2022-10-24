@@ -12,7 +12,6 @@ struct SettingsView: View {
     
     var backImageName = "backYellow"
     let title = "Settings"
-    @State var isUserExist = false
     @Binding var tabSelection: Int
     
     var body: some View {
@@ -32,6 +31,7 @@ struct SettingsView: View {
                                 Spacer()
                             } .padding(.top, 10)
                             ZStack {
+                                
                                 if Auth.auth().currentUser == nil {
                                     HStack {
                                         SettingLoginButton()

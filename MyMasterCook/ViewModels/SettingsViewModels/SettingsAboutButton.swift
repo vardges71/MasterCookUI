@@ -10,7 +10,6 @@ import SwiftUI
 struct SettingsAboutButton: View {
     
     @State private var showAboutView = false
-    @State private var tagSelected: Int = 3
     @State private var aboutView = AboutView()
     
     var title = "About"
@@ -21,7 +20,7 @@ struct SettingsAboutButton: View {
             
             self.showAboutView.toggle()
         } label: {
-            NavigationLink(destination: AboutView()) {
+            NavigationLink(destination: aboutView) {
                 Label("about", systemImage: "questionmark.square")
             }
         }

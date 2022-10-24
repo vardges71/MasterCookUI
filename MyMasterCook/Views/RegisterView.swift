@@ -27,14 +27,20 @@ struct RegisterView: View {
                     TextField("e-mail:", text: $email)
                         .modifier(TextFieldModifier())
                         .keyboardType(.emailAddress)
+                        .preferredColorScheme(.light)
+                    Divider()
                     
                     SecureField("password:", text: $password)
                         .modifier(TextFieldModifier())
                         .keyboardType(.default)
+                        .preferredColorScheme(.light)
+                    Divider()
                     
                     SecureField("repeat password:", text: $re_password)
                         .modifier(TextFieldModifier())
                         .keyboardType(.default)
+                        .preferredColorScheme(.light)
+                    Divider()
                     
                     Spacer()
                     
@@ -54,7 +60,6 @@ struct RegisterView: View {
                     }
                     .fullScreenCover(isPresented: $showLoginView) { LoginView() }
                     .foregroundColor(Colors.textColor)
-                    Spacer()
                 }.padding(20)
             }
             .navigationTitle(title)

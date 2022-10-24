@@ -6,14 +6,12 @@
 //
 
 import SwiftUI
-import Firebase
-import FirebaseAuth
 import FirebaseCore
 
 @main
 struct MyMasterCookApp: App {
     
-    init() { FirebaseApp.configure() }
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {
         WindowGroup {
