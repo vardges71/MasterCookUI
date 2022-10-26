@@ -6,20 +6,19 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ContentView: View {
     
+    @EnvironmentObject var user: User
     var body: some View {
         
-        ZStack {
-            
-            MainTabView()
-        }
+        LoginView()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(User())
     }
 }

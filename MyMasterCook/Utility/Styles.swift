@@ -30,6 +30,11 @@ public extension View {
         
         return self
     }
+    
+    func hideKeyboard() {
+        
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }
 
 struct TextFieldModifier: ViewModifier {

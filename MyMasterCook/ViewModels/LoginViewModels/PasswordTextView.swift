@@ -9,21 +9,23 @@ import SwiftUI
 
 struct PasswordTextView: View {
     
-    @State var passwordText = ""
+    @State var password: String = ""
     
     var body: some View {
         VStack {
-            SecureField("password:", text: $passwordText)
+            SecureField("password:", text: $password)
                 .modifier(TextFieldModifier())
                 .keyboardType(.default)
+                .textContentType(.password)
+                .textInputAutocapitalization(.never)
                 .preferredColorScheme(.light)
             Divider()
         }
     }
 }
 
-struct PasswordTextView_Previews: PreviewProvider {
-    static var previews: some View {
-        PasswordTextView()
-    }
-}
+//struct PasswordTextView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PasswordTextView()
+//    }
+//}

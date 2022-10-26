@@ -14,6 +14,8 @@ struct SettingsView: View {
     let title = "Settings"
     @Binding var tabSelection: Int
     
+    var bool = false
+    
     var body: some View {
         
         NavigationView {

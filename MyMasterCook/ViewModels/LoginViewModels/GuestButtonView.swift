@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct GuestButtonView: View {
     
@@ -13,13 +14,20 @@ struct GuestButtonView: View {
     
     var body: some View {
         Button("continue as guest") {
+            
             self.showMainView.toggle()
         }
         .modifier(ActionButtonModifier())
         .overlay(
             RoundedRectangle(cornerRadius: 5.0).stroke(.white, lineWidth: 2)
         )
-        .fullScreenCover(isPresented: $showMainView) { ContentView() }
+        .fullScreenCover(isPresented: $showMainView) {
+            if Auth.auth().currentUser != nil {
+                MainTabView()
+            } else {
+                TView()
+            }
+        }
         .background(Colors.darkGrey)
         .foregroundColor(Color.white)
     }

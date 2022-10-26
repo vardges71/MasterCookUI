@@ -1,16 +1,14 @@
 //
-//  MainTabView.swift
+//  TView.swift
 //  MyMasterCook
 //
-//  Created by Vardges Gasparyan on 2022-10-21.
+//  Created by Vardges Gasparyan on 2022-10-25.
 //
 
 import SwiftUI
-import FirebaseAuth
 
-struct MainTabView: View {
+struct TView: View {
     
-    @EnvironmentObject var user: User
     @State public var tabSelected = 1
     
     init() {
@@ -35,13 +33,6 @@ struct MainTabView: View {
                     Label("search", systemImage: tabSelected == 1 ? "magnifyingglass.circle.fill" : "magnifyingglass.circle") .environment(\.symbolVariants, .none)
 
                 } .tag(1)
-            
-            FavoritesView(tabSelection: $tabSelected)
-                .tabItem {
-                    Label("favorites", systemImage: tabSelected == 2 ? "star.fill" : "star") .environment(\.symbolVariants, .none)
-
-                } .tag(2)
-                .badge(5)
                 
             SettingsView(tabSelection: $tabSelected)
                 .tabItem {
@@ -52,11 +43,12 @@ struct MainTabView: View {
             
         }
         .accentColor(Colors.textColor)
+//        .onAppear() { UITabBar.appearance().backgroundColor = UIColor(Colors.navbarTintColor) }
     }
 }
 
-struct MainTabView_Previews: PreviewProvider {
+struct TView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabView().environmentObject(User())
+        TView()
     }
 }
