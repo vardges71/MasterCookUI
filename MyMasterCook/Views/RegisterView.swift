@@ -12,9 +12,9 @@ struct RegisterView: View {
     var backImageName = "backYellow"
     @State private var showLoginView = false
     var title = "Register"
-    @State var email = ""
-    @State var password = ""
-    @State var re_password = ""
+    @State private var email = ""
+    @State private var password = ""
+    @State private var re_password = ""
     
     var body: some View {
         
@@ -36,31 +36,35 @@ struct RegisterView: View {
                         .preferredColorScheme(.light)
                     Divider()
                     
-                    SecureField("repeat password:", text: $re_password)
+                    SecureField("confirm password:", text: $re_password)
                         .modifier(TextFieldModifier())
                         .keyboardType(.default)
                         .preferredColorScheme(.light)
                     Divider()
                     
                     Spacer()
-                    
-                    Button("register") {
+                    VStack(spacing: 20) {
+                        Button("register") {
+                            
+                        }
+                        .modifier(ActionButtonModifier())
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5.0).stroke(.white, lineWidth: 2)
+                        )
+                        .background(Colors.buttonBackgroundColor)
+                        .foregroundColor(Color.white)
                         
-                    }
-                    .modifier(ActionButtonModifier())
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 5.0).stroke(.white, lineWidth: 2)
-                    )
-                    .background(Colors.buttonBackgroundColor)
-                    .foregroundColor(Color.white)
-                    
-                    Button("back to login") {
                         
-                        self.showLoginView.toggle()
+                        Button("back to login") {
+                            
+                            self.showLoginView.toggle()
+                        }
+                        .fullScreenCover(isPresented: $showLoginView) { LoginView() }
+                        .foregroundColor(Colors.textColor)
                     }
-                    .fullScreenCover(isPresented: $showLoginView) { LoginView() }
-                    .foregroundColor(Colors.textColor)
+                    Spacer()
                 }.padding(20)
+                Spacer()
             }
             .navigationTitle(title)
             .navigationBarTitleTextColor(Colors.textColor)

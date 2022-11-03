@@ -9,14 +9,15 @@ import SwiftUI
 
 struct RegisterButtonView: View {
     
-    @State var showRegView = false
+    @State private var showRegView = false
     
     var body: some View {
         Button("register") {
             
             self.showRegView.toggle()
-        } .foregroundColor(Colors.textColor)
-            .fullScreenCover(isPresented: $showRegView) { RegisterView() }
+        }
+        .foregroundColor(Colors.textColor)
+        .fullScreenCover(isPresented: $showRegView) { RegisterView() }
     }
 }
 

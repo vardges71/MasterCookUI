@@ -17,14 +17,16 @@ struct MyMasterCookApp: App {
     var body: some Scene {
         WindowGroup {
             
-            if Auth.auth().currentUser != nil {
-                
-                // User is signed in.
-                MainTabView()
-                
-            } else {
-                // No user is signed in.
-                ContentView()
+            return Group {
+                if Auth.auth().currentUser != nil {
+                    
+                    // User is signed in.
+                    MainTabView()
+                    
+                } else {
+                    // No user is signed in.
+                    ContentView()
+                }
             }
         }
     }

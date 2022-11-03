@@ -5,6 +5,7 @@
 //  Created by Vardges Gasparyan on 2022-10-20.
 //
 
+import Foundation
 import SwiftUI
 import FirebaseAuth
 import UIKit
@@ -12,10 +13,10 @@ import UIKit
 struct LoginView: View {
     
     @ObservedObject var user = User()
-    @State var showingAlert = false
-    @State var showMainView = false
+    @State private var showingAlert = false
+    @State private var showMainView = false
 
-    @State var errorDescription: String = ""
+    @State private var errorDescription: String = ""
     
     var backImageName = "backYellow"
     
@@ -34,6 +35,9 @@ struct LoginView: View {
                             .autocorrectionDisabled(true)
                             .textInputAutocapitalization(.never)
                             .preferredColorScheme(.light)
+                            .onChange(of: user.email) { _ in
+                                user.email = user.email.trimmingCharacters(in: .whitespacesAndNewlines)
+                            }
                         
                         Divider()
                     }
@@ -50,14 +54,14 @@ struct LoginView: View {
                     Button("log on") {
                         
                         Auth.auth().signIn(withEmail: user.email, password: user.password) { (result, error) in
-
+                            
                             if error != nil {
-
+                                
                                 self.showingAlert = true
                                 self.errorDescription = error!.localizedDescription
-
+                                
                             } else {
-
+                                
                                 print("User logged in \($user.email)")
                                 showMainView.toggle()
                             }
@@ -70,9 +74,6 @@ struct LoginView: View {
                     
                     .fullScreenCover(isPresented: $showMainView) { ContentView() }
                     .modifier(ActionButtonModifier())
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 5.0).stroke(.white, lineWidth: 2)
-                    )
                     .background(Colors.buttonBackgroundColor)
                     .foregroundColor(Color.white)
                     

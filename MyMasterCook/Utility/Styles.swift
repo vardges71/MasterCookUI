@@ -55,6 +55,9 @@ struct ActionButtonModifier: ViewModifier {
         content
             .padding()
             .font(.system(size: 17.0))
-            .frame(maxWidth: .infinity, maxHeight: 44)
+            .frame(maxWidth: .infinity, maxHeight: 44, alignment: .center)
+            .overlay(
+                RoundedRectangle(cornerRadius: 5.0).stroke(.white, lineWidth: 2)
+            )
     }
 }

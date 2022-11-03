@@ -16,7 +16,7 @@ public struct Colors {
     static var darkGrey = Color(red: 90/255, green: 90/255, blue: 90/255, opacity: 1.0)
     
     static var navbarTintColor = Color(red: 236/255, green: 173/255, blue: 0/255, opacity: 1.0)
-    static var navbarUnselectedItemColor = Color(red: 90/255, green: 0/255, blue: 15/255, opacity: 0.7)
+    static var navbarUnselectedItemColor = Color(red: 90/255, green: 0/255, blue: 15/255, opacity: 0.5)
     static var tabbarBadgeColor = Color(red: 130/255, green: 0/255, blue: 0/255, opacity: 1.0)
     
     static var alertBackgroundColor = Color(red: 255/255, green: 255/255, blue: 255/255, opacity: 0.6)

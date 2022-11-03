@@ -10,7 +10,7 @@ import FirebaseAuth
 
 struct GuestButtonView: View {
     
-    @State var showMainView = false
+    @State private var showMainView = false
     
     var body: some View {
         Button("continue as guest") {
@@ -18,14 +18,11 @@ struct GuestButtonView: View {
             self.showMainView.toggle()
         }
         .modifier(ActionButtonModifier())
-        .overlay(
-            RoundedRectangle(cornerRadius: 5.0).stroke(.white, lineWidth: 2)
-        )
         .fullScreenCover(isPresented: $showMainView) {
             if Auth.auth().currentUser != nil {
                 MainTabView()
             } else {
-                TView()
+                SecondaryTabView()
             }
         }
         .background(Colors.darkGrey)

@@ -10,7 +10,12 @@ import SwiftUI
 struct SearchView: View {
     
     var backImageName = "backYellow"
+    
+    @State private var showHomeView = false
     @Binding var tabSelection: Int
+    
+    @ObservedObject var recipeListVM = RecipeListViewModel()
+    
     let title = "Search"
     
     var body: some View {
@@ -20,8 +25,22 @@ struct SearchView: View {
             ZStack {
                 fullBackground(imageName: backImageName)
                 VStack(spacing: 20) {
-                    Text("Search").foregroundColor(Colors.textColor)
-                }
+                    
+                    Button {
+                        
+                        self.showHomeView.toggle()
+                    
+                    } label: {
+                        
+                        Label("search", systemImage: "doc.text.magnifyingglass")
+                        
+                    }
+                    .modifier(ActionButtonModifier())
+                    .background(Colors.buttonBackgroundColor)
+                    .foregroundColor(Color.white)
+                    
+                    
+                } .padding(20)
             }
             .navigationTitle(title)
             .navigationBarTitleTextColor(Colors.textColor)

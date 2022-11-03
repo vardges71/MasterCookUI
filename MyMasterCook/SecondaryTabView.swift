@@ -7,14 +7,20 @@
 
 import SwiftUI
 
-struct TView: View {
+struct SecondaryTabView: View {
     
-    @State public var tabSelected = 1
+    @State private var tabSelected = 1
     
     init() {
+        
         UITabBarItem.appearance().badgeColor = UIColor(Colors.tabbarBadgeColor)
-        UITabBar.appearance().unselectedItemTintColor = UIColor(Colors.textColor)
         UITabBar.appearance().backgroundColor = UIColor(Colors.navbarTintColor)
+        UITabBar.appearance().unselectedItemTintColor = UIColor(Colors.navbarUnselectedItemColor)
+//        UITabBar.appearance().tintColor = UIColor(Colors.textColor)
+        UITabBar.appearance().barTintColor = UIColor(Colors.navbarTintColor)
+        
+        UINavigationBar.appearance().isTranslucent = true
+        UINavigationBar.appearance().barTintColor = UIColor(Colors.navbarTintColor)
     }
     
     var body: some View {
@@ -26,7 +32,7 @@ struct TView: View {
                     Label("home", systemImage: tabSelected == 0 ? "house.fill" : "house") .environment(\.symbolVariants, .none)
 
                 } .tag(0)
-                .badge(40)
+//                .badge(homeVM.response.count)
             
             SearchView(tabSelection: $tabSelected)
                 .tabItem {
@@ -47,8 +53,8 @@ struct TView: View {
     }
 }
 
-struct TView_Previews: PreviewProvider {
+struct SecondaryTabView_Previews: PreviewProvider {
     static var previews: some View {
-        TView()
+        SecondaryTabView()
     }
 }
