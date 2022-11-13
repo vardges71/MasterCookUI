@@ -2,12 +2,12 @@
 //  Ingredients.swift
 //  MyMasterCook
 //
-//  Created by Vardges Gasparyan on 2022-10-27.
+//  Created by Vardges Gasparyan on 2022-11-11.
 //
 
 import Foundation
 
 class Ingredient: ObservableObject {
     
-    @Published var ingredient: String = ""
+    @Published var item: String = ""
 }

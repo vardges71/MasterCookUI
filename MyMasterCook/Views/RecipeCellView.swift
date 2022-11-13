@@ -9,42 +9,58 @@ import SwiftUI
 
 struct RecipeCellView: View {
     
-    let recipe: Recipe
+    @StateObject var recipe: Recipe
+    
+    @State private var thumbnailWidth: Double = UIScreen.main.bounds.width * 0.25
     
     var body: some View {
         
         return HStack {
             
             VStack {
-                GeometryReader { metrics in
-                    AsyncImage(
-                        url: URL(string: recipe.thumbnail_url),
-                        content: { image in
-                            image.resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(maxWidth: 100, maxHeight: 100, alignment: .center)
-                            
-                        },
-                        placeholder: {
-                            ProgressView()
-                                .tint(.white)
-                                .background(Color(white: 0.3, opacity: 0.7))
-                        }
-                    ) .clipShape(Rectangle())
-                        .overlay(Rectangle().stroke(Colors.textColor, lineWidth: 2))
-                }
+                
+                AsyncImage(
+                    url: URL(string: recipe.thumbnail_url),
+                    content: { image in
+                        image.resizable()
+                            .scaledToFill()
+                            .frame(width: thumbnailWidth, height: thumbnailWidth)
+                    },
+                    placeholder: {
+                        ProgressView("Loading...")
+                            .progressViewStyle(CircularProgressViewStyle())
+                            .tint(.white)
+                            .padding()
+                            .background(Color(white: 0.2, opacity: 0.7))
+                            .frame(alignment: .center)
+                    }
+                ) .clipShape(Rectangle())
+                    .overlay(Rectangle().stroke(Colors.textColor, lineWidth: 2))
             }
-            .frame(width: 100, height: 100, alignment: .leading)
-            VStack {
+            
+            VStack(alignment: .leading) {
                 Text("\(recipe.name)")
-                    .font(.system(size: 19))
+                    .font(.system(size: 16))
                     .fontWeight(.bold)
-                    .multilineTextAlignment(.leading)
                     .foregroundColor(Colors.textColor)
                 Spacer()
                 Group {
-                    
+                    HStack{
+                        VStack(alignment: .leading) {
+                            Text("fiber: \(Utilities.optionalDoubleView(recipe.fiber))")
+                            Text("proteine: \(Utilities.optionalDoubleView(recipe.protein))")
+                            Text("fat: \(Utilities.optionalDoubleView(recipe.fat))")
+                        }
+                        Spacer()
+                        VStack(alignment: .trailing) {
+                            Text("sugar: \(Utilities.optionalDoubleView(recipe.sugar))")
+                            Text("carbohydrates: \(Utilities.optionalDoubleView(recipe.carbohydrates))")
+                            Text("calories: \(Utilities.optionalDoubleView(recipe.calories))")
+                        }
+                    } .foregroundColor(Colors.textColor)
+                        .font(.system(size: 11))
                 }
+                Utilities.optionalIntView(recipe.num_servings)
             }
         }
     }
@@ -53,11 +69,7 @@ struct RecipeCellView: View {
 struct RecipeCellView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let recipe = Recipe(id: "",
-                            name: "Air Fryer Peach Cobbler For 2",
-                            thumbnail_url: "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/404698.jpg",
-                            video_url: "",
-                            instructions: "")
+        let recipe = Recipe()
         
         RecipeCellView(recipe: recipe)
     }

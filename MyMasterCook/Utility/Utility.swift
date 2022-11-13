@@ -5,6 +5,7 @@
 //  Created by Vardges Gasparyan on 2022-10-26.
 //
 
+import SwiftUI
 import Foundation
 import FirebaseAuth
 import FirebaseDatabase
@@ -61,5 +62,30 @@ class Utilities {
           }
         }
     }
-
+// MARK: - Optional Int in Text
+    
+    static func optionalIntView(_ property: Int?) -> Text {
+        
+       if let unwrappedProperty = property {
+           
+           return Text("serving \(unwrappedProperty) peoples")
+               .foregroundColor(Colors.textColor)
+               .font(.system(size: 13))
+               .fontWeight(.bold)
+           
+       } else {
+           return Text("")
+       }
+    }
+    
+    static func optionalDoubleView(_ property: Int?) -> Text {
+        
+       if let unwrappedProperty = property {
+           
+           return Text("\(unwrappedProperty)")
+           
+       } else {
+           return Text("n/a")
+       }
+    }
 }

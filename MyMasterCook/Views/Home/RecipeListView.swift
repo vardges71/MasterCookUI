@@ -9,47 +9,28 @@ import SwiftUI
 
 struct RecipeListView: View {
     
-    @ObservedObject var recipeListVM: RecipeListViewModel
+    @StateObject var recipeListVM = RecipeListViewModel()
     
     var body: some View {
         
         VStack {
-            
-            List(recipeListVM.recipeArray, id: \.id) { recipe in
+    
+            List(recipeListVM.recipeArray, id: \.id) { index in
                 
-                NavigationLink(destination: SingleRecipeView(recipe: recipe)) {
+                NavigationLink(destination: SingleRecipeView(recipe: index)) {
                     
-                    RecipeCellView(recipe: recipe)
+                    RecipeCellView(recipe: index)
                 }
                 .animation(.default, value: true)
-                .listRowBackground(Color.clear)
                 .listRowInsets(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 5))
+                .listRowBackground(Color.clear)
                 
             } .scrollContentBackground(.hidden)
-                .onAppear{
-                    recipeListVM.load()
-                }
-        }
+                .onAppear(perform: recipeListVM.load)//: LIST
+        } //: VStack
     }
+    
 }
-
-
-//struct RecipeCellView: View {
-//
-//    let recipe: Recipe
-//
-//    var body: some View {
-//
-//        ZStack {
-//            VStack {
-//
-//                Text("\(recipe.name)") .foregroundColor(Colors.textColor)
-//
-//            }
-//        }
-//    }
-//}
-
 
 //struct RecipeListView_Previews: PreviewProvider {
 //    static var previews: some View {

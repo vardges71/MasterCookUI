@@ -49,13 +49,13 @@ struct TextFieldModifier: ViewModifier {
 }
 
 struct ActionButtonModifier: ViewModifier {
-    
+
     func body(content: Content) -> some View {
-        
+
         content
-            .padding()
+            .frame(width: UIScreen.main.bounds.width - 40, height: 44, alignment: .center)
             .font(.system(size: 17.0))
-            .frame(maxWidth: .infinity, maxHeight: 44, alignment: .center)
+            .foregroundColor(Color.white)
             .overlay(
                 RoundedRectangle(cornerRadius: 5.0).stroke(.white, lineWidth: 2)
             )

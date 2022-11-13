@@ -6,22 +6,14 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct SecondaryTabView: View {
     
-    @State private var tabSelected = 1
-    
-    init() {
-        
-        UITabBarItem.appearance().badgeColor = UIColor(Colors.tabbarBadgeColor)
-        UITabBar.appearance().backgroundColor = UIColor(Colors.navbarTintColor)
-        UITabBar.appearance().unselectedItemTintColor = UIColor(Colors.navbarUnselectedItemColor)
-//        UITabBar.appearance().tintColor = UIColor(Colors.textColor)
-        UITabBar.appearance().barTintColor = UIColor(Colors.navbarTintColor)
-        
-        UINavigationBar.appearance().isTranslucent = true
-        UINavigationBar.appearance().barTintColor = UIColor(Colors.navbarTintColor)
-    }
+    @StateObject var rA: RecipeArray = RecipeArray()
+    @State var tabSelected: Int = 1
+    @StateObject var recipeListVM = RecipeListViewModel()
+    @State public var homeBadgeValue: Int = 0
     
     var body: some View {
         
@@ -30,31 +22,41 @@ struct SecondaryTabView: View {
             HomeView(tabSelection: $tabSelected)
                 .tabItem {
                     Label("home", systemImage: tabSelected == 0 ? "house.fill" : "house") .environment(\.symbolVariants, .none)
-
+                    
                 } .tag(0)
-//                .badge(homeVM.response.count)
+                .badge(rA.recAarray.count)
+//                .onAppear(perform: recipeListVM.load)
             
             SearchView(tabSelection: $tabSelected)
                 .tabItem {
                     Label("search", systemImage: tabSelected == 1 ? "magnifyingglass.circle.fill" : "magnifyingglass.circle") .environment(\.symbolVariants, .none)
-
+                    
                 } .tag(1)
-                
+            
             SettingsView(tabSelection: $tabSelected)
                 .tabItem {
                     Label("settings", systemImage: tabSelected == 3 ? "gearshape.2.fill" : "gearshape.2")
                         .environment(\.symbolVariants, .none)
-
+                    
                 } .tag(3)
-            
         }
         .accentColor(Colors.textColor)
-//        .onAppear() { UITabBar.appearance().backgroundColor = UIColor(Colors.navbarTintColor) }
+        .onAppear() {
+            UITabBar.appearance().backgroundColor = UIColor(Colors.navbarTintColor)
+            UITabBarItem.appearance().badgeColor = UIColor(Colors.tabbarBadgeColor)
+            UITabBar.appearance().unselectedItemTintColor = UIColor(Colors.navbarUnselectedItemColor)
+//        UITabBar.appearance().tintColor = UIColor(Colors.textColor)
+            UITabBar.appearance().barTintColor = UIColor(Colors.navbarTintColor)
+            
+            UINavigationBar.appearance().isTranslucent = true
+            UINavigationBar.appearance().barTintColor = UIColor(Colors.navbarTintColor)
+        }
     }
 }
 
-struct SecondaryTabView_Previews: PreviewProvider {
-    static var previews: some View {
-        SecondaryTabView()
-    }
-}
+//struct SecondaryTabView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SecondaryTabView()
+//    }
+//}
+

@@ -13,27 +13,30 @@ struct SingleRecipeView: View {
     
     var backImageName = "backYellow"
     var title = "Single recipe"
+    @State private var isAnimating: Bool = false
     
     var body: some View {
         
         ZStack {
             fullBackground(imageName: backImageName)
-            VStack(alignment: .leading) {
-                GeometryReader { metrics in
-                    AsyncImage(
-                        url: URL(string: recipe.thumbnail_url),
-                        content: { image in
-                            image.resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: metrics.size.width, height: metrics.size.height)
-                        },
-                        placeholder: {
-                            ProgressView()
-                        }
-                    ) .clipShape(Rectangle())
-                        .overlay(Rectangle().stroke(Colors.textColor, lineWidth: 1))
-                }
+            VStack() {
                 
+                AsyncImage(url: URL(string: recipe.thumbnail_url)) { image in
+                    image.resizable()
+                        .scaledToFill()
+                        .frame(width: UIScreen.main.bounds.width - 20, height: UIScreen.main.bounds.height * 0.3, alignment: .center)
+                } placeholder: {
+                    ProgressView("Loading...")
+                        .progressViewStyle(.circular)
+                        .frame(width: UIScreen.main.bounds.width - 20, height: UIScreen.main.bounds.height * 0.3, alignment: .center)
+                        .tint(.white)
+                        .padding()
+                        .background(Color(white: 0.2, opacity: 0.7))
+                        .foregroundColor(.white)
+                        
+                } .clipShape(Rectangle())
+                    .overlay(Rectangle().stroke(Colors.textColor, lineWidth: 1))
+
                 Text(recipe.name)
                     .padding(5)
                     .font(.title2)
@@ -50,7 +53,7 @@ struct SingleRecipeView: View {
                     .frame(maxWidth: .infinity)
                 
                 Spacer()
-            } .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+            } .padding()
         }
 //        .navigationTitle("")
         .navigationBarTitleTextColor(Colors.textColor)
@@ -60,10 +63,6 @@ struct SingleRecipeView: View {
 
 struct SingleRecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        SingleRecipeView(recipe: Recipe(id: "id",
-                                        name: "name",
-                                        thumbnail_url: "",
-                                        video_url: "",
-                                        instructions: ""))
+        SingleRecipeView(recipe: Recipe())
     }
 }

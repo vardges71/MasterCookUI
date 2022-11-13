@@ -34,11 +34,9 @@ struct LoginView: View {
                             .textContentType(.emailAddress)
                             .autocorrectionDisabled(true)
                             .textInputAutocapitalization(.never)
-                            .preferredColorScheme(.light)
                             .onChange(of: user.email) { _ in
                                 user.email = user.email.trimmingCharacters(in: .whitespacesAndNewlines)
                             }
-                        
                         Divider()
                     }
                     VStack {
@@ -47,35 +45,22 @@ struct LoginView: View {
                             .keyboardType(.default)
                             .textContentType(.password)
                             .textInputAutocapitalization(.never)
-                            .preferredColorScheme(.light)
                         Divider()
                     }
                     Spacer()
-                    Button("log on") {
-                        
-                        Auth.auth().signIn(withEmail: user.email, password: user.password) { (result, error) in
-                            
-                            if error != nil {
-                                
-                                self.showingAlert = true
-                                self.errorDescription = error!.localizedDescription
-                                
-                            } else {
-                                
-                                print("User logged in \($user.email)")
-                                showMainView.toggle()
-                            }
-                        }
-                        
+                    Button {
+
+                        checkUser()
                         hideKeyboard()
+                    } label: {
+
+                        Text("log on")
+                            .modifier(ActionButtonModifier())
+                            .background(Colors.buttonBackgroundColor)
                     }
-                    .fullScreenCover(isPresented: $showMainView) { MainTabView() }
                     .alert(isPresented: self.$showingAlert) { Alert(title: Text("Error..."), message: Text("\(errorDescription)"), dismissButton: .default(Text("OK"))) }
-                    
-                    .fullScreenCover(isPresented: $showMainView) { ContentView() }
-                    .modifier(ActionButtonModifier())
+                    .fullScreenCover(isPresented: $showMainView) { MainTabView() }
                     .background(Colors.buttonBackgroundColor)
-                    .foregroundColor(Color.white)
                     
                     GuestButtonView()
                     Spacer()
@@ -84,8 +69,9 @@ struct LoginView: View {
                         Spacer()
                         ForgotPasswordButtonView()
                     }
-                } .padding(20)
+                }.padding(40)
             }
+            .preferredColorScheme(.light)
         }
     }
     func checkUser(){
@@ -95,13 +81,12 @@ struct LoginView: View {
             if error != nil {
                 
                 self.showingAlert = true
+                self.errorDescription = error!.localizedDescription
                 
-                
-        
             } else {
                 
                 print("User logged in \($user.email)")
-        
+                showMainView.toggle()
             }
         }
     }

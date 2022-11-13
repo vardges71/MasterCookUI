@@ -13,11 +13,15 @@ struct GuestButtonView: View {
     @State private var showMainView = false
     
     var body: some View {
-        Button("continue as guest") {
-            
+        
+        Button {
             self.showMainView.toggle()
+            
+        } label: {
+            Text("continue as guest")
+                .modifier(ActionButtonModifier())
+                .background(Colors.darkGrey)
         }
-        .modifier(ActionButtonModifier())
         .fullScreenCover(isPresented: $showMainView) {
             if Auth.auth().currentUser != nil {
                 MainTabView()
@@ -25,8 +29,6 @@ struct GuestButtonView: View {
                 SecondaryTabView()
             }
         }
-        .background(Colors.darkGrey)
-        .foregroundColor(Color.white)
     }
 }
 

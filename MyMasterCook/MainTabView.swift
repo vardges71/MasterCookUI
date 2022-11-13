@@ -12,18 +12,8 @@ struct MainTabView: View {
     
     @EnvironmentObject var user: User
     @State private var tabSelected = 1
-    
-    init() {
-        
-        UITabBarItem.appearance().badgeColor = UIColor(Colors.tabbarBadgeColor)
-        UITabBar.appearance().backgroundColor = UIColor(Colors.navbarTintColor)
-        UITabBar.appearance().unselectedItemTintColor = UIColor(Colors.navbarUnselectedItemColor)
-//        UITabBar.appearance().tintColor = UIColor(Colors.textColor)
-        UITabBar.appearance().barTintColor = UIColor(Colors.navbarTintColor)
-        
-        UINavigationBar.appearance().isTranslucent = true
-        UINavigationBar.appearance().barTintColor = UIColor(Colors.navbarTintColor)
-    }
+    @StateObject var recipeListVM: RecipeListViewModel = RecipeListViewModel()
+    @StateObject var rA: RecipeArray = RecipeArray()
     
     var body: some View {
         
@@ -35,7 +25,7 @@ struct MainTabView: View {
                         Label("home", systemImage: tabSelected == 0 ? "house.fill" : "house") .environment(\.symbolVariants, .none)
                         
                     } .tag(0)
-//                    .badge(homeVM.response.count)
+                    .badge(rA.recAarray.count)
                 
                 SearchView(tabSelection: $tabSelected)
                     .tabItem {
@@ -48,7 +38,7 @@ struct MainTabView: View {
                         Label("favorites", systemImage: tabSelected == 2 ? "star.fill" : "star") .environment(\.symbolVariants, .none)
                         
                     } .tag(2)
-//                    .badge(5)
+                    .badge(5)
                 
                 SettingsView(tabSelection: $tabSelected)
                     .tabItem {
@@ -59,11 +49,23 @@ struct MainTabView: View {
             }
         }
         .accentColor(Colors.textColor)
+        .onAppear() {
+            UITabBar.appearance().backgroundColor = UIColor(Colors.navbarTintColor)
+            UITabBarItem.appearance().badgeColor = UIColor(Colors.tabbarBadgeColor)
+            UITabBar.appearance().unselectedItemTintColor = UIColor(Colors.navbarUnselectedItemColor)
+            //        UITabBar.appearance().tintColor = UIColor(Colors.textColor)
+            UITabBar.appearance().barTintColor = UIColor(Colors.navbarTintColor)
+            
+            UINavigationBar.appearance().isTranslucent = true
+            UINavigationBar.appearance().barTintColor = UIColor(Colors.navbarTintColor)
+            
+//            recipeListVM.load()
+        }
     }
 }
 
-struct MainTabView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainTabView().environmentObject(User())
-    }
-}
+//struct MainTabView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainTabView().environmentObject(User())
+//    }
+//}

@@ -17,7 +17,7 @@ struct MyMasterCookApp: App {
     var body: some Scene {
         WindowGroup {
             
-            return Group {
+            Group {
                 if Auth.auth().currentUser != nil {
                     
                     // User is signed in.

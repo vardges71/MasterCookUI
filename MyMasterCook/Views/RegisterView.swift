@@ -47,7 +47,7 @@ struct RegisterView: View {
                         Button("register") {
                             
                         }
-                        .modifier(ActionButtonModifier())
+//                        .modifier(ActionButtonModifier())
                         .overlay(
                             RoundedRectangle(cornerRadius: 5.0).stroke(.white, lineWidth: 2)
                         )
