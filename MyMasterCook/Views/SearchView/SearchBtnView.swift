@@ -10,7 +10,6 @@ import SwiftUI
 struct SearchBtnView: View {
     
     @ObservedObject var searchVM: SearchViewModel
-    @ObservedObject var recipeListVM = RecipeListViewModel()
     @Binding var tabSelection: Int
     
     @State private var showAlert = false
@@ -19,8 +18,6 @@ struct SearchBtnView: View {
         Button {
             
             ifIngredientIsEmpty()
-            recipeListVM.recipeArray.removeAll()
-            
         } label: {
             
             Label("search", systemImage: "doc.text.magnifyingglass")
@@ -39,8 +36,10 @@ struct SearchBtnView: View {
         if searchVM.ingredientArray.isEmpty {
             self.showAlert = true
         } else {
-            recipeListVM.load()
+            recipeData.removeAll()
+            parseJSON()
             searchVM.showHomeView.toggle()
+            
             withAnimation {
                 tabSelection = 0
             }

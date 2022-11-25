@@ -21,7 +21,14 @@ struct PrivacyView: View {
             VStack(spacing: 0) {
                 
                 PrivacyViewModel(url: URL(string: privacyURL)!, showLoading: $showLoading)
-                    .overlay(showLoading ? ProgressView("Loading...").toAnyView() : EmptyView().toAnyView())
+                    .overlay(showLoading ? ProgressView("Loading...")
+                        .progressViewStyle(.circular)
+                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
+                        .tint(.white)
+                        .padding()
+                        .background(Color(white: 0.2, opacity: 0.7))
+                        .foregroundColor(.white)
+                        .toAnyView() : EmptyView().toAnyView())
             }
         }
         .navigationTitle(title)

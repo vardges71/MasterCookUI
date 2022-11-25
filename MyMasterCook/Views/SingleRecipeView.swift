@@ -19,7 +19,7 @@ struct SingleRecipeView: View {
         
         ZStack {
             fullBackground(imageName: backImageName)
-            VStack() {
+            VStack(spacing: 10) {
                 
                 AsyncImage(url: URL(string: recipe.thumbnail_url)) { image in
                     image.resizable()
@@ -36,33 +36,36 @@ struct SingleRecipeView: View {
                         
                 } .clipShape(Rectangle())
                     .overlay(Rectangle().stroke(Colors.textColor, lineWidth: 1))
+                    .shadow(radius: 4)
 
-                Text(recipe.name)
-                    .padding(5)
-                    .font(.title2)
-                    .frame(alignment: .bottomLeading)
-                    .fontWeight(.bold)
-                    .foregroundColor(Colors.textColor)
-                
-                ScrollView {
+                HStack {
+                    Text("\(recipe.name)")
+                        .font(.title2)
+                        .frame(alignment: .bottomLeading)
+                        .fontWeight(.bold)
+                        .foregroundColor(Colors.textColor)
+                        .multilineTextAlignment(.leading)
+                        .shadow(radius: 4)
+                    Spacer()
+                }
+                ScrollView(.vertical, showsIndicators: false) {
                     Text(recipe.instructions)
                         .font(.footnote)
                 } .padding(10)
                     .foregroundColor(Colors.textColor)
                     .background(Colors.alertBackgroundColor)
                     .frame(maxWidth: .infinity)
-                
                 Spacer()
             } .padding()
         }
-//        .navigationTitle("")
+        //        .navigationTitle("")
         .navigationBarTitleTextColor(Colors.textColor)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-struct SingleRecipeView_Previews: PreviewProvider {
-    static var previews: some View {
-        SingleRecipeView(recipe: Recipe())
-    }
-}
+//struct SingleRecipeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SingleRecipeView(recipes: WebService().pub_recipe)
+//    }
+//}

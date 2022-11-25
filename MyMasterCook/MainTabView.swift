@@ -13,7 +13,7 @@ struct MainTabView: View {
     @EnvironmentObject var user: User
     @State private var tabSelected = 1
     @StateObject var recipeListVM: RecipeListViewModel = RecipeListViewModel()
-    @StateObject var rA: RecipeArray = RecipeArray()
+    @State private var homeBadgeValue: Int?
     
     var body: some View {
         
@@ -25,7 +25,13 @@ struct MainTabView: View {
                         Label("home", systemImage: tabSelected == 0 ? "house.fill" : "house") .environment(\.symbolVariants, .none)
                         
                     } .tag(0)
-                    .badge(rA.recAarray.count)
+                    .onAppear{
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            print("FROM STV: \(recipeData.count)")
+                            homeBadgeValue = recipeData.count
+                        }
+                    }
+                    .badge ( homeBadgeValue ?? 0 )
                 
                 SearchView(tabSelection: $tabSelected)
                     .tabItem {

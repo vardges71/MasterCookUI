@@ -32,8 +32,8 @@ struct GuestButtonView: View {
     }
 }
 
-struct GuestButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        GuestButtonView()
-    }
-}
+//struct GuestButtonView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GuestButtonView(isLoading: isLoading)
+//    }
+//}

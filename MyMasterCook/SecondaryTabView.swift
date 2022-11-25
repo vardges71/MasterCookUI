@@ -10,10 +10,9 @@ import FirebaseAuth
 
 struct SecondaryTabView: View {
     
-    @StateObject var rA: RecipeArray = RecipeArray()
     @State var tabSelected: Int = 1
     @StateObject var recipeListVM = RecipeListViewModel()
-    @State public var homeBadgeValue: Int = 0
+    @State private var homeBadgeValue: Int?
     
     var body: some View {
         
@@ -21,24 +20,31 @@ struct SecondaryTabView: View {
             
             HomeView(tabSelection: $tabSelected)
                 .tabItem {
-                    Label("home", systemImage: tabSelected == 0 ? "house.fill" : "house") .environment(\.symbolVariants, .none)
-                    
-                } .tag(0)
-                .badge(rA.recAarray.count)
-//                .onAppear(perform: recipeListVM.load)
+                    Label("home", systemImage: tabSelected == 0 ? "house.fill" : "house")
+                        .environment(\.symbolVariants, .none)
+                }
+                .tag(0)
+                .onAppear{
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        print("FROM STV: \(recipeData.count)")
+                        homeBadgeValue = recipeData.count
+                    }
+                }
+                .badge ( homeBadgeValue ?? 0 )
+                
             
             SearchView(tabSelection: $tabSelected)
                 .tabItem {
                     Label("search", systemImage: tabSelected == 1 ? "magnifyingglass.circle.fill" : "magnifyingglass.circle") .environment(\.symbolVariants, .none)
-                    
-                } .tag(1)
+                }
+                .tag(1)
             
             SettingsView(tabSelection: $tabSelected)
                 .tabItem {
                     Label("settings", systemImage: tabSelected == 3 ? "gearshape.2.fill" : "gearshape.2")
                         .environment(\.symbolVariants, .none)
-                    
-                } .tag(3)
+                }
+                .tag(3)
         }
         .accentColor(Colors.textColor)
         .onAppear() {

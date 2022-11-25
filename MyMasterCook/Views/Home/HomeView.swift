@@ -12,7 +12,6 @@ struct HomeView: View {
     var backImageName = "backYellow"
     @Binding var tabSelection: Int
     let title = "My MasterCook"
-    @State private var loading = false
     
     @ObservedObject var recipeListVM = RecipeListViewModel()
     
@@ -21,7 +20,6 @@ struct HomeView: View {
         NavigationView {
             ZStack {
                 fullBackground(imageName: backImageName)
-                
                 VStack(alignment: .leading) {
                     
                     RecipeListView(recipeListVM: recipeListVM)

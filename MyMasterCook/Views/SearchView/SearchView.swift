@@ -36,7 +36,7 @@ struct SearchView: View {
                     HStack {
                         ClearBtnView(searchVM: searchVM)
                         Spacer(minLength: 20)
-                        SearchBtnView(searchVM: searchVM, recipeListVM: recipeListVM, tabSelection: $tabSelection)
+                        SearchBtnView(searchVM: searchVM, tabSelection: $tabSelection)
                     } .padding(20)
                     
                     Spacer()

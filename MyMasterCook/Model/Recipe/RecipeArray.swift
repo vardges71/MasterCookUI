@@ -5,9 +5,9 @@
 //  Created by Vardges Gasparyan on 2022-11-13.
 //
 
-import Foundation
+import SwiftUI
 
 class RecipeArray: ObservableObject {
     
-    @Published var recAarray: [Recipe] = [Recipe]()
+    @Published var recA: [Recipe] = [Recipe]()
 }

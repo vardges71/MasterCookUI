@@ -5,7 +5,7 @@
 //  Created by Vardges Gasparyan on 2022-10-31.
 //
 
-import Foundation
+import SwiftUI
 
 protocol UploadRecipesDelegate: AnyObject {
     
@@ -14,37 +14,37 @@ protocol UploadRecipesDelegate: AnyObject {
 
 class RecipeListViewModel: ObservableObject {
     
-    @Published var recipe: Recipe = Recipe()
-    @Published var homeBadgeValue: Int = 0
-    @Published var recipeArray: [Recipe] = [Recipe]()
+//    @Published var homeBadgeValue: Int?
+//    @Published var recipeArray: [Recipe] = [Recipe]()
     
-    func load() {
-        
-        if recipeArray.isEmpty {
-            
-            WebService().parseJSON(recipeListVM: self)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                
-                print("Badge Value: \(self.recipeArray.count)\n")
-            }
-        } else {
-
-            print("Recipe array after start \(self.recipeArray.count)")
-        }
-    }
+//    @Published var isLoading = true
+    
+//    func load() -> [Recipe] {
+//
+//        if recipeData.isEmpty {
+//
+//            parseJSON()
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//
+//                print("Badge Value: \(recipeData.count)\n")
+//            }
+//        } else {
+//
+//            print("Recipe array after start \(recipeData.count)")
+//        }
+//
+//        return recipeData
+//    }
 }
 
-extension RecipeListViewModel: UploadRecipesDelegate {
-    
-    func uploadRecipes(_ recipes: [Recipe]) {
-        
-        recipeArray = recipes
-        let rA = RecipeArray()
-        rA.recAarray = recipes
-        for recipe in recipeArray {
-            print("Recipe Name is: \(recipe.name)")
-        }
-        
-        print("Recipe list from RecipeListVM: \(recipeArray.count)\n")
-    }
-}
+//extension RecipeListViewModel: UploadRecipesDelegate {
+//
+//    func uploadRecipes(_ recipes: [Recipe]) {
+//
+//        recipeArray = recipes
+//        isLoading.toggle()
+//        homeBadgeValue = recipes.count
+//
+//        print("Recipe list from RecipeListVM: \(recipeArray.count)\n")
+//    }
+//}

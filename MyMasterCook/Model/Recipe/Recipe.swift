@@ -5,23 +5,23 @@
 //  Created by Vardges Gasparyan on 2022-10-27.
 //
 
-import Foundation
+import SwiftUI
 
-class Recipe: ObservableObject {
+struct Recipe: Identifiable {
 
-    @Published var id: String = ""
-    @Published var name: String = ""
-    @Published var thumbnail_url: String = ""
-    @Published var video_url: String = ""
-    @Published var instructions: String = ""
-    @Published var num_servings: Int? = 0
+    var id: String
+    var name: String
+    var thumbnail_url: String
+    var video_url: String
+    var instructions: String
+    var num_servings: Int?
 
-    @Published var fiber: Int?
-    @Published var protein: Int?
-    @Published var fat: Int?
-    @Published var calories: Int?
-    @Published var sugar: Int?
-    @Published var carbohydrates: Int?
+    var fiber: Int?
+    var protein: Int?
+    var fat: Int?
+    var calories: Int?
+    var sugar: Int?
+    var carbohydrates: Int?
 
 //    init(id: String, name: String, thumbnail_url: String, video_url: String, instructions: String, num_servings: Int? = nil, fiber: Int? = nil, protein: Int? = nil, fat: Int? = nil, calories: Int? = nil, sugar: Int? = nil, carbohydrates: Int? = nil) {
 //        self.id = id

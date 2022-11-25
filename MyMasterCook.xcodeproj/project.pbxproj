@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0923D7452928DB1600B7A999 /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0923D7442928DB1500B7A999 /* RecipeData.swift */; };
 		09561D0F29136D4200474969 /* RecipeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09561D0E29136D4200474969 /* RecipeCellView.swift */; };
 		095934AF2901BE9600BF3A98 /* MyMasterCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095934AE2901BE9600BF3A98 /* MyMasterCookApp.swift */; };
 		095934B12901BE9600BF3A98 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095934B02901BE9600BF3A98 /* ContentView.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0923D7442928DB1500B7A999 /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
 		09561D0E29136D4200474969 /* RecipeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellView.swift; sourceTree = "<group>"; };
 		095934AB2901BE9600BF3A98 /* MyMasterCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMasterCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		095934AE2901BE9600BF3A98 /* MyMasterCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMasterCookApp.swift; sourceTree = "<group>"; };
@@ -199,7 +201,6 @@
 				095934C729023C4100BF3A98 /* RegisterView.swift */,
 				09815CB3291DED0A0081C63F /* SearchView */,
 				09C6AE612903078C00A9CDF4 /* FavoritesView.swift */,
-				09C6AE63290307A600A9CDF4 /* SettingsView.swift */,
 				09D6767F2903BDC200F6BE4F /* SingleRecipeView.swift */,
 				09D676812903C7CE00F6BE4F /* AboutView.swift */,
 				09D676832903C7F100F6BE4F /* PrivacyView.swift */,
@@ -224,6 +225,7 @@
 			children = (
 				095D7DCE290A5AD200C174CC /* Recipe.swift */,
 				09815CC32920EE400081C63F /* RecipeArray.swift */,
+				0923D7442928DB1500B7A999 /* RecipeData.swift */,
 			);
 			path = Recipe;
 			sourceTree = "<group>";
@@ -263,6 +265,7 @@
 		09D676762903B17200F6BE4F /* SettingsView */ = {
 			isa = PBXGroup;
 			children = (
+				09C6AE63290307A600A9CDF4 /* SettingsView.swift */,
 				09D676742903AEDD00F6BE4F /* SettingLoginButton.swift */,
 				09D676772903B1E300F6BE4F /* SettingsAboutButton.swift */,
 				09D676792903B29E00F6BE4F /* SettingPrivacyButton.swift */,
@@ -463,6 +466,7 @@
 				09F5B5ED2908F94E00AC434B /* Utility.swift in Sources */,
 				09F7B5CE290622AE00624256 /* LoadAboutText.swift in Sources */,
 				09F5B5EB2907CBD100AC434B /* SecondaryTabView.swift in Sources */,
+				0923D7452928DB1600B7A999 /* RecipeData.swift in Sources */,
 				09F7B5E429066C6300624256 /* ForgotPasswordButtonView.swift in Sources */,
 				09616CDC2910C60D00154C2C /* RecipeListViewModel.swift in Sources */,
 				09815CB8291EF9000081C63F /* SearchViewModel.swift in Sources */,

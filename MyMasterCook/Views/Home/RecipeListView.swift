@@ -13,23 +13,37 @@ struct RecipeListView: View {
     
     var body: some View {
         
-        VStack {
-    
-            List(recipeListVM.recipeArray, id: \.id) { index in
-                
-                NavigationLink(destination: SingleRecipeView(recipe: index)) {
+        if recipeData.isEmpty {
+            
+            ProgressView("Loading...")
+                .onAppear { parseJSON() }
+                .progressViewStyle(.circular)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
+                .tint(.white)
+                .padding()
+                .background(Color(white: 0.2, opacity: 0.7))
+                .foregroundColor(.white)
+            
+        } else {
+            VStack {
+                List(recipeData, id: \.id) { index in
                     
-                    RecipeCellView(recipe: index)
+                    ZStack(alignment: .leading) {
+                        NavigationLink(destination: SingleRecipeView(recipe: index)) {
+                            EmptyView()
+                        } .opacity(0)
+                        
+                        RecipeCellView(recipe: index)
+                    }
+                    .animation(.default, value: true)
+                    .listRowInsets(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 5))
+                    .listRowBackground(Color.clear)
                 }
-                .animation(.default, value: true)
-                .listRowInsets(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 5))
-                .listRowBackground(Color.clear)
-                
-            } .scrollContentBackground(.hidden)
-                .onAppear(perform: recipeListVM.load)//: LIST
-        } //: VStack
+                .scrollContentBackground(.hidden)
+                    //: LIST
+            } //: VStack
+        }
     }
-    
 }
 
 //struct RecipeListView_Previews: PreviewProvider {
