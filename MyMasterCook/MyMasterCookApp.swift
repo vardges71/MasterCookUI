@@ -18,6 +18,7 @@ struct MyMasterCookApp: App {
         WindowGroup {
             
             Group {
+                
                 if Auth.auth().currentUser != nil {
                     
                     // User is signed in.

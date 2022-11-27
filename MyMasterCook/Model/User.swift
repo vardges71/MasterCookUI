@@ -5,7 +5,7 @@
 //  Created by Vardges Gasparyan on 2022-10-24.
 //
 
-import Foundation
+import SwiftUI
 
 class User: ObservableObject {
     

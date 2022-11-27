@@ -62,6 +62,7 @@ class Utilities {
           }
         }
     }
+    
 // MARK: - Optional Int in Text
     
     static func optionalIntView(_ property: Int?) -> Text {

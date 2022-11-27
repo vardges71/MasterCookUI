@@ -10,7 +10,7 @@ import FirebaseAuth
 
 struct LoginButtonView: View {
     
-    @ObservedObject var user = User()
+    var user: User
     @State private var showingAlert = false
     @State private var showMainView = false
     @State private var errorDescription: String = ""
@@ -22,16 +22,16 @@ struct LoginButtonView: View {
             hideKeyboard()
             
         } label: {
-            Text("log on")
-                .frame(width: UIScreen.main.bounds.width - 20, height: 44, alignment: .center)
+            Text("sign in")
+                .frame(width: UIScreen.main.bounds.width - 40, height: 44, alignment: .center)
                 .background(Colors.buttonBackgroundColor)
                 .foregroundColor(Color.white)
                 .overlay(
                     RoundedRectangle(cornerRadius: 5.0).stroke(.white, lineWidth: 2)
                 )
         }
-        .fullScreenCover(isPresented: $showMainView) { MainTabView() }
         .alert(isPresented: self.$showingAlert) { Alert(title: Text("Error..."), message: Text("\(errorDescription)"), dismissButton: .default(Text("OK"))) }
+        .fullScreenCover(isPresented: $showMainView) { MainTabView() }
     }
     
     func checkUser(){
@@ -40,13 +40,12 @@ struct LoginButtonView: View {
             
             if error != nil {
                 
-                self.showingAlert = true
+                self.showingAlert.toggle()
                 self.errorDescription = error!.localizedDescription
-                
             } else {
                 
-                print("User logged in \($user.email)")
                 showMainView.toggle()
+                print("User logged in \(user.email)")
             }
         }
     }
@@ -54,6 +53,6 @@ struct LoginButtonView: View {
 
 struct LoginButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginButtonView()
+        LoginButtonView(user: User())
     }
 }

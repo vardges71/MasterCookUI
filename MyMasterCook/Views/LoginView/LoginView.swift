@@ -5,18 +5,14 @@
 //  Created by Vardges Gasparyan on 2022-10-20.
 //
 
-import Foundation
+//import Foundation
 import SwiftUI
 import FirebaseAuth
-import UIKit
+//import UIKit
 
 struct LoginView: View {
     
     @ObservedObject var user = User()
-    @State private var showingAlert = false
-    @State private var showMainView = false
-
-    @State private var errorDescription: String = ""
     
     var backImageName = "backYellow"
     
@@ -48,52 +44,23 @@ struct LoginView: View {
                         Divider()
                     }
                     Spacer()
-                    Button {
-
-                        checkUser()
-                        hideKeyboard()
-                    } label: {
-
-                        Text("log on")
-                            .modifier(ActionButtonModifier())
-                            .background(Colors.buttonBackgroundColor)
-                    }
-                    .alert(isPresented: self.$showingAlert) { Alert(title: Text("Error..."), message: Text("\(errorDescription)"), dismissButton: .default(Text("OK"))) }
-                    .fullScreenCover(isPresented: $showMainView) { MainTabView() }
-                    .background(Colors.buttonBackgroundColor)
-                    
+                    LoginButtonView(user: user)
                     GuestButtonView()
                     Spacer()
                     HStack {
                         RegisterButtonView()
                         Spacer()
-                        ForgotPasswordButtonView()
+                        ForgotPasswordButtonView(user: user)
                     }
                 }.padding(40)
             }
             .preferredColorScheme(.light)
         }
     }
-    func checkUser(){
-        
-        Auth.auth().signIn(withEmail: user.email, password: user.password) { (result, error) in
-            
-            if error != nil {
-                
-                self.showingAlert = true
-                self.errorDescription = error!.localizedDescription
-                
-            } else {
-                
-                print("User logged in \($user.email)")
-                showMainView.toggle()
-            }
-        }
-    }
 }
 
-//struct LoginView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LoginView()
-//    }
-//}
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginView()
+    }
+}
