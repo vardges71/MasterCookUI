@@ -7,10 +7,13 @@
 
 import SwiftUI
 
-struct RegisterButtonView: View {
+struct GoToRegisterButtonView: View {
+//    MARK: - PROPERTIES
     
     @State private var showRegView = false
     
+    
+//    MARK: - BODY
     var body: some View {
         Button("register") {
             
@@ -21,8 +24,11 @@ struct RegisterButtonView: View {
     }
 }
 
-struct RegisterButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegisterButtonView()
-    }
-}
+//  MARK: - PREVIEW
+
+//struct GoToRegisterButtonView_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//        GoToRegisterButtonView()
+//    }
+//}

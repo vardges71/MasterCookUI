@@ -20,13 +20,13 @@ struct SettingLogOutButton: View {
             self.showingAlert.toggle()
             
         } label: {
-            Label("logout", systemImage: "arrow.backward.square")
+            Label("sign out", systemImage: "arrow.backward.square")
         }
         .foregroundColor(Colors.textColor)
         
         .alert("Do you really want to sign out?", isPresented: $showingAlert) {
             
-            Button("Logout", action: {
+            Button("Sign out", role: .destructive, action: {
                 
                 self.showLoginView.toggle()
                 Utilities.logOut()

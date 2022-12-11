@@ -20,18 +20,32 @@ struct SettingDeleteAccountButton: View {
             Label("delete account", systemImage: "trash.square")
         }
         .foregroundColor(Colors.textColor)
-        .alert("Do you really want to delete your account?", isPresented: $showingAlert) {
+        .actionSheet(isPresented: $showingAlert) {
+            ActionSheet(
+                title: Text("Do you really want to delete your account?"),
+                buttons: [
             
-            Button("Delete", role: .destructive, action: {
-                
-                self.showRegisterView.toggle()
-                Utilities.deleteAccount()
-                
-            })
-            
-            Button("Cancel", role: .cancel, action: {})
+                    .destructive(Text("Delete")) {
+                        
+                        Utilities.deleteAccount()
+                        self.showRegisterView.toggle()
+                    },
+                    .cancel(Text("Cancel")) {}
+                ]
+            )
         }
-        .fullScreenCover(isPresented: $showRegisterView) { RegisterView() }
+//        .alert("Do you really want to delete your account?", isPresented: $showingAlert) {
+//
+//            Button("Delete", role: .destructive, action: {
+//
+//                self.showRegisterView.toggle()
+//                Utilities.deleteAccount()
+//
+//            })
+//
+//            Button("Cancel", role: .cancel, action: {})
+//        }
+        .fullScreenCover(isPresented: $showRegisterView) { ContentView() }
     }
 }
 

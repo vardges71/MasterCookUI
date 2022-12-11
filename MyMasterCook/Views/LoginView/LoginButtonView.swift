@@ -10,10 +10,14 @@ import FirebaseAuth
 
 struct LoginButtonView: View {
     
+//    MARK: - PROPERTIES
+    
     var user: User
     @State private var showingAlert = false
     @State private var showMainView = false
     @State private var errorDescription: String = ""
+    
+//    MARK: - BODY
     
     var body: some View {
         Button {
@@ -23,7 +27,7 @@ struct LoginButtonView: View {
             
         } label: {
             Text("sign in")
-                .frame(width: UIScreen.main.bounds.width - 40, height: 44, alignment: .center)
+                .modifier(ActionButtonModifier())
                 .background(Colors.buttonBackgroundColor)
                 .foregroundColor(Color.white)
                 .overlay(
@@ -50,6 +54,8 @@ struct LoginButtonView: View {
         }
     }
 }
+
+//  MARK: - PREVIEW
 
 struct LoginButtonView_Previews: PreviewProvider {
     static var previews: some View {

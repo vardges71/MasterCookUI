@@ -58,6 +58,7 @@ import SwiftUI
                                                    thumbnail_url: "",
                                                    video_url: "",
                                                    instructions: "",
+                                                   description: "",
                                                    num_servings: 0,
                                                    fiber: nil,
                                                    protein: nil,
@@ -94,6 +95,9 @@ import SwiftUI
                                         oneRecipe.instructions.append("\n\n")
                                     }
                                 }
+                            }
+                            if let description = result["description"] as? String {
+                                oneRecipe.description = description
                             }
                             if let nutritions = result["nutrition"] as? Dictionary<String, Any> {
                                 

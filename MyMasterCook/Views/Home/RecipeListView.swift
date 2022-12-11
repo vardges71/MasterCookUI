@@ -46,10 +46,9 @@ struct RecipeListView: View {
     }
 }
 
-//struct RecipeListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        
-//        let recipe = Recipe(id: "", name: "Vako", thumbnail_url: "", video_url: "", instructions: "")
-//        return RecipeListView(response: [recipe]())
-//    }
-//}
+struct RecipeListView_Previews: PreviewProvider {
+    static var previews: some View {
+        
+        return RecipeListView()
+    }
+}

@@ -10,8 +10,11 @@ import FirebaseAuth
 
 struct GuestButtonView: View {
     
+//    MARK: - PROPERTIES
+    
     @State private var showMainView = false
     
+//    MARK: - BODY
     var body: some View {
         
         Button {
@@ -31,6 +34,8 @@ struct GuestButtonView: View {
         }
     }
 }
+
+//  MARK: - PREVIEW
 
 //struct GuestButtonView_Previews: PreviewProvider {
 //    static var previews: some View {

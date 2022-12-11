@@ -14,6 +14,7 @@ struct Recipe: Identifiable {
     var thumbnail_url: String
     var video_url: String
     var instructions: String
+    var description: String
     var num_servings: Int?
 
     var fiber: Int?
