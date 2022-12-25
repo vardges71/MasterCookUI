@@ -9,11 +9,13 @@ import SwiftUI
 
 struct HomeView: View {
     
+//    MARK: - PROPERTIES
+    
     var backImageName = "backYellow"
     @Binding var tabSelection: Int
     let title = "My MasterCook"
     
-    @ObservedObject var recipeListVM = RecipeListViewModel()
+//    MARK: - BODY
     
     var body: some View {
         
@@ -22,14 +24,18 @@ struct HomeView: View {
                 fullBackground(imageName: backImageName)
                 VStack(alignment: .leading) {
                     
-                    RecipeListView(recipeListVM: recipeListVM)
-                }
+                    RecipeListView()
+                        
+
+                } // : VStack
             }
             .navigationTitle(title)
             .navigationBarTitleTextColor(Colors.textColor)
         }
     }
 }
+
+//  MARK: - PREVIEW
 
 //struct HomeView_Previews: PreviewProvider {
 //    static var previews: some View {

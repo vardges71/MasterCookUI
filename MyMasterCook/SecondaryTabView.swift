@@ -11,7 +11,6 @@ import FirebaseAuth
 struct SecondaryTabView: View {
     
     @State var tabSelected: Int = 1
-    @StateObject var recipeListVM = RecipeListViewModel()
     @State private var homeBadgeValue: Int?
     
     var body: some View {
@@ -26,7 +25,7 @@ struct SecondaryTabView: View {
                 .tag(0)
                 .onAppear{
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        print("FROM STV: \(recipeData.count)")
+                        print("FROM SecondaryTabView: \(recipeData.count)")
                         homeBadgeValue = recipeData.count
                     }
                 }

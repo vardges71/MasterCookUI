@@ -44,6 +44,7 @@ struct LoginView: View {
 //  MARK: - PREVIEW
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
+//        let recipes: [Recipe] = [Recipe]()
         LoginView()
     }
 }

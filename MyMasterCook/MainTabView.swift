@@ -12,8 +12,9 @@ struct MainTabView: View {
     
     @EnvironmentObject var user: User
     @State private var tabSelected = 1
-    @StateObject var recipeListVM: RecipeListViewModel = RecipeListViewModel()
     @State private var homeBadgeValue: Int?
+    
+    @State private var isDisabled: Bool = true
     
     var body: some View {
         
@@ -39,13 +40,14 @@ struct MainTabView: View {
                         
                     } .tag(1)
                 
-                FavoritesView(tabSelection: $tabSelected)
-                    .tabItem {
-                        Label("favorites", systemImage: tabSelected == 2 ? "star.fill" : "star") .environment(\.symbolVariants, .none)
-                        
-                    } .tag(2)
-                    .badge(5)
-                
+                    FavoritesView(tabSelection: $tabSelected)
+                        .tabItem {
+                            Label("favorites", systemImage: tabSelected == 2 ? "star.fill" : "star") .environment(\.symbolVariants, .none)
+                            
+                        }
+                        .tag(2)
+                        .badge(5)
+                    
                 SettingsView(tabSelection: $tabSelected)
                     .tabItem {
                         Label("settings", systemImage: tabSelected == 3 ? "gearshape.2.fill" : "gearshape.2")
@@ -70,8 +72,8 @@ struct MainTabView: View {
     }
 }
 
-//struct MainTabView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MainTabView().environmentObject(User())
-//    }
-//}
+struct MainTabView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainTabView().environmentObject(User())
+    }
+}

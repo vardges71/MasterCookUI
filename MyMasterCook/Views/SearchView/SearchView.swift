@@ -9,13 +9,15 @@ import SwiftUI
 
 struct SearchView: View {
     
+//    MARK: - PROPERTIES
     var backImageName = "backYellow"
     
     @Binding var tabSelection: Int
-    @ObservedObject var recipeListVM = RecipeListViewModel()
     @ObservedObject var searchVM = SearchViewModel()
     
     let title = "Search"
+    
+//    MARK: - BODY
     
     var body: some View {
         
@@ -47,6 +49,8 @@ struct SearchView: View {
         }
     }
 }
+
+//  MARK: - PREVIEW
 
 //struct SearchView_Previews: PreviewProvider {
 //    static var previews: some View {

@@ -9,35 +9,40 @@ import SwiftUI
 
 struct RecipeCellView: View {
     
-    @State var recipe: Recipe
-    @State private var thumbnailWidth: Double = UIScreen.main.bounds.width * 0.25
+//    MARK: - PROPERTIES
     
+    let recipe: Recipe
+    let thumbnailWidth: Double = UIScreen.main.bounds.width * 0.25
+    
+//    MARK: - BODY
     var body: some View {
         
         VStack(alignment: .leading, spacing: 5) {
             HStack {
-                AsyncImage(
-                    url: URL(string: recipe.thumbnail_url),
-                    content: { image in
-                        image.resizable()
-                            .scaledToFill()
-                            .frame(width: thumbnailWidth, height: thumbnailWidth)
-                    },
-                    placeholder: {
-                        ProgressView("Loading...")
-                            .font(.system(size: 13))
-                            .padding()
-                            .tint(.white)
-                            .background(Color(UIColor(white: 0.3, alpha: 0.7)))
-                            .foregroundColor(.white)
-                            .frame(alignment: .center)
-                        
-                    }
-                )
-                .clipShape(Rectangle())
-//                .overlay(Rectangle().stroke(Colors.textColor, lineWidth: 2))
-                .shadow(radius: 2)
-                
+                ZStack {
+                    Rectangle()
+                        .stroke(Color.accentColor, lineWidth: 1)
+                        .frame(width: thumbnailWidth + 1, height: thumbnailWidth + 1)
+                    AsyncImage(
+                        url: URL(string: recipe.thumbnail_url),
+                        content: { image in
+                            image.resizable()
+                                .scaledToFill()
+                                .frame(width: thumbnailWidth, height: thumbnailWidth)
+                        },
+                        placeholder: {
+                            ProgressView("Loading...")
+                                .padding()
+                                .frame(width: thumbnailWidth, height: thumbnailWidth, alignment: .center)
+                                .font(.system(size: 13))
+                                .tint(.white)
+                                .background(Color(UIColor(white: 0.3, alpha: 0.7)))
+                                .foregroundColor(.white)
+                        }
+                    )
+                    .clipShape(Rectangle())
+                }
+                .padding(.leading, 2)
                 VStack(alignment: .leading) {
                     Text("\(recipe.name)")
                         .font(.system(size: 16))
@@ -70,6 +75,8 @@ struct RecipeCellView: View {
         }
     }
 }
+
+// MARK: - PREVIEW
 
 struct RecipeCellView_Previews: PreviewProvider {
     static var previews: some View {

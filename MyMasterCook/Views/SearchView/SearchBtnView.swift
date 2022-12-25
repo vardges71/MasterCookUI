@@ -9,10 +9,14 @@ import SwiftUI
 
 struct SearchBtnView: View {
     
+//    MARK: - PROPERTIES
+    
     @ObservedObject var searchVM: SearchViewModel
     @Binding var tabSelection: Int
     
     @State private var showAlert = false
+    
+//    MARK: - BODY
     
     var body: some View {
         Button {
@@ -46,6 +50,8 @@ struct SearchBtnView: View {
         }
     }
 }
+
+//  MARK: - PREVIEW
 
 //struct SearchBtnView_Previews: PreviewProvider {
 //    static var previews: some View {

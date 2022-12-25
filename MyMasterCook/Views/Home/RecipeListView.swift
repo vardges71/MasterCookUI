@@ -9,46 +9,79 @@ import SwiftUI
 
 struct RecipeListView: View {
     
-    @StateObject var recipeListVM = RecipeListViewModel()
+//    MARK: - PROPERTIES
+    
+    @State private var isRecipeDataEmpty = false
+    
+    @State private var selection: Recipe? = nil
+    
+//    MARK: - BODY
     
     var body: some View {
         
-        if recipeData.isEmpty {
+        VStack {
             
-            ProgressView("Loading...")
-                .onAppear { parseJSON() }
-                .progressViewStyle(.circular)
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
-                .tint(.white)
-                .padding()
-                .background(Color(white: 0.2, opacity: 0.7))
-                .foregroundColor(.white)
-            
-        } else {
-            VStack {
-                List(recipeData, id: \.id) { index in
+            if isRecipeDataEmpty {
+                
+                ProgressView("Loading...")
+                    .onAppear {  }
+                    .progressViewStyle(.circular)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
+                    .tint(.white)
+                    .padding()
+                    .background( Color.black.opacity(0.7) )
+                    .foregroundColor(.white)
                     
+            } else {
+                
+                List(recipeData, id: \.id) { recipe in
+
                     ZStack(alignment: .leading) {
-                        NavigationLink(destination: SingleRecipeView(recipe: index)) {
-                            EmptyView()
-                        } .opacity(0)
-                        
-                        RecipeCellView(recipe: index)
+
+//                        NavigationLink(destination:
+//                                        SingleRecipeView(recipe: recipe)) {
+//                            EmptyView()
+//                        } .opacity(0)
+
+
+                        RecipeCellView(recipe: recipe)
+                            .onTapGesture { selection = recipe }
                     }
                     .animation(.default, value: true)
                     .listRowInsets(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 5))
                     .listRowBackground(Color.clear)
+
                 } //: LIST
+                .sheet(item: $selection,
+                               onDismiss: { self.selection = nil }) { recipe in
+                                    SingleRecipeView(recipe: recipe)
+                               }
                 .scrollContentBackground(.hidden)
-                    
-            } //: VStack
+            }
+        } //: VStack
+        .onAppear { checkRecipeDataEmpty() }
+        
+    }
+    
+    func checkRecipeDataEmpty() {
+        if recipeData.isEmpty {
+            isRecipeDataEmpty = true
+            parseJSON()
+            DispatchQueue.main.async {
+                isRecipeDataEmpty = false
+            }
+            
+        } else {
+            isRecipeDataEmpty = false
         }
     }
 }
 
+//MARK: - PREVIEW
+
 struct RecipeListView_Previews: PreviewProvider {
     static var previews: some View {
-        
+//        let recipes: [Recipe] = [Recipe]()
         return RecipeListView()
     }
 }

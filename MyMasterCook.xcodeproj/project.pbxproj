@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0923D7452928DB1600B7A999 /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0923D7442928DB1500B7A999 /* RecipeData.swift */; };
+		0907AE65294EE95300B372BC /* NutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0907AE64294EE95300B372BC /* NutritionView.swift */; };
+		0918336C2957E0EE00C57886 /* SingleRecipeToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918336B2957E0EE00C57886 /* SingleRecipeToolBar.swift */; };
+		0918336E2958CEFA00C57886 /* ToolBarPlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918336D2958CEFA00C57886 /* ToolBarPlayButton.swift */; };
+		091833702958CF1100C57886 /* ToolBarPrintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0918336F2958CF1100C57886 /* ToolBarPrintButton.swift */; };
+		091833722958CF2700C57886 /* ToolBarFavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091833712958CF2700C57886 /* ToolBarFavoriteButton.swift */; };
 		09561D0F29136D4200474969 /* RecipeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09561D0E29136D4200474969 /* RecipeCellView.swift */; };
 		095934AF2901BE9600BF3A98 /* MyMasterCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095934AE2901BE9600BF3A98 /* MyMasterCookApp.swift */; };
 		095934B12901BE9600BF3A98 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095934B02901BE9600BF3A98 /* ContentView.swift */; };
@@ -20,7 +24,6 @@
 		095D7DCF290A5AD200C174CC /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095D7DCE290A5AD200C174CC /* Recipe.swift */; };
 		095D7DD8290A84F700C174CC /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095D7DD7290A84F700C174CC /* WebService.swift */; };
 		09616CDA2910C2C000154C2C /* RecipeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09616CD92910C2C000154C2C /* RecipeListView.swift */; };
-		09616CDC2910C60D00154C2C /* RecipeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09616CDB2910C60D00154C2C /* RecipeListViewModel.swift */; };
 		096F712B2907768800B35636 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F712A2907768800B35636 /* User.swift */; };
 		09815CB2291DB6C50081C63F /* LoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09815CB1291DB6C50081C63F /* LoginButtonView.swift */; };
 		09815CB6291E27DD0081C63F /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09815CB5291E27DD0081C63F /* Ingredient.swift */; };
@@ -70,7 +73,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0923D7442928DB1500B7A999 /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
+		0907AE62294EDC6400B372BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0907AE64294EE95300B372BC /* NutritionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionView.swift; sourceTree = "<group>"; };
+		0918336B2957E0EE00C57886 /* SingleRecipeToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRecipeToolBar.swift; sourceTree = "<group>"; };
+		0918336D2958CEFA00C57886 /* ToolBarPlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarPlayButton.swift; sourceTree = "<group>"; };
+		0918336F2958CF1100C57886 /* ToolBarPrintButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarPrintButton.swift; sourceTree = "<group>"; };
+		091833712958CF2700C57886 /* ToolBarFavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarFavoriteButton.swift; sourceTree = "<group>"; };
 		09561D0E29136D4200474969 /* RecipeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellView.swift; sourceTree = "<group>"; };
 		095934AB2901BE9600BF3A98 /* MyMasterCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMasterCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		095934AE2901BE9600BF3A98 /* MyMasterCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMasterCookApp.swift; sourceTree = "<group>"; };
@@ -84,7 +92,6 @@
 		095D7DCE290A5AD200C174CC /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		095D7DD7290A84F700C174CC /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		09616CD92910C2C000154C2C /* RecipeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListView.swift; sourceTree = "<group>"; };
-		09616CDB2910C60D00154C2C /* RecipeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewModel.swift; sourceTree = "<group>"; };
 		096F712A2907768800B35636 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		09815CB1291DB6C50081C63F /* LoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonView.swift; sourceTree = "<group>"; };
 		09815CB5291E27DD0081C63F /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
@@ -102,7 +109,7 @@
 		09C3B14129352D6F00D513FE /* RegisterRePasswordTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRePasswordTextFieldView.swift; sourceTree = "<group>"; };
 		09C3B143293530A100D513FE /* RegisterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButtonView.swift; sourceTree = "<group>"; };
 		09C6AE5B290303F600A9CDF4 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		09C6AE5D2903056600A9CDF4 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		09C6AE5D2903056600A9CDF4 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		09C6AE5F290306D200A9CDF4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		09C6AE612903078C00A9CDF4 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		09C6AE63290307A600A9CDF4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -147,6 +154,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0907AE63294EE91D00B372BC /* SingleRecipeView */ = {
+			isa = PBXGroup;
+			children = (
+				09D6767F2903BDC200F6BE4F /* SingleRecipeView.swift */,
+				0907AE64294EE95300B372BC /* NutritionView.swift */,
+				0918336B2957E0EE00C57886 /* SingleRecipeToolBar.swift */,
+				0918336D2958CEFA00C57886 /* ToolBarPlayButton.swift */,
+				0918336F2958CF1100C57886 /* ToolBarPrintButton.swift */,
+				091833712958CF2700C57886 /* ToolBarFavoriteButton.swift */,
+			);
+			path = SingleRecipeView;
+			sourceTree = "<group>";
+		};
+		0907AE66294F06B700B372BC /* FavoritesView */ = {
+			isa = PBXGroup;
+			children = (
+				09C6AE612903078C00A9CDF4 /* FavoritesView.swift */,
+			);
+			path = FavoritesView;
+			sourceTree = "<group>";
+		};
 		095934A22901BE9600BF3A98 = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +196,7 @@
 		095934AD2901BE9600BF3A98 /* MyMasterCook */ = {
 			isa = PBXGroup;
 			children = (
+				0907AE62294EDC6400B372BC /* Info.plist */,
 				095934AE2901BE9600BF3A98 /* MyMasterCookApp.swift */,
 				09E1979A290BAD0400D8F881 /* testing.json */,
 				09F7B5C62905DB0700624256 /* AppDelegate.swift */,
@@ -214,8 +243,8 @@
 				09F7B5D829065E0D00624256 /* LoginView */,
 				09BB74AB2934F79B000190EF /* RegisterView */,
 				09815CB3291DED0A0081C63F /* SearchView */,
-				09C6AE612903078C00A9CDF4 /* FavoritesView.swift */,
-				09D6767F2903BDC200F6BE4F /* SingleRecipeView.swift */,
+				0907AE66294F06B700B372BC /* FavoritesView */,
+				0907AE63294EE91D00B372BC /* SingleRecipeView */,
 				09D676812903C7CE00F6BE4F /* AboutView.swift */,
 				09D676832903C7F100F6BE4F /* PrivacyView.swift */,
 				09F7B5C82906114500624256 /* Divider.swift */,
@@ -240,7 +269,6 @@
 			children = (
 				095D7DCE290A5AD200C174CC /* Recipe.swift */,
 				09815CC32920EE400081C63F /* RecipeArray.swift */,
-				0923D7442928DB1500B7A999 /* RecipeData.swift */,
 			);
 			path = Recipe;
 			sourceTree = "<group>";
@@ -250,7 +278,6 @@
 			children = (
 				09C6AE5F290306D200A9CDF4 /* HomeView.swift */,
 				09616CD92910C2C000154C2C /* RecipeListView.swift */,
-				09616CDB2910C60D00154C2C /* RecipeListViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -488,6 +515,7 @@
 				09F7B5C72905DB0700624256 /* AppDelegate.swift in Sources */,
 				09815CBA291F00140081C63F /* SearchListView.swift in Sources */,
 				09C6AE5E2903056600A9CDF4 /* MainTabView.swift in Sources */,
+				0907AE65294EE95300B372BC /* NutritionView.swift in Sources */,
 				09C6AE5C290303F600A9CDF4 /* SearchView.swift in Sources */,
 				09F7B5E229066C4700624256 /* GoToRegisterButtonView.swift in Sources */,
 				09BB74AA2934F6AF000190EF /* PasswordTextFieldView.swift in Sources */,
@@ -498,21 +526,23 @@
 				09815CB2291DB6C50081C63F /* LoginButtonView.swift in Sources */,
 				09F5B5ED2908F94E00AC434B /* Utility.swift in Sources */,
 				09F7B5CE290622AE00624256 /* LoadAboutText.swift in Sources */,
+				091833722958CF2700C57886 /* ToolBarFavoriteButton.swift in Sources */,
 				09F5B5EB2907CBD100AC434B /* SecondaryTabView.swift in Sources */,
-				0923D7452928DB1600B7A999 /* RecipeData.swift in Sources */,
 				09F7B5E429066C6300624256 /* ForgotPasswordButtonView.swift in Sources */,
-				09616CDC2910C60D00154C2C /* RecipeListViewModel.swift in Sources */,
 				09815CB8291EF9000081C63F /* SearchViewModel.swift in Sources */,
 				095934C02901F45A00BF3A98 /* LoginView.swift in Sources */,
 				09C3B13E29352A1200D513FE /* RegisterEmailTextFielsView.swift in Sources */,
+				0918336C2957E0EE00C57886 /* SingleRecipeToolBar.swift in Sources */,
 				09BB74A82934F41B000190EF /* EmailTextFieldView.swift in Sources */,
 				09616CDA2910C2C000154C2C /* RecipeListView.swift in Sources */,
 				09F7B5D1290623D300624256 /* AboutHeaderView.swift in Sources */,
+				091833702958CF1100C57886 /* ToolBarPrintButton.swift in Sources */,
 				09C3B144293530A100D513FE /* RegisterButtonView.swift in Sources */,
 				096F712B2907768800B35636 /* User.swift in Sources */,
 				09815CC42920EE400081C63F /* RecipeArray.swift in Sources */,
 				095934AF2901BE9600BF3A98 /* MyMasterCookApp.swift in Sources */,
 				09815CC2291F18FF0081C63F /* SearchBtnView.swift in Sources */,
+				0918336E2958CEFA00C57886 /* ToolBarPlayButton.swift in Sources */,
 				09D676752903AEDD00F6BE4F /* SettingLoginButton.swift in Sources */,
 				09815CBE291F0A720081C63F /* AddIngredientBtnView.swift in Sources */,
 				09D676842903C7F100F6BE4F /* PrivacyView.swift in Sources */,
@@ -655,8 +685,8 @@
 				DEVELOPMENT_TEAM = D2C435SLPG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyMasterCook/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
@@ -691,8 +721,8 @@
 				DEVELOPMENT_TEAM = D2C435SLPG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyMasterCook/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;

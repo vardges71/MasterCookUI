@@ -34,23 +34,13 @@ struct SettingDeleteAccountButton: View {
                 ]
             )
         }
-//        .alert("Do you really want to delete your account?", isPresented: $showingAlert) {
-//
-//            Button("Delete", role: .destructive, action: {
-//
-//                self.showRegisterView.toggle()
-//                Utilities.deleteAccount()
-//
-//            })
-//
-//            Button("Cancel", role: .cancel, action: {})
-//        }
         .fullScreenCover(isPresented: $showRegisterView) { ContentView() }
     }
 }
 
 struct SettingDeleteAccountButton_Previews: PreviewProvider {
     static var previews: some View {
+//        let recipes: [Recipe] = [Recipe]()
         SettingDeleteAccountButton()
     }
 }
