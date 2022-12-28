@@ -28,7 +28,7 @@ struct MyMasterCookApp: App {
                     // No user is signed in.
                     ContentView()
                 }
-            }
+            } .preferredColorScheme(.light)
         }
     }
 }

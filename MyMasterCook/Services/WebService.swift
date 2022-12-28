@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseDatabase
 
+//  MARK: - PROPERTIES
+
+var ref: DatabaseReference!
 public var ingredientArray: [String] = []
 
 let s = 150
 
 var recipeData: [Recipe] = [Recipe]()
+var favoriteRecipeData: [Recipe] = [Recipe]()
+
+//  MARK: - FUNCTIONS
 
 func parseJSON() -> [Recipe] {
     
@@ -23,7 +31,9 @@ func parseJSON() -> [Recipe] {
         
         let url = Bundle.main.url(forResource: "testing", withExtension: "json")!
         
-        URLSession.shared.dataTask(with: url) {(data, response, error) in
+        let session = URLSession.shared
+        
+        session.dataTask(with: url) {(data, response, error) in
             do {
                 let jsonData = try Data(contentsOf: url)
                 let dict = try JSONSerialization.jsonObject(with: jsonData) as! [String:AnyObject]
@@ -119,4 +129,91 @@ func parseJSON() -> [Recipe] {
         print("Recipe array after start \(recipeData.count)")
     }
     return recipeData
+}
+
+func getFavoriteRecipes() -> [Recipe] {
+    
+    if Auth.auth().currentUser != nil {
+        
+        let userID = Auth.auth().currentUser?.uid
+        ref = Database.database().reference()
+        
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            if (snapshot.hasChild("favorites")) {
+                
+            } else {
+                
+                //            DispatchQueue.main.async { self.ifFavoritesIsEmptyAlert() }
+            }
+        })
+        
+        ref.child("users").child(userID!).child("favorites").observe(.childAdded) { (snapshot) in
+            
+            guard let snapChildren = snapshot.value as? [String: Any] else { return }
+            
+            var favRecipe = Recipe(id: "",
+                                   name: "",
+                                   thumbnail_url: "",
+                                   video_url: "",
+                                   instructions: "",
+                                   description: "",
+                                   num_servings: 0,
+                                   fiber: nil,
+                                   protein: nil,
+                                   fat: nil,
+                                   calories: nil,
+                                   sugar: nil,
+                                   carbohydrates: nil)
+            
+            for (key, value) in snapChildren {
+                
+                if key == "recipeID" {
+                    
+                    favRecipe.id = value as? String ?? " "
+                }
+                if key == "recipeName" {
+                    
+                    favRecipe.name = value as? String ?? " "
+                }
+                if key == "numServings" {
+                    
+                    favRecipe.num_servings = value as? Int ?? 0
+                }
+                if key == "recipeInstruction" {
+                    
+                    favRecipe.instructions = value as? String ?? " "
+                }
+                if key == "recipeThumbnailURL" {
+                    
+                    favRecipe.thumbnail_url = value as? String ?? " "
+                }
+                if key == "recipeVideoURL" {
+                    
+                    favRecipe.video_url = value as? String ?? " "
+                }
+                
+                if key == "recipeFiber" {
+                    favRecipe.fiber = (value as! Int)
+                }
+                if key == "recipeProtein" {
+                    favRecipe.protein = (value as! Int)
+                }
+                if key == "recipeFat" {
+                    favRecipe.fat = (value as! Int)
+                }
+                if key == "recipeCalories" {
+                    favRecipe.calories = (value as! Int)
+                }
+                if key == "recipeSugar" {
+                    favRecipe.sugar = (value as! Int)
+                }
+                if key == "recipeCarbohydrates" {
+                    favRecipe.carbohydrates = (value as! Int)
+                }
+            }
+            favoriteRecipeData.append(favRecipe)
+        }
+    }
+    return favoriteRecipeData
 }

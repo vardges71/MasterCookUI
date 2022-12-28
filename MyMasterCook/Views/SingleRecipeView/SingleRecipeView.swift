@@ -62,25 +62,23 @@ struct SingleRecipeView: View {
                         , alignment: .topLeading
                     )
                 }
-                if recipe.calories != nil {
+                if recipe.calories != nil && recipe.calories != 0 {
                     NutritionView(recipe: recipe)
                         .padding(.horizontal)
                         .padding(.top, 10)
+                        .onAppear { print("Reacipe Calories Count: \(recipe.calories)") }
                 }
                 ScrollView(.vertical, showsIndicators: false) {
                     Text(recipe.instructions)
-                        .font(.footnote)
+                        .font(.callout)
                 } .padding()
                     .foregroundColor(Colors.textColor)
                     .frame(width: screenWidth)
                 Spacer()
-                SingleRecipeToolBar()
+                SingleRecipeToolBar(recipe: recipe)
                     .frame(alignment: .bottom)
             }
         }
-        //        .navigationTitle("\(recipe.name)")
-        //        .navigationBarTitleTextColor(Colors.textColor)
-        //        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

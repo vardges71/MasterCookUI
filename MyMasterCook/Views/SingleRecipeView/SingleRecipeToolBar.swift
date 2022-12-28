@@ -10,7 +10,7 @@ import SwiftUI
 struct SingleRecipeToolBar: View {
     
     //    MARK: - PROPERTIES
-//    let recipe: Recipe
+    let recipe: Recipe
     
     //    MARK: - BODY
     var body: some View {
@@ -21,7 +21,7 @@ struct SingleRecipeToolBar: View {
                 Spacer()
                 ToolBarPrintButton()
                 Spacer()
-                ToolBarFavoriteButton()
+                ToolBarFavoriteButton(recipe: recipe)
             } //HSTACK
             .padding(.horizontal)
         } //ZSTACK
@@ -34,7 +34,7 @@ struct SingleRecipeToolBar: View {
 
 struct SingleRecipeTabBar_Previews: PreviewProvider {
     static var previews: some View {
-//        let recipes: [Recipe] = [Recipe]()
-        SingleRecipeToolBar()
+        let recipes: [Recipe] = [Recipe]()
+        SingleRecipeToolBar(recipe: recipes[0])
     }
 }

@@ -12,7 +12,6 @@ struct RecipeListView: View {
 //    MARK: - PROPERTIES
     
     @State private var isRecipeDataEmpty = false
-    
     @State private var selection: Recipe? = nil
     
 //    MARK: - BODY
@@ -37,12 +36,6 @@ struct RecipeListView: View {
                 List(recipeData, id: \.id) { recipe in
 
                     ZStack(alignment: .leading) {
-
-//                        NavigationLink(destination:
-//                                        SingleRecipeView(recipe: recipe)) {
-//                            EmptyView()
-//                        } .opacity(0)
-
 
                         RecipeCellView(recipe: recipe)
                             .onTapGesture { selection = recipe }

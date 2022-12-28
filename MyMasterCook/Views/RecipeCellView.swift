@@ -49,6 +49,7 @@ struct RecipeCellView: View {
                         .fontWeight(.bold)
                         .foregroundColor(Colors.textColor)
                         .shadow(radius: 2)
+                        .lineLimit(2)
                     Spacer()
                     Group {
                         HStack{

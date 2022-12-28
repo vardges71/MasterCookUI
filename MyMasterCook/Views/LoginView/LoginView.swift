@@ -36,7 +36,6 @@ struct LoginView: View {
                     }
                 }.padding(40)
             }
-            .preferredColorScheme(.light)
         }
     }
 }

@@ -10,11 +10,16 @@ import FirebaseAuth
 
 struct MainTabView: View {
     
+//    MARK: - PROPERTIES
+    
     @EnvironmentObject var user: User
     @State private var tabSelected = 1
     @State private var homeBadgeValue: Int?
+    @State private var favoritesBadgeValue: Int?
     
     @State private var isDisabled: Bool = true
+    
+//    MARK: - BODY
     
     var body: some View {
         
@@ -46,7 +51,13 @@ struct MainTabView: View {
                             
                         }
                         .tag(2)
-                        .badge(5)
+                        .onAppear{
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                print("FROM STV: \(favoriteRecipeData.count)")
+                                favoritesBadgeValue = favoriteRecipeData.count
+                            }
+                        }
+                        .badge ( favoritesBadgeValue ?? 0 )
                     
                 SettingsView(tabSelection: $tabSelected)
                     .tabItem {
@@ -67,11 +78,20 @@ struct MainTabView: View {
             UINavigationBar.appearance().isTranslucent = true
             UINavigationBar.appearance().barTintColor = UIColor(Colors.navbarTintColor)
             
-//            recipeListVM.load()
+            checkFavDataEmpty()
+        }
+    }
+        
+    func checkFavDataEmpty() {
+        
+        if favoriteRecipeData.isEmpty {
+            
+            getFavoriteRecipes()   
         }
     }
 }
 
+//    MARK: - PREVIEW
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
         MainTabView().environmentObject(User())

@@ -25,8 +25,6 @@ struct HomeView: View {
                 VStack(alignment: .leading) {
                     
                     RecipeListView()
-                        
-
                 } // : VStack
             }
             .navigationTitle(title)
@@ -39,7 +37,8 @@ struct HomeView: View {
 
 //struct HomeView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        HomeView(tabSelection: $tab)
+//        
+//        HomeView(tabSelection: $tabSelection)
 //    }
 //}
 
