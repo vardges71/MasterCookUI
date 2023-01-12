@@ -10,62 +10,59 @@ import FirebaseAuth
 
 struct MainTabView: View {
     
-//    MARK: - PROPERTIES
+    //    MARK: - PROPERTIES
     
     @EnvironmentObject var user: User
     @State private var tabSelected = 1
     @State private var homeBadgeValue: Int?
     @State private var favoritesBadgeValue: Int?
+    @State private var isFavoriteDataEmpty = false
     
-    @State private var isDisabled: Bool = true
-    
-//    MARK: - BODY
+    //    MARK: - BODY
     
     var body: some View {
         
         TabView(selection: $tabSelected) {
-
-            Group {
-                HomeView(tabSelection: $tabSelected)
-                    .tabItem {
-                        Label("home", systemImage: tabSelected == 0 ? "house.fill" : "house") .environment(\.symbolVariants, .none)
-                        
-                    } .tag(0)
-                    .onAppear{
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            print("FROM STV: \(recipeData.count)")
-                            homeBadgeValue = recipeData.count
-                        }
-                    }
-                    .badge ( homeBadgeValue ?? 0 )
-                
-                SearchView(tabSelection: $tabSelected)
-                    .tabItem {
-                        Label("search", systemImage: tabSelected == 1 ? "magnifyingglass.circle.fill" : "magnifyingglass.circle") .environment(\.symbolVariants, .none)
-                        
-                    } .tag(1)
-                
-                    FavoritesView(tabSelection: $tabSelected)
-                        .tabItem {
-                            Label("favorites", systemImage: tabSelected == 2 ? "star.fill" : "star") .environment(\.symbolVariants, .none)
-                            
-                        }
-                        .tag(2)
-                        .onAppear{
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                print("FROM STV: \(favoriteRecipeData.count)")
-                                favoritesBadgeValue = favoriteRecipeData.count
-                            }
-                        }
-                        .badge ( favoritesBadgeValue ?? 0 )
+            
+            HomeView(tabSelection: $tabSelected)
+                .tabItem {
+                    Label("home", systemImage: tabSelected == 0 ? "house.fill" : "house") .environment(\.symbolVariants, .none)
                     
-                SettingsView(tabSelection: $tabSelected)
-                    .tabItem {
-                        Label("settings", systemImage: tabSelected == 3 ? "gearshape.2.fill" : "gearshape.2")
-                            .environment(\.symbolVariants, .none)
-
-                    } .tag(3)
-            }
+                } .tag(0)
+                .onAppear{
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                        print("FROM MAIN TABVIEW: \(recipeData.count)")
+                        homeBadgeValue = recipeData.count
+                    }
+                }
+                .badge ( homeBadgeValue ?? 0 )
+            
+            SearchView(tabSelection: $tabSelected)
+                .tabItem {
+                    Label("search", systemImage: tabSelected == 1 ? "magnifyingglass.circle.fill" : "magnifyingglass.circle") .environment(\.symbolVariants, .none)
+                    
+                } .tag(1)
+            
+            FavoritesView(tabSelection: $tabSelected)
+                .tabItem {
+                    Label("favorites", systemImage: tabSelected == 2 ? "star.fill" : "star") .environment(\.symbolVariants, .none)
+                    
+                }
+                .tag(2)
+                .onAppear{
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        print("FROM STV: \(favoriteRecipeData.count)")
+                        favoritesBadgeValue = favoriteRecipeData.count
+                    }
+                }
+                .badge ( favoritesBadgeValue ?? 0 )
+            
+            SettingsView(tabSelection: $tabSelected)
+                .tabItem {
+                    Label("settings", systemImage: tabSelected == 3 ? "gearshape.2.fill" : "gearshape.2")
+                        .environment(\.symbolVariants, .none)
+                    
+                } .tag(3)
         }
         .accentColor(Colors.textColor)
         .onAppear() {
@@ -81,12 +78,17 @@ struct MainTabView: View {
             checkFavDataEmpty()
         }
     }
-        
+    
     func checkFavDataEmpty() {
-        
         if favoriteRecipeData.isEmpty {
+            isFavoriteDataEmpty = true
+            getFavoriteRecipes()
+            DispatchQueue.main.async {
+                isFavoriteDataEmpty = false
+            }
             
-            getFavoriteRecipes()   
+        } else {
+            isFavoriteDataEmpty = false
         }
     }
 }

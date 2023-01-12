@@ -20,7 +20,7 @@ struct SearchTextFieldView: View {
                 .autocorrectionDisabled(true)
                 .onChange(of: searchVM.ingredient.item) { newValue in
                     searchVM.ingredient.item = newValue.trimmingCharacters(in: .whitespacesAndNewlines)
-                    print("Changed ingredient value: \(newValue)")
+                    print("Changed ingredient value: \(searchVM.ingredient.item) \nINgredient Array: \(searchVM.ingredientArray)")
                 }
             Divider()
         }

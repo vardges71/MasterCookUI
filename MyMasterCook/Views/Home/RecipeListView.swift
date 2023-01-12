@@ -9,12 +9,15 @@ import SwiftUI
 
 struct RecipeListView: View {
     
-//    MARK: - PROPERTIES
+    //    MARK: - PROPERTIES
     
     @State private var isRecipeDataEmpty = false
     @State private var selection: Recipe? = nil
+    @State private var shouldAnimate = false
     
-//    MARK: - BODY
+    @StateObject var recipeListVM = RecipeListViewModel()
+    
+    //    MARK: - BODY
     
     var body: some View {
         
@@ -22,50 +25,54 @@ struct RecipeListView: View {
             
             if isRecipeDataEmpty {
                 
-                ProgressView("Loading...")
-                    .onAppear {  }
-                    .progressViewStyle(.circular)
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
-                    .tint(.white)
-                    .padding()
-                    .background( Color.black.opacity(0.7) )
-                    .foregroundColor(.white)
-                    
+                ZStack {
+
+                    ActivityIndicator(shouldAnimate: $shouldAnimate)
+                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
+                        .background( Color.black.opacity(0.7) )
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                                checkRecipeDataEmpty()
+                            }
+                        }
+                    Text("Loading...")
+                        .font(.system(size: 15))
+                        .foregroundColor(.white)
+                        .tint(.white)
+                        .padding(.top, 50)
+                }
             } else {
                 
                 List(recipeData, id: \.id) { recipe in
-
-                    ZStack(alignment: .leading) {
-
-                        RecipeCellView(recipe: recipe)
-                            .onTapGesture { selection = recipe }
-                    }
-                    .animation(.default, value: true)
-                    .listRowInsets(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 5))
-                    .listRowBackground(Color.clear)
-
+                    
+                    RecipeCellView(recipe: recipe)
+                        .onTapGesture { selection = recipe }
+                        .animation(.default, value: true)
+                        .listRowInsets(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 5))
+                        .listRowBackground(Color.clear)
+                    
                 } //: LIST
-                .sheet(item: $selection,
-                               onDismiss: { self.selection = nil }) { recipe in
-                                    SingleRecipeView(recipe: recipe)
-                               }
+                .onAppear { recipeListVM.load() }
                 .scrollContentBackground(.hidden)
+                .sheet(item: $selection,
+                       onDismiss: { selection = nil }) { recipe in
+                    SingleRecipeView(recipe: recipe)
+                }
             }
         } //: VStack
         .onAppear { checkRecipeDataEmpty() }
-        
     }
     
     func checkRecipeDataEmpty() {
+        
         if recipeData.isEmpty {
+            
             isRecipeDataEmpty = true
-            parseJSON()
-            DispatchQueue.main.async {
-                isRecipeDataEmpty = false
-            }
+            shouldAnimate = true
             
         } else {
             isRecipeDataEmpty = false
+            shouldAnimate = false
         }
     }
 }
@@ -74,7 +81,7 @@ struct RecipeListView: View {
 
 struct RecipeListView_Previews: PreviewProvider {
     static var previews: some View {
-//        let recipes: [Recipe] = [Recipe]()
+        //        let recipes: [Recipe] = [Recipe]()
         return RecipeListView()
     }
 }

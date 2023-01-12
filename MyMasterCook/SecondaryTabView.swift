@@ -10,7 +10,7 @@ import FirebaseAuth
 
 struct SecondaryTabView: View {
     
-    @State var tabSelected: Int = 1
+    @State private var tabSelected: Int = 1
     @State private var homeBadgeValue: Int?
     
     var body: some View {
@@ -24,7 +24,7 @@ struct SecondaryTabView: View {
                 }
                 .tag(0)
                 .onAppear{
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                         print("FROM SecondaryTabView: \(recipeData.count)")
                         homeBadgeValue = recipeData.count
                     }
@@ -59,9 +59,9 @@ struct SecondaryTabView: View {
     }
 }
 
-//struct SecondaryTabView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SecondaryTabView()
-//    }
-//}
+struct SecondaryTabView_Previews: PreviewProvider {
+    static var previews: some View {
+        SecondaryTabView()
+    }
+}
 

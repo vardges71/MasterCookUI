@@ -12,6 +12,7 @@ struct SearchBtnView: View {
 //    MARK: - PROPERTIES
     
     @ObservedObject var searchVM: SearchViewModel
+    @ObservedObject var recipeVM = RecipeListViewModel()
     @Binding var tabSelection: Int
     
     @State private var showAlert = false
@@ -22,6 +23,7 @@ struct SearchBtnView: View {
         Button {
             
             ifIngredientIsEmpty()
+            
         } label: {
             
             Label("search", systemImage: "doc.text.magnifyingglass")
@@ -35,17 +37,19 @@ struct SearchBtnView: View {
         .alert(isPresented: self.$showAlert) { Alert(title: Text(" "), message: Text("Please enter ingredient or cuisine"), dismissButton: .default(Text("OK"))) }
     }
     
-    func ifIngredientIsEmpty(){
+    func ifIngredientIsEmpty() {
         
         if searchVM.ingredientArray.isEmpty {
             self.showAlert = true
         } else {
-            recipeData.removeAll()
-            parseJSON()
-            searchVM.showHomeView.toggle()
             
-            withAnimation {
-                tabSelection = 0
+            recipeData.removeAll()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                searchVM.showHomeView.toggle()
+                withAnimation {
+                    tabSelection = 0
+                }
             }
         }
     }

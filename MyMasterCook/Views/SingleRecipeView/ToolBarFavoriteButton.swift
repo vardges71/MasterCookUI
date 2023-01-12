@@ -19,7 +19,7 @@ struct ToolBarFavoriteButton: View {
     //    MARK: - BODY
     var body: some View {
         Button {
-            
+            isExist.toggle()
             print("Favorite Button")
         } label: {
             VStack {
@@ -76,6 +76,7 @@ struct ToolBarFavoriteButton: View {
         let recipeThumbnailUrl = recipe.thumbnail_url
         let recipeVideoURL = recipe.video_url
         let recipeInstruction = recipe.instructions
+        let recipeDescription = recipe.description
         let numServings = recipe.num_servings ?? 0
         
         let recipeFiber = recipe.fiber
@@ -105,6 +106,7 @@ struct ToolBarFavoriteButton: View {
                     "recipeThumbnailURL": recipeThumbnailUrl as Any,
                     "recipeVideoURL": recipeVideoURL as Any,
                     "recipeInstruction": recipeInstruction as Any,
+                    "recipeDescription": recipeDescription as Any,
                     "numServings": numServings as Any,
                     "recipeFiber": recipeFiber as Any,
                     "recipeProtein": recipeProtein as Any,

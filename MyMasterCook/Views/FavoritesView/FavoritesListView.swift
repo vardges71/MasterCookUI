@@ -11,6 +11,7 @@ struct FavoritesListView: View {
     
     //    MARK: - PROPERTIES
     
+    @State private var isFavoriteDataEmpty = false
     @State private var selection: Recipe? = nil
     
     //    MARK: - BODY

@@ -9,13 +9,14 @@ import SwiftUI
 
 struct HomeView: View {
     
-//    MARK: - PROPERTIES
+    //    MARK: - PROPERTIES
     
     var backImageName = "backYellow"
     @Binding var tabSelection: Int
     let title = "My MasterCook"
     
-//    MARK: - BODY
+    
+    //    MARK: - BODY
     
     var body: some View {
         
@@ -25,6 +26,7 @@ struct HomeView: View {
                 VStack(alignment: .leading) {
                     
                     RecipeListView()
+                    
                 } // : VStack
             }
             .navigationTitle(title)
@@ -37,7 +39,7 @@ struct HomeView: View {
 
 //struct HomeView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        
+//
 //        HomeView(tabSelection: $tabSelection)
 //    }
 //}

@@ -17,7 +17,7 @@ struct AddIngredientBtnView: View {
             
             ifIngredientTextFieldIsEmpty()
             hideKeyboard()
-            print("Ingredient Array count: \(searchVM.ingredientArray.count)")
+            print("Ingredient Array count: \(searchVM.ingredientArray)")
             
         } label: {
             Image(systemName: "plus")

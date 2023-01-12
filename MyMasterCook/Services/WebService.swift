@@ -6,128 +6,147 @@
 //
 
 import SwiftUI
+import Foundation
 import FirebaseAuth
 import FirebaseDatabase
+
 
 //  MARK: - PROPERTIES
 
 var ref: DatabaseReference!
-public var ingredientArray: [String] = []
+var ingredientArray: [String] = []
 
 let s = 150
 
-var recipeData: [Recipe] = [Recipe]()
-var favoriteRecipeData: [Recipe] = [Recipe]()
+var recipeData: [Recipe] = []
+var favoriteRecipeData: [Recipe] = []
+
+var ingredientsForURL = "eggs"
 
 //  MARK: - FUNCTIONS
 
 func parseJSON() -> [Recipe] {
-    
-    if recipeData.isEmpty {
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
             print("parseJSON Caled\n\nIngredients: \(ingredientArray)\n")
         }
+        
+        //        let replasedIngredient = (self.ingredientsFromSearch as! String).replacingOccurrences(of: " ", with: "%20")
+        //        let ingredientsForURL = replasedIngredient
+        
+        let headers = [
+            "x-rapidapi-key": "e25b9b1e84msh0478f04ed91563dp15ca17jsn90ddd01db01f",
+            "x-rapidapi-host": "tasty.p.rapidapi.com"
+        ]
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "https://tasty.p.rapidapi.com/recipes/list?from=0&size=\(s)&q=\(ingredientsForURL)")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
         
         let url = Bundle.main.url(forResource: "testing", withExtension: "json")!
         
         let session = URLSession.shared
         
-        session.dataTask(with: url) {(data, response, error) in
-            do {
-                let jsonData = try Data(contentsOf: url)
-                let dict = try JSONSerialization.jsonObject(with: jsonData) as! [String:AnyObject]
+        session.dataTask(with: url, completionHandler: {(data, response, error) -> Void in
+            
+            if (error != nil) {
                 
-                if let results = dict["results"] as? Array<Dictionary<String, Any>> {
+                print(error!)
+            } else {
+                
+                do {
                     
-                    for result in results {
+                    let dict = try JSONSerialization.jsonObject(with: data!) as! [String:AnyObject]
+                    
+                    if let results = dict["results"] as? Array<Dictionary<String, Any>> {
                         
-                        var oneRecipe = Recipe(id: "",
-                                               name: "",
-                                               thumbnail_url: "",
-                                               video_url: "",
-                                               instructions: "",
-                                               description: "",
-                                               num_servings: 0,
-                                               fiber: nil,
-                                               protein: nil,
-                                               fat: nil,
-                                               calories: nil,
-                                               sugar: nil,
-                                               carbohydrates: nil)
-                        
-                        if let recipeId = result["id"] as? Int {
-                            oneRecipe.id = String(recipeId)
-                        }
-                        if let recipeName = result["name"] as? String {
-                            oneRecipe.name = recipeName
-                        }
-                        if let recipeImageUrl = result["thumbnail_url"] as? String {
-                            oneRecipe.thumbnail_url = recipeImageUrl
-                        }
-                        if let recipeVideoUrl = result["video_url"] as? String {
-                            oneRecipe.video_url = recipeVideoUrl
-                        }
-                        if let recipeNumServings = result["num_servings"] as? Int {
-                            oneRecipe.num_servings = recipeNumServings
-                        }
-                        else {
-                            oneRecipe.num_servings = 0
-                        }
-                        if let instructions = result["instructions"] as? Array<Dictionary<String, Any>> {
+                        for result in results {
                             
-                            for oneInstruction in instructions {
+                            var oneRecipe = Recipe(id: "",
+                                                   name: "",
+                                                   thumbnail_url: "",
+                                                   video_url: "",
+                                                   instructions: "",
+                                                   description: "",
+                                                   num_servings: 0,
+                                                   fiber: nil,
+                                                   protein: nil,
+                                                   fat: nil,
+                                                   calories: nil,
+                                                   sugar: nil,
+                                                   carbohydrates: nil)
+                            
+                            if let recipeId = result["id"] as? Int {
+                                oneRecipe.id = String(recipeId)
+                            }
+                            if let recipeName = result["name"] as? String {
+                                oneRecipe.name = recipeName
+                            }
+                            if let recipeImageUrl = result["thumbnail_url"] as? String {
+                                oneRecipe.thumbnail_url = recipeImageUrl
+                            }
+                            if let recipeVideoUrl = result["video_url"] as? String {
+                                oneRecipe.video_url = recipeVideoUrl
+                            }
+                            if let recipeNumServings = result["num_servings"] as? Int {
+                                oneRecipe.num_servings = recipeNumServings
+                            }
+                            else {
+                                oneRecipe.num_servings = 0
+                            }
+                            if let instructions = result["instructions"] as? Array<Dictionary<String, Any>> {
                                 
-                                if let oneParagraph = oneInstruction["display_text"] as? String {
+                                for oneInstruction in instructions {
                                     
-                                    oneRecipe.instructions.append(oneParagraph)
-                                    oneRecipe.instructions.append("\n\n")
+                                    if let oneParagraph = oneInstruction["display_text"] as? String {
+                                        
+                                        oneRecipe.instructions.append(oneParagraph)
+                                        oneRecipe.instructions.append("\n\n")
+                                    }
                                 }
                             }
-                        }
-                        if let description = result["description"] as? String {
-                            oneRecipe.description = description
-                        }
-                        if let nutritions = result["nutrition"] as? Dictionary<String, Any> {
-                            
-                            for (key, value) in nutritions {
+                            if let description = result["description"] as? String {
+                                oneRecipe.description = description
+                            }
+                            if let nutritions = result["nutrition"] as? Dictionary<String, Any> {
                                 
-                                if key == "fiber" {
-                                    oneRecipe.fiber = (value as! Int)
-                                }
-                                if key == "protein" {
-                                    oneRecipe.protein = (value as! Int)
-                                }
-                                if key == "fat" {
-                                    oneRecipe.fat = (value as! Int)
-                                }
-                                if key == "calories" {
-                                    oneRecipe.calories = (value as! Int)
-                                }
-                                if key == "sugar" {
-                                    oneRecipe.sugar = (value as! Int)
-                                }
-                                if key == "carbohydrates" {
-                                    oneRecipe.carbohydrates = (value as! Int)
+                                for (key, value) in nutritions {
+                                    
+                                    if key == "fiber" {
+                                        oneRecipe.fiber = (value as! Int)
+                                    }
+                                    if key == "protein" {
+                                        oneRecipe.protein = (value as! Int)
+                                    }
+                                    if key == "fat" {
+                                        oneRecipe.fat = (value as! Int)
+                                    }
+                                    if key == "calories" {
+                                        oneRecipe.calories = (value as! Int)
+                                    }
+                                    if key == "sugar" {
+                                        oneRecipe.sugar = (value as! Int)
+                                    }
+                                    if key == "carbohydrates" {
+                                        oneRecipe.carbohydrates = (value as! Int)
+                                    }
                                 }
                             }
+                            
+                            recipeData.append(oneRecipe)
                         }
-                        
-                        recipeData.append(oneRecipe)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                            print("RECIPE COUNT: \(recipeData.count)\n\(recipeData.map(\.name))\n\(recipeData.map({$0.num_servings}))")
+                        })
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                        
-                        print("RECIPE COUNT: \(recipeData.count)\n\(recipeData.map(\.name))\n\(recipeData.map({$0.num_servings}))")
-                    })
+                }
+                catch {
+                    print("Catch ERROR: \(error)")
                 }
             }
-            catch {
-                print("Catch ERROR: \(error)")
-            }
-        } .resume()
-    } else {
-        print("Recipe array after start \(recipeData.count)")
-    }
+        }) .resume()
+        
     return recipeData
 }
 

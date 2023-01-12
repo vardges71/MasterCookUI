@@ -66,7 +66,11 @@ struct SingleRecipeView: View {
                     NutritionView(recipe: recipe)
                         .padding(.horizontal)
                         .padding(.top, 10)
-                        .onAppear { print("Reacipe Calories Count: \(recipe.calories)") }
+                }
+                if recipe.description != "" {
+                    DescriptionView(recipe: recipe)
+                        .padding(.horizontal)
+                        .padding(.top, 10)
                 }
                 ScrollView(.vertical, showsIndicators: false) {
                     Text(recipe.instructions)
