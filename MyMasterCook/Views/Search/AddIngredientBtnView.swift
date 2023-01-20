@@ -9,15 +9,19 @@ import SwiftUI
 
 struct AddIngredientBtnView: View {
     
+//    MARK: - PROPERTIES
+    
     @ObservedObject var searchVM: SearchViewModel
     @State private var showAlert = false
+    
+//    MARK: - BODY
     
     var body: some View {
         Button {
             
             ifIngredientTextFieldIsEmpty()
             hideKeyboard()
-            print("Ingredient Array count: \(searchVM.ingredientArray)")
+            print("Ingredient Array count: \(searchVM.ingredientArray.count)")
             
         } label: {
             Image(systemName: "plus")
@@ -36,11 +40,13 @@ struct AddIngredientBtnView: View {
         if searchVM.ingredient.item.isEmpty {
             self.showAlert = true
         } else {
-            searchVM.addIngredient.toggle()
+
             searchVM.addIngredientToArray()
         }
     }
 }
+
+//  MARK: - PREVIEW
 
 struct AddIngredientBtnView_Previews: PreviewProvider {
     static var previews: some View {

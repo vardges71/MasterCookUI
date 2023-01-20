@@ -13,7 +13,8 @@ struct SearchView: View {
     var backImageName = "backYellow"
     
     @Binding var tabSelection: Int
-    @ObservedObject var searchVM = SearchViewModel()
+    @StateObject var searchVM: SearchViewModel
+    @StateObject var recipeVM: RecipeListViewModel
     
     let title = "Search"
     
@@ -38,7 +39,7 @@ struct SearchView: View {
                     HStack {
                         ClearBtnView(searchVM: searchVM)
                         Spacer(minLength: 20)
-                        SearchBtnView(searchVM: searchVM, tabSelection: $tabSelection)
+                        SearchBtnView(searchVM: searchVM, recipeVM: recipeVM, tabSelection: $tabSelection)
                     } .padding(20)
                     
                     Spacer()
@@ -46,6 +47,10 @@ struct SearchView: View {
             } //: ZSTACK
             .navigationTitle(title)
             .navigationBarTitleTextColor(Colors.textColor)
+            .onAppear {
+                UserDefaults.standard.removeObject(forKey: "urlIngredient")
+                searchVM.ingredientArray.removeAll()
+            }
         }
     }
 }

@@ -12,23 +12,28 @@ class SearchViewModel: ObservableObject {
     
     @Published var ingredientArray: [String] = []
     @Published var ingredient: Ingredient = Ingredient()
-    @Published var addIngredient = false
     @Published var clearIngredients = false
-    @Published var showHomeView = false
     
     @Published private var showAlert = false
     
     func addIngredientToArray() {
+        
         if ingredient.item.isEmpty {
+            
             print("ingredient is empty")
         } else {
+            
             ingredientArray.append(ingredient.item)
             ingredient.item = ""
+            
+            print("Ingridient array: \(ingredientArray)\n")
         }
     }
     
     func clearIngredient() {
+        
         ingredientArray.removeAll()
+        UserDefaults.standard.removeObject(forKey: "urlIngredient")
         ingredient.item = ""
     }
 }

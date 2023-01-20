@@ -27,9 +27,9 @@ struct GuestButtonView: View {
         }
         .fullScreenCover(isPresented: $showMainView) {
             if Auth.auth().currentUser != nil {
-                MainTabView()
+                MainTabView(recipeVM: RecipeListViewModel(), searchVM: SearchViewModel())
             } else {
-                SecondaryTabView()
+                SecondaryTabView(recipeVM: RecipeListViewModel(), searchVM: SearchViewModel())
             }
         }
     }

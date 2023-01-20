@@ -35,7 +35,7 @@ struct LoginButtonView: View {
                 )
         }
         .alert(isPresented: self.$showingAlert) { Alert(title: Text("Error..."), message: Text("\(errorDescription)"), dismissButton: .default(Text("OK"))) }
-        .fullScreenCover(isPresented: $showMainView) { MainTabView() }
+        .fullScreenCover(isPresented: $showMainView) { MainTabView(recipeVM: RecipeListViewModel(), searchVM: SearchViewModel()) }
     }
     
     func checkUser(){

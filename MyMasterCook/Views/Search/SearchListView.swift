@@ -30,7 +30,7 @@ struct SearchListView: View {
                     Divider()
                 }.listRowBackground(Color.clear)
             }
-        } .frame(height: UIScreen.main.bounds.height / 3)
+        } .frame(maxHeight: UIScreen.main.bounds.height / 3)
             .scrollContentBackground(.hidden)
     }
 }

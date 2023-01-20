@@ -13,6 +13,8 @@ struct ToolBarFavoriteButton: View {
     //    MARK: - PROPERTIES
     
     let recipe: Recipe
+    let ref = Database.database().reference()
+    
     @State private var isDisabled: Bool = false
     @State private var isExist: Bool = false
     
@@ -52,7 +54,6 @@ struct ToolBarFavoriteButton: View {
         
         let userID = Auth.auth().currentUser?.uid
         let recipeID = recipe.id
-        ref = Database.database().reference()
         
         if isDisabled == false {
             ref.child("users").child(userID!).child("favorites").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -89,8 +90,6 @@ struct ToolBarFavoriteButton: View {
         
         let userID = Auth.auth().currentUser?.uid
         
-        ref = Database.database().reference()
-        
         ref.child("users").child(userID!).child("favorites").observeSingleEvent(of: .value, with: { (snapshot) in
             
             if (snapshot.hasChild(recipeID)) {
@@ -99,8 +98,8 @@ struct ToolBarFavoriteButton: View {
                 
             } else {
                 
-                ref = Database.database().reference(withPath: "users").child(userID!).child("favorites").child(recipeID)
-                ref.setValue([
+                let reference = Database.database().reference(withPath: "users").child(userID!).child("favorites").child(recipeID)
+                reference.setValue([
                     "recipeID": recipeID as Any,
                     "recipeName": recipeName as Any,
                     "recipeThumbnailURL": recipeThumbnailUrl as Any,

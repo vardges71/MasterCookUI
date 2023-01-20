@@ -14,8 +14,10 @@ struct RecipeListView: View {
     @State private var isRecipeDataEmpty = false
     @State private var selection: Recipe? = nil
     @State private var shouldAnimate = false
+    @State private var isShowAlert = false
     
-    @StateObject var recipeListVM = RecipeListViewModel()
+    @Binding var tabSelection: Int
+    @StateObject var recipeListVM: RecipeListViewModel
     
     //    MARK: - BODY
     
@@ -23,7 +25,7 @@ struct RecipeListView: View {
         
         VStack {
             
-            if isRecipeDataEmpty {
+            if $recipeListVM.recipeArray.isEmpty {
                 
                 ZStack {
 
@@ -32,7 +34,13 @@ struct RecipeListView: View {
                         .background( Color.black.opacity(0.7) )
                         .onAppear {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+
                                 checkRecipeDataEmpty()
+                                print("Array count from recipe list: \(recipeListVM.recipeArray.count)")
+                                if $recipeListVM.recipeArray.isEmpty {
+                                    isShowAlert.toggle()
+                                    withAnimation { tabSelection = 1 }
+                                }
                             }
                         }
                     Text("Loading...")
@@ -43,7 +51,7 @@ struct RecipeListView: View {
                 }
             } else {
                 
-                List(recipeData, id: \.id) { recipe in
+                List(recipeListVM.recipeArray, id: \.id) { recipe in
                     
                     RecipeCellView(recipe: recipe)
                         .onTapGesture { selection = recipe }
@@ -52,7 +60,6 @@ struct RecipeListView: View {
                         .listRowBackground(Color.clear)
                     
                 } //: LIST
-                .onAppear { recipeListVM.load() }
                 .scrollContentBackground(.hidden)
                 .sheet(item: $selection,
                        onDismiss: { selection = nil }) { recipe in
@@ -60,12 +67,18 @@ struct RecipeListView: View {
                 }
             }
         } //: VStack
-        .onAppear { checkRecipeDataEmpty() }
+        .onAppear {
+            checkRecipeDataEmpty()
+            if $recipeListVM.recipeArray.isEmpty {
+                recipeListVM.load()
+            }
+        }
+        .alert(isPresented: $isShowAlert) { Alert(title: Text("Error"), message: Text("No result for your keyword"), dismissButton: .default(Text("OK")))}
     }
     
     func checkRecipeDataEmpty() {
         
-        if recipeData.isEmpty {
+        if $recipeListVM.recipeArray.count == 0 {
             
             isRecipeDataEmpty = true
             shouldAnimate = true
@@ -79,9 +92,9 @@ struct RecipeListView: View {
 
 //MARK: - PREVIEW
 
-struct RecipeListView_Previews: PreviewProvider {
-    static var previews: some View {
-        //        let recipes: [Recipe] = [Recipe]()
-        return RecipeListView()
-    }
-}
+//struct RecipeListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        //        let recipes: [Recipe] = [Recipe]()
+//        return RecipeListView()
+//    }
+//}

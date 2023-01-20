@@ -37,6 +37,7 @@
 		09815CC0291F18290081C63F /* ClearBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09815CBF291F18290081C63F /* ClearBtnView.swift */; };
 		09815CC2291F18FF0081C63F /* SearchBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09815CC1291F18FF0081C63F /* SearchBtnView.swift */; };
 		09815CC42920EE400081C63F /* RecipeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09815CC32920EE400081C63F /* RecipeArray.swift */; };
+		09A9D9DC297A5AD3007ACBC9 /* FavoritesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A9D9DB297A5AD3007ACBC9 /* FavoritesListViewModel.swift */; };
 		09BB74A82934F41B000190EF /* EmailTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB74A72934F41B000190EF /* EmailTextFieldView.swift */; };
 		09BB74AA2934F6AF000190EF /* PasswordTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB74A92934F6AF000190EF /* PasswordTextFieldView.swift */; };
 		09C3B13E29352A1200D513FE /* RegisterEmailTextFielsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C3B13D29352A1200D513FE /* RegisterEmailTextFielsView.swift */; };
@@ -109,6 +110,7 @@
 		09815CBF291F18290081C63F /* ClearBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearBtnView.swift; sourceTree = "<group>"; };
 		09815CC1291F18FF0081C63F /* SearchBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBtnView.swift; sourceTree = "<group>"; };
 		09815CC32920EE400081C63F /* RecipeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeArray.swift; sourceTree = "<group>"; };
+		09A9D9DB297A5AD3007ACBC9 /* FavoritesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewModel.swift; sourceTree = "<group>"; };
 		09BB74A72934F41B000190EF /* EmailTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextFieldView.swift; sourceTree = "<group>"; };
 		09BB74A92934F6AF000190EF /* PasswordTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextFieldView.swift; sourceTree = "<group>"; };
 		09C3B13D29352A1200D513FE /* RegisterEmailTextFielsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEmailTextFielsView.swift; sourceTree = "<group>"; };
@@ -162,7 +164,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0907AE63294EE91D00B372BC /* SingleRecipeView */ = {
+		0907AE63294EE91D00B372BC /* SingleRecipe */ = {
 			isa = PBXGroup;
 			children = (
 				09D6767F2903BDC200F6BE4F /* SingleRecipeView.swift */,
@@ -173,16 +175,17 @@
 				0918336F2958CF1100C57886 /* ToolBarPrintButton.swift */,
 				091833712958CF2700C57886 /* ToolBarFavoriteButton.swift */,
 			);
-			path = SingleRecipeView;
+			path = SingleRecipe;
 			sourceTree = "<group>";
 		};
-		0907AE66294F06B700B372BC /* FavoritesView */ = {
+		0907AE66294F06B700B372BC /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
 				09C6AE612903078C00A9CDF4 /* FavoritesView.swift */,
 				091833732959707F00C57886 /* FavoritesListView.swift */,
+				09A9D9DB297A5AD3007ACBC9 /* FavoritesListViewModel.swift */,
 			);
-			path = FavoritesView;
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		095934A22901BE9600BF3A98 = {
@@ -247,17 +250,15 @@
 			isa = PBXGroup;
 			children = (
 				095934B02901BE9600BF3A98 /* ContentView.swift */,
-				09F7B5D42906409200624256 /* PrivacyViewModel.swift */,
+				09A9D9DA297A5A56007ACBC9 /* Privacy */,
 				09F7B5CF290623A400624256 /* About */,
 				09703CDB290E2F5B008D6EB7 /* Home */,
-				09D676762903B17200F6BE4F /* SettingsView */,
-				09F7B5D829065E0D00624256 /* LoginView */,
-				09BB74AB2934F79B000190EF /* RegisterView */,
-				09815CB3291DED0A0081C63F /* SearchView */,
-				0907AE66294F06B700B372BC /* FavoritesView */,
-				0907AE63294EE91D00B372BC /* SingleRecipeView */,
-				09D676812903C7CE00F6BE4F /* AboutView.swift */,
-				09D676832903C7F100F6BE4F /* PrivacyView.swift */,
+				09D676762903B17200F6BE4F /* Settings */,
+				09F7B5D829065E0D00624256 /* Login */,
+				09BB74AB2934F79B000190EF /* Register */,
+				09815CB3291DED0A0081C63F /* Search */,
+				0907AE66294F06B700B372BC /* Favorites */,
+				0907AE63294EE91D00B372BC /* SingleRecipe */,
 				09F7B5C82906114500624256 /* Divider.swift */,
 				09561D0E29136D4200474969 /* RecipeCellView.swift */,
 			);
@@ -294,7 +295,7 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		09815CB3291DED0A0081C63F /* SearchView */ = {
+		09815CB3291DED0A0081C63F /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				09C6AE5B290303F600A9CDF4 /* SearchView.swift */,
@@ -305,7 +306,7 @@
 				09815CBF291F18290081C63F /* ClearBtnView.swift */,
 				09815CC1291F18FF0081C63F /* SearchBtnView.swift */,
 			);
-			path = SearchView;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		09815CB4291E27790081C63F /* Ingredients */ = {
@@ -316,7 +317,16 @@
 			path = Ingredients;
 			sourceTree = "<group>";
 		};
-		09BB74AB2934F79B000190EF /* RegisterView */ = {
+		09A9D9DA297A5A56007ACBC9 /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				09F7B5D42906409200624256 /* PrivacyViewModel.swift */,
+				09D676832903C7F100F6BE4F /* PrivacyView.swift */,
+			);
+			path = Privacy;
+			sourceTree = "<group>";
+		};
+		09BB74AB2934F79B000190EF /* Register */ = {
 			isa = PBXGroup;
 			children = (
 				095934C729023C4100BF3A98 /* RegisterView.swift */,
@@ -325,10 +335,10 @@
 				09C3B14129352D6F00D513FE /* RegisterRePasswordTextFieldView.swift */,
 				09C3B143293530A100D513FE /* RegisterButtonView.swift */,
 			);
-			path = RegisterView;
+			path = Register;
 			sourceTree = "<group>";
 		};
-		09D676762903B17200F6BE4F /* SettingsView */ = {
+		09D676762903B17200F6BE4F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				09C6AE63290307A600A9CDF4 /* SettingsView.swift */,
@@ -338,7 +348,7 @@
 				09D6767B2903B2F800F6BE4F /* SettingLogOutButton.swift */,
 				09D6767D2903B37400F6BE4F /* SettingDeleteAccountButton.swift */,
 			);
-			path = SettingsView;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		09F7B5CC2906227C00624256 /* Services */ = {
@@ -353,13 +363,14 @@
 		09F7B5CF290623A400624256 /* About */ = {
 			isa = PBXGroup;
 			children = (
+				09D676812903C7CE00F6BE4F /* AboutView.swift */,
 				09F7B5D0290623D300624256 /* AboutHeaderView.swift */,
 				09F7B5D22906252100624256 /* AboutTextView.swift */,
 			);
 			path = About;
 			sourceTree = "<group>";
 		};
-		09F7B5D829065E0D00624256 /* LoginView */ = {
+		09F7B5D829065E0D00624256 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				095934BF2901F45A00BF3A98 /* LoginView.swift */,
@@ -371,7 +382,7 @@
 				09F7B5E129066C4700624256 /* GoToRegisterButtonView.swift */,
 				09F7B5E329066C6300624256 /* ForgotPasswordButtonView.swift */,
 			);
-			path = LoginView;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		47492FBB7233698ACBBB9E47 /* Pods */ = {
@@ -544,6 +555,7 @@
 				091833722958CF2700C57886 /* ToolBarFavoriteButton.swift in Sources */,
 				09F5B5EB2907CBD100AC434B /* SecondaryTabView.swift in Sources */,
 				09F7B5E429066C6300624256 /* ForgotPasswordButtonView.swift in Sources */,
+				09A9D9DC297A5AD3007ACBC9 /* FavoritesListViewModel.swift in Sources */,
 				09815CB8291EF9000081C63F /* SearchViewModel.swift in Sources */,
 				095934C02901F45A00BF3A98 /* LoginView.swift in Sources */,
 				09C3B13E29352A1200D513FE /* RegisterEmailTextFielsView.swift in Sources */,

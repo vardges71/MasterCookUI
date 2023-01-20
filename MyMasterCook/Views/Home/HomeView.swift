@@ -13,6 +13,7 @@ struct HomeView: View {
     
     var backImageName = "backYellow"
     @Binding var tabSelection: Int
+    @StateObject var recipeListVM: RecipeListViewModel
     let title = "My MasterCook"
     
     
@@ -25,7 +26,7 @@ struct HomeView: View {
                 fullBackground(imageName: backImageName)
                 VStack(alignment: .leading) {
                     
-                    RecipeListView()
+                    RecipeListView(tabSelection: $tabSelection, recipeListVM: recipeListVM)
                     
                 } // : VStack
             }

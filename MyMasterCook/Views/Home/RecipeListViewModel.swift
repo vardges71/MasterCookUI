@@ -7,17 +7,30 @@
 
 import Foundation
 
+protocol UploadRecipesDelegate: AnyObject {
+    
+    func uploadRecipes(_ recipes: [Recipe])
+}
+
 class RecipeListViewModel: ObservableObject {
     
     @Published var recipeArray: [Recipe] = []
-    @Published var recipeEmpty = false
+    @Published var recipeArrayEmpty = false
+    @Published var isSearchBtnTapped = false
     
     func load() {
 
-        if recipeData.isEmpty {
-
-            parseJSON()
-        }
+        WebService().parseJSON(recipeListVM: self)
     }
 }
 
+extension RecipeListViewModel: UploadRecipesDelegate {
+    
+    func uploadRecipes(_ recipes: [Recipe]) {
+        
+        self.recipeArray = recipes
+        if recipeArray.isEmpty {
+            recipeArrayEmpty.toggle()
+        }
+    }
+}

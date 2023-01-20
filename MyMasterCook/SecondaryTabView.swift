@@ -12,12 +12,14 @@ struct SecondaryTabView: View {
     
     @State private var tabSelected: Int = 1
     @State private var homeBadgeValue: Int?
+    @StateObject var recipeVM: RecipeListViewModel
+    @StateObject var searchVM: SearchViewModel
     
     var body: some View {
         
         TabView(selection: $tabSelected) {
             
-            HomeView(tabSelection: $tabSelected)
+            HomeView(tabSelection: $tabSelected, recipeListVM: recipeVM)
                 .tabItem {
                     Label("home", systemImage: tabSelected == 0 ? "house.fill" : "house")
                         .environment(\.symbolVariants, .none)
@@ -25,14 +27,14 @@ struct SecondaryTabView: View {
                 .tag(0)
                 .onAppear{
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                        print("FROM SecondaryTabView: \(recipeData.count)")
-                        homeBadgeValue = recipeData.count
+                        print("FROM SecondaryTabView: \(recipeVM.recipeArray.count)")
+                        homeBadgeValue = recipeVM.recipeArray.count
                     }
                 }
                 .badge ( homeBadgeValue ?? 0 )
                 
             
-            SearchView(tabSelection: $tabSelected)
+            SearchView(tabSelection: $tabSelected, searchVM: searchVM, recipeVM: recipeVM)
                 .tabItem {
                     Label("search", systemImage: tabSelected == 1 ? "magnifyingglass.circle.fill" : "magnifyingglass.circle") .environment(\.symbolVariants, .none)
                 }
@@ -61,7 +63,7 @@ struct SecondaryTabView: View {
 
 struct SecondaryTabView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondaryTabView()
+        SecondaryTabView(recipeVM: RecipeListViewModel(), searchVM: SearchViewModel())
     }
 }
 

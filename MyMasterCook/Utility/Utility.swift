@@ -148,13 +148,13 @@ class Utilities {
         
         if let unwrappedProperty = property {
             
-            return Text("serving \(unwrappedProperty) peoples")
+            return Text("serving \(unwrappedProperty == 0 ? "n/a" : "\(unwrappedProperty)") peoples")
                 .foregroundColor(Colors.textColor)
                 .font(.system(size: 13))
                 .fontWeight(.bold)
             
         } else {
-            return Text("")
+            return Text("n/a")
         }
     }
     

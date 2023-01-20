@@ -9,18 +9,21 @@ import SwiftUI
 
 struct SearchBtnView: View {
     
-//    MARK: - PROPERTIES
+    //    MARK: - PROPERTIES
     
-    @ObservedObject var searchVM: SearchViewModel
-    @ObservedObject var recipeVM = RecipeListViewModel()
+    @StateObject var searchVM: SearchViewModel
+    @StateObject var recipeVM: RecipeListViewModel
     @Binding var tabSelection: Int
     
     @State private var showAlert = false
     
-//    MARK: - BODY
+    //    MARK: - BODY
     
     var body: some View {
         Button {
+            
+            recipeVM.recipeArray.removeAll()
+            UserDefaults.standard.removeObject(forKey: "urlIngredient")
             
             ifIngredientIsEmpty()
             
@@ -40,13 +43,21 @@ struct SearchBtnView: View {
     func ifIngredientIsEmpty() {
         
         if searchVM.ingredientArray.isEmpty {
-            self.showAlert = true
+            
+            self.showAlert.toggle()
+            
         } else {
             
-            recipeData.removeAll()
+            let allowedCharacterSet = CharacterSet.urlQueryAllowed
+            
+            let ing = searchVM.ingredientArray.joined(separator: ",")
+            let replasedIngredient = ing.replacingOccurrences(of: ",", with: "%2C")
+            let ingredientsForURL = replasedIngredient.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet)
+            
+            UserDefaults.standard.set(ingredientsForURL, forKey: "urlIngredient")
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                searchVM.showHomeView.toggle()
+
                 withAnimation {
                     tabSelection = 0
                 }
