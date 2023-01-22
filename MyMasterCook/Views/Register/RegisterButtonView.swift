@@ -38,7 +38,7 @@ struct RegisterButtonView: View {
                     RoundedRectangle(cornerRadius: 5.0).stroke(.white, lineWidth: 2)
                 )
         }
-        .fullScreenCover(isPresented: $showMainView) { MainTabView(recipeVM: RecipeListViewModel(), searchVM: SearchViewModel()) }
+        .fullScreenCover(isPresented: $showMainView) { MainTabView(recipeVM: RecipeListViewModel(), searchVM: SearchViewModel(), favoritesListVM: FavoritesListViewModel()) }
         .alert(isPresented: $showingAlert, content: {
             getAlert()
         })

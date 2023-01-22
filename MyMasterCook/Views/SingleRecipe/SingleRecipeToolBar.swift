@@ -21,7 +21,7 @@ struct SingleRecipeToolBar: View {
                 Spacer()
                 ToolBarPrintButton()
                 Spacer()
-                ToolBarFavoriteButton(recipe: recipe)
+                ToolBarFavoriteButton(recipe: recipe, favoritesListVM: FavoritesListViewModel())
             } //HSTACK
             .padding(.horizontal)
         } //ZSTACK

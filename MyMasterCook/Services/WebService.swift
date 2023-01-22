@@ -155,7 +155,7 @@ class WebService {
         return recipeData
     }
     
-    func getFavoriteRecipes() -> [Recipe] {
+    func getFavoriteRecipes(favoriteListVM: FavoritesListViewModel) -> [Recipe] {
         
         if Auth.auth().currentUser != nil {
             
@@ -208,6 +208,10 @@ class WebService {
                         
                         favRecipe.instructions = value as? String ?? " "
                     }
+                    if key == "recipeDescription" {
+                        
+                        favRecipe.description = value as? String ?? " "
+                    }
                     if key == "recipeThumbnailURL" {
                         
                         favRecipe.thumbnail_url = value as? String ?? " "
@@ -239,6 +243,11 @@ class WebService {
                 
                 self.favoriteRecipeData.append(favRecipe)
             }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                
+                let delegateRecipes: UploadFavoriteDelegate? = favoriteListVM
+                delegateRecipes?.uploadFavorites(self.favoriteRecipeData)
+            })
         }
         return favoriteRecipeData
     }

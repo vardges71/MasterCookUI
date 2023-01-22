@@ -20,6 +20,7 @@ struct MainTabView: View {
     
     @StateObject var recipeVM: RecipeListViewModel
     @StateObject var searchVM: SearchViewModel
+    @StateObject var favoritesListVM: FavoritesListViewModel
     
     //    MARK: - BODY
     
@@ -46,7 +47,7 @@ struct MainTabView: View {
                     
                 } .tag(1)
             
-            FavoritesView(tabSelection: $tabSelected)
+            FavoritesView(tabSelected: $tabSelected, favoritesListVM: favoritesListVM)
                 .tabItem {
                     Label("favorites", systemImage: tabSelected == 2 ? "star.fill" : "star") .environment(\.symbolVariants, .none)
                     
@@ -54,8 +55,8 @@ struct MainTabView: View {
                 .tag(2)
                 .onAppear{
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                        print("FROM STV: \(favoriteRecipeData.count)")
-//                        favoritesBadgeValue = favoriteRecipeData.count
+                        print("FROM MAIN TABVIEW: \(favoritesListVM.favoriteArray.count)")
+                        favoritesBadgeValue = favoritesListVM.favoriteArray.count
                     }
                 }
                 .badge ( favoritesBadgeValue ?? 0 )
@@ -69,6 +70,7 @@ struct MainTabView: View {
         }
         .accentColor(Colors.textColor)
         .onAppear() {
+            favoritesListVM.checkFavDataEmpty()
             UITabBar.appearance().backgroundColor = UIColor(Colors.navbarTintColor)
             UITabBarItem.appearance().badgeColor = UIColor(Colors.tabbarBadgeColor)
             UITabBar.appearance().unselectedItemTintColor = UIColor(Colors.navbarUnselectedItemColor)
@@ -77,28 +79,13 @@ struct MainTabView: View {
             
             UINavigationBar.appearance().isTranslucent = true
             UINavigationBar.appearance().barTintColor = UIColor(Colors.navbarTintColor)
-            
-            checkFavDataEmpty()
         }
-    }
-    
-    func checkFavDataEmpty() {
-//        if favoriteRecipeData.isEmpty {
-//            isFavoriteDataEmpty = true
-//            getFavoriteRecipes()
-//            DispatchQueue.main.async {
-//                isFavoriteDataEmpty = false
-//            }
-//
-//        } else {
-//            isFavoriteDataEmpty = false
-//        }
     }
 }
 
 //    MARK: - PREVIEW
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabView(recipeVM: RecipeListViewModel(), searchVM: SearchViewModel()).environmentObject(User())
+        MainTabView(recipeVM: RecipeListViewModel(), searchVM: SearchViewModel(), favoritesListVM: FavoritesListViewModel()).environmentObject(User())
     }
 }

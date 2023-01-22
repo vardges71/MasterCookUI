@@ -17,12 +17,18 @@ struct ToolBarFavoriteButton: View {
     
     @State private var isDisabled: Bool = false
     @State private var isExist: Bool = false
+    @State private var isShowDeleteAlert: Bool = false
+    @State private var isShowAddAlert: Bool = false
+    
+    @StateObject var favoritesListVM: FavoritesListViewModel
     
     //    MARK: - BODY
     var body: some View {
         Button {
+            
             isExist.toggle()
             print("Favorite Button")
+            add_removeFavorites()
         } label: {
             VStack {
                 Image(systemName: isExist ? "star.fill" : "star")
@@ -38,9 +44,36 @@ struct ToolBarFavoriteButton: View {
             isUserExist()
             checkRecipeExist()
         }
+        .alert(isPresented: $isShowAddAlert) { Alert(title: Text(""), message: Text("This recipe is added to your favorites"), dismissButton: .default(Text("OK")))}
+        .actionSheet(isPresented: $isShowDeleteAlert) {
+            ActionSheet(
+                title: Text("Do you really want to remove recipe from your favorites?"),
+                buttons: [
+            
+                    .destructive(Text("Remove")) {
+                        deleteFavorite()
+                        isExist = false
+                    },
+                    .cancel(Text("Cancel")) {
+                        isExist = true
+                        
+                    }
+                ]
+            )
+        }
     }
     
     //    MARK: - METHODES
+    
+    func add_removeFavorites() {
+    
+        if isExist {
+            addToFavorite()
+
+        } else {
+            isShowDeleteAlert.toggle()
+        }
+    }
     
     func isUserExist() {
         if Auth.auth().currentUser != nil {
@@ -71,6 +104,7 @@ struct ToolBarFavoriteButton: View {
     
     func addToFavorite() {
         
+        isShowAddAlert.toggle()
         // Create cleaned version of the data
         let recipeID = recipe.id
         let recipeName = recipe.name
@@ -116,7 +150,7 @@ struct ToolBarFavoriteButton: View {
                     
                 ]) { (result, err) in
                     
-                    if err != nil {
+                    if err == nil {
                         
                         //Show erroe message
                         print("Error saving user data \(String(describing: err))")
@@ -128,28 +162,17 @@ struct ToolBarFavoriteButton: View {
     
     func deleteFavorite() {
         
-//        let recipeID = recipe.id
-//
-//        let alert = UIAlertController(title: "Remove from favorites", message: "Do you really want to remove recipe from your favorites?", preferredStyle: .alert)
-//
-//        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { acion in
-//
-//            let user = Auth.auth().currentUser
-//
-//            self.ref = Database.database().reference()
-//
-//            self.ref.child("users").child(user!.uid).child("favorites").observeSingleEvent(of: .value, with: { (snapshot) in
-//
-//                if snapshot.hasChild(recipeID!){
-//
-//                    self.ref.child("users").child(user!.uid).child("favorites").child(recipeID!).removeValue()
-//                }
-//            })
-//
-//        }))
-//        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-//
-//        self.present(alert, animated: true)
+        let recipeID = recipe.id
+
+            let user = Auth.auth().currentUser
+
+            self.ref.child("users").child(user!.uid).child("favorites").observeSingleEvent(of: .value, with: { (snapshot) in
+
+                if snapshot.hasChild(recipeID){
+
+                    self.ref.child("users").child(user!.uid).child("favorites").child(recipeID).removeValue()
+                }
+            })
     }
 }
 
@@ -157,6 +180,6 @@ struct ToolBarFavoriteButton: View {
 struct ToolBarFavoriteButton_Previews: PreviewProvider {
     static var previews: some View {
         let recipes: [Recipe] = [Recipe]()
-        ToolBarFavoriteButton(recipe: recipes[0])
+        ToolBarFavoriteButton(recipe: recipes[0], favoritesListVM: FavoritesListViewModel())
     }
 }

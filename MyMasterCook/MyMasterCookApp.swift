@@ -22,7 +22,7 @@ struct MyMasterCookApp: App {
                 if Auth.auth().currentUser != nil {
                     
                     // User is signed in.
-                    MainTabView(recipeVM: RecipeListViewModel(), searchVM: SearchViewModel())
+                    MainTabView(recipeVM: RecipeListViewModel(), searchVM: SearchViewModel(), favoritesListVM: FavoritesListViewModel())
                     
                 } else {
                     // No user is signed in.

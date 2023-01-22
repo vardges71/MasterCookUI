@@ -16,7 +16,6 @@ class RecipeListViewModel: ObservableObject {
     
     @Published var recipeArray: [Recipe] = []
     @Published var recipeArrayEmpty = false
-    @Published var isSearchBtnTapped = false
     
     func load() {
 

@@ -73,7 +73,7 @@ struct RecipeListView: View {
                 recipeListVM.load()
             }
         }
-        .alert(isPresented: $isShowAlert) { Alert(title: Text("Error"), message: Text("No result for your keyword"), dismissButton: .default(Text("OK")))}
+        .alert(isPresented: $isShowAlert) { Alert(title: Text("Error..."), message: Text("No result for your keyword"), dismissButton: .default(Text("OK")))}
     }
     
     func checkRecipeDataEmpty() {

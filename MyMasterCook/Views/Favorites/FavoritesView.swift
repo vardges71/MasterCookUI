@@ -12,7 +12,9 @@ struct FavoritesView: View {
 //    MARK: - PROPERTIES
     
     var backImageName = "backYellow"
-    @Binding var tabSelection: Int
+    @Binding var tabSelected: Int
+    @StateObject var favoritesListVM: FavoritesListViewModel
+
     let title = "Favorites"
     
 //    MARK: - BODY
@@ -23,7 +25,7 @@ struct FavoritesView: View {
                 fullBackground(imageName: backImageName)
                 VStack(alignment: .leading) {
                     
-                    FavoritesListView()
+                    FavoritesListView(tabSelection: $tabSelected, favoritesListVM: favoritesListVM)
                 } // : VStack
             }
             .navigationTitle(title)
