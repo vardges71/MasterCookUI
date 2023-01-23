@@ -39,7 +39,7 @@ class WebService {
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         
-        let url = Bundle.main.url(forResource: "testing", withExtension: "json")!
+//        let url = Bundle.main.url(forResource: "testing", withExtension: "json")!
         
         let session = URLSession.shared
         
