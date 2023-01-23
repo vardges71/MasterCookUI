@@ -16,6 +16,7 @@ struct SingleRecipeView: View {
     var backImageName = "backYellow"
     var title = "Single recipe"
     @State private var isAnimating: Bool = false
+    @State private var isShowAlert: Bool = false
     
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
@@ -81,7 +82,11 @@ struct SingleRecipeView: View {
                 Spacer()
                 SingleRecipeToolBar(recipe: recipe)
                     .frame(alignment: .bottom)
+            } // VStack
+            .onAppear {
+                if recipe.instructions == "" { isShowAlert.toggle() }
             }
+            .alert(isPresented: $isShowAlert) { Alert(title: Text("Sorry..."), message: Text("The instruction for this recipe is not available. You can watch video instruction."), dismissButton: .default(Text("OK")))}
         }
     }
 }

@@ -11,6 +11,7 @@ struct DescriptionView: View {
 //    MARK: - PROPERTIES
     
     let recipe: Recipe
+    
 //    MARK: - BODY
     var body: some View {
         Group {

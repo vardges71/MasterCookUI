@@ -17,9 +17,9 @@ struct SingleRecipeToolBar: View {
 
         ZStack {
             HStack {
-                ToolBarPlayButton()
+                ToolBarPlayButton(recipe: recipe)
                 Spacer()
-                ToolBarPrintButton()
+                ToolBarPrintButton(recipe: recipe)
                 Spacer()
                 ToolBarFavoriteButton(recipe: recipe, favoritesListVM: FavoritesListViewModel())
             } //HSTACK

@@ -20,18 +20,12 @@ class WebService {
     var recipeData: [Recipe] = []
     var favoriteRecipeData: [Recipe] = []
     
-    //var ingredientsForURL = "eggs"
-    
     var ingredients = UserDefaults.standard.string(forKey: "urlIngredient") ?? ""
     
     
     //  MARK: - FUNCTIONS
     
     func parseJSON(recipeListVM: RecipeListViewModel) -> [Recipe] {
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            print("parseJSON Caled\n\nIngredients: \(self.ingredients)\n")
-        }
         
         let headers = [
             "x-rapidapi-key": "e25b9b1e84msh0478f04ed91563dp15ca17jsn90ddd01db01f",
@@ -49,7 +43,7 @@ class WebService {
         
         let session = URLSession.shared
         
-        session.dataTask(with: url, completionHandler: {(data, response, error) -> Void in
+        session.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) -> Void in
             
             if (error != nil) {
                 
@@ -142,7 +136,6 @@ class WebService {
                             
                             let delegateRecipes: UploadRecipesDelegate? = recipeListVM
                             delegateRecipes?.uploadRecipes(self.recipeData)
-                            print("RECIPE COUNT: \(self.recipeData.count)\n\(self.recipeData.map(\.name))\n\(self.recipeData.map({$0.num_servings}))")
                         })
                     }
                 }
