@@ -86,7 +86,7 @@ struct SingleRecipeView: View {
             .onAppear {
                 if recipe.instructions == "" { isShowAlert.toggle() }
             }
-            .alert(isPresented: $isShowAlert) { Alert(title: Text("Sorry..."), message: Text("The instruction for this recipe is not available. You can watch video instruction."), dismissButton: .default(Text("OK")))}
+            .alert(isPresented: $isShowAlert) { Alert(title: Text("Sorry..."), message: Text("The instruction for this recipe is not available.\nYou can watch video instruction."), dismissButton: .default(Text("OK")))}
         }
     }
 }

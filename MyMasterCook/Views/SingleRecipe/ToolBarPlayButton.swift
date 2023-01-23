@@ -38,7 +38,13 @@ struct ToolBarPlayButton: View {
             }
         } // VStack
         .sheet(isPresented: $isPresented) { RecipeVideoPlayerView(recipe: recipe) }
-        .alert(isPresented: $isShowVideoAlert) { Alert(title: Text("Sorry..."), message: Text("The video instruction for this recipe is not available"), dismissButton: .default(Text("OK")))}
+
+        .actionSheet(isPresented: $isShowVideoAlert) {
+            ActionSheet(
+                title: Text("SORRY..."), message: Text("The video instruction does not exist."),
+                buttons: [ .default(Text("OK")) ]
+            )
+        }
     }
 }
 
