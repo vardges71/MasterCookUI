@@ -32,7 +32,9 @@ class WebService {
             "x-rapidapi-host": "tasty.p.rapidapi.com"
         ]
         
-        let request = NSMutableURLRequest(url: NSURL(string: "https://tasty.p.rapidapi.com/recipes/list?from=0&size=\(s)&q=\(ingredients)")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        let request = NSMutableURLRequest(url: NSURL(string: "https://tasty.p.rapidapi.com/recipes/list?from=0&size=\(s)&q=\(ingredients)")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
         
         print("REQUEST: \(request)")
         
@@ -50,6 +52,8 @@ class WebService {
                 print(error!)
             } else {
                 
+                let httpResponse = response as? HTTPURLResponse
+                print("HTTP RESPONSE: \(String(describing: httpResponse))")
                 do {
                     
                     let dict = try JSONSerialization.jsonObject(with: data!) as! [String:AnyObject]

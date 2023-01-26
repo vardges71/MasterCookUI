@@ -11,7 +11,6 @@ struct RecipeListView: View {
     
     //    MARK: - PROPERTIES
     
-    @State private var isRecipeDataEmpty = false
     @State private var selection: Recipe? = nil
     @State private var shouldAnimate = false
     @State private var isShowAlert = false
@@ -32,15 +31,10 @@ struct RecipeListView: View {
                     ActivityIndicator(shouldAnimate: $shouldAnimate)
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
                         .background( Color.black.opacity(0.7) )
-                        .onAppear {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-
-                                checkRecipeDataEmpty()
-                                print("Array count from recipe list: \(recipeListVM.recipeArray.count)")
-                                if $recipeListVM.recipeArray.isEmpty {
-                                    isShowAlert.toggle()
-                                    withAnimation { tabSelection = 1 }
-                                }
+                        .onChange(of: recipeListVM.recipeArrayEmpty) { newValue in
+                            isShowAlert = newValue
+                            withAnimation {
+                                tabSelection = 1
                             }
                         }
                     Text("Loading...")
@@ -69,7 +63,7 @@ struct RecipeListView: View {
         } //: VStack
         .onAppear {
             checkRecipeDataEmpty()
-            if $recipeListVM.recipeArray.isEmpty {
+            if recipeListVM.recipeArrayEmpty {
                 recipeListVM.load()
             }
         }
@@ -78,14 +72,10 @@ struct RecipeListView: View {
     
     func checkRecipeDataEmpty() {
         
-        if $recipeListVM.recipeArray.count == 0 {
+        if recipeListVM.recipeArray.count == 0 {
             
-            isRecipeDataEmpty = true
-            shouldAnimate = true
-            
-        } else {
-            isRecipeDataEmpty = false
-            shouldAnimate = false
+            shouldAnimate.toggle()
+            recipeListVM.load()
         }
     }
 }

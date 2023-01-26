@@ -25,12 +25,9 @@ struct SecondaryTabView: View {
                         .environment(\.symbolVariants, .none)
                 }
                 .tag(0)
-                .onAppear{
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                        print("FROM SecondaryTabView: \(recipeVM.recipeArray.count)")
-                        homeBadgeValue = recipeVM.recipeArray.count
-                    }
-                }
+                .onChange(of: $recipeVM.recipeArray.count, perform: { newValue in
+                    homeBadgeValue = newValue
+                })
                 .badge ( homeBadgeValue ?? 0 )
                 
             

@@ -30,17 +30,9 @@ struct FavoritesListView: View {
                     ActivityIndicator(shouldAnimate: $favoritesListVM.shouldAnimate)
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
                         .background( Color.black.opacity(0.7) )
-                        .onAppear {
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                                
-                                print("Array count from recipe list: \(favoritesListVM.favoriteArray.count)")
-                                if favoritesListVM.favoriteArray.isEmpty {
-                                    showAlert.toggle()
-                                    withAnimation { tabSelection = 1 }
-                                }
-                            }
-                        }
+                        .onChange(of: favoritesListVM.favoriteArrayEmpty, perform: { newValue in
+                            showAlert = newValue
+                        })
                     Text("Loading...")
                         .font(.system(size: 15))
                         .foregroundColor(.white)

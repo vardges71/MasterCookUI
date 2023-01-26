@@ -27,16 +27,6 @@ class FavoritesListViewModel: ObservableObject {
     func checkFavDataEmpty() {
         
         loadFavorites()
-        
-        if favoriteArray.isEmpty {    
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                self.favoriteArrayEmpty = true
-                self.shouldAnimate = true
-            }
-        } else {
-            
-            self.favoriteArrayEmpty = false
-        }
     }
 }
 
@@ -47,6 +37,7 @@ extension FavoritesListViewModel: UploadFavoriteDelegate {
         self.favoriteArray = favoriteRecipes
         if favoriteArray.isEmpty {
             favoriteArrayEmpty.toggle()
+            shouldAnimate = true
         }
     }
 }

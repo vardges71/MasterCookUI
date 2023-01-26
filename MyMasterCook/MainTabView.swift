@@ -33,12 +33,9 @@ struct MainTabView: View {
                     Label("home", systemImage: tabSelected == 0 ? "house.fill" : "house") .environment(\.symbolVariants, .none)
                     
                 } .tag(0)
-                .onAppear{
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                        print("FROM MAIN TABVIEW: \(recipeVM.recipeArray.count)")
-                        homeBadgeValue = recipeVM.recipeArray.count
-                    }
-                }
+                .onChange(of: $recipeVM.recipeArray.count, perform: { newValue in
+                    homeBadgeValue = newValue
+                })
                 .badge ( homeBadgeValue ?? 0 )
             
             SearchView(tabSelection: $tabSelected, searchVM: searchVM, recipeVM: recipeVM)
@@ -53,12 +50,9 @@ struct MainTabView: View {
                     
                 }
                 .tag(2)
-                .onAppear{
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        print("FROM MAIN TABVIEW: \(favoritesListVM.favoriteArray.count)")
-                        favoritesBadgeValue = favoritesListVM.favoriteArray.count
-                    }
-                }
+                .onChange(of: $favoritesListVM.favoriteArray.count, perform: { newValue in
+                    favoritesBadgeValue = newValue
+                })
                 .badge ( favoritesBadgeValue ?? 0 )
             
             SettingsView(tabSelection: $tabSelected)
