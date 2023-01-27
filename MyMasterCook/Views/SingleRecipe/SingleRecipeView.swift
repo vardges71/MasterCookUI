@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct SingleRecipeView: View {
     
@@ -14,9 +15,9 @@ struct SingleRecipeView: View {
     let recipe: Recipe
     
     var backImageName = "backYellow"
-    var title = "Single recipe"
-    @State private var isAnimating: Bool = false
+    @State private var isUserLogged: Bool = false
     @State private var isShowAlert: Bool = false
+    @State private var showLoginView: Bool = false
     
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
@@ -85,9 +86,22 @@ struct SingleRecipeView: View {
             } // VStack
             .onAppear {
                 if recipe.instructions == "" { isShowAlert.toggle() }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+                    if Auth.auth().currentUser == nil { isUserLogged.toggle() }
+                }
             }
             .alert(isPresented: $isShowAlert) { Alert(title: Text("Sorry..."), message: Text("The instruction for this recipe is not available.\nYou can watch video instruction."), dismissButton: .default(Text("OK")))}
         }
+        .alert("To save and access your favorite recipes, you must be logged in.", isPresented: $isUserLogged) {
+
+            Button("Log In", role: .destructive, action: {
+
+                self.showLoginView.toggle()
+            })
+
+            Button("Dismiss", role: .cancel, action: {})
+        }
+        .fullScreenCover(isPresented: $showLoginView) { LoginView() }
     }
 }
 
