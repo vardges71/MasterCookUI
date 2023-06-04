@@ -19,7 +19,6 @@ struct SearchTextFieldView: View {
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled(true)
                 
-
             Divider()
         }
     }

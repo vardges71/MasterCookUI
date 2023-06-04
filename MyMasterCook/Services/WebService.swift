@@ -25,7 +25,7 @@ class WebService {
     
     //  MARK: - FUNCTIONS
     
-    func parseJSON(recipeListVM: RecipeListViewModel) -> [Recipe] {
+    func parseJSON(recipeListVM: RecipeListViewModel) {
         
         let headers = [
             "x-rapidapi-key": "e25b9b1e84msh0478f04ed91563dp15ca17jsn90ddd01db01f",
@@ -148,11 +148,9 @@ class WebService {
                 }
             }
         }) .resume()
-        
-        return recipeData
     }
     
-    func getFavoriteRecipes(favoriteListVM: FavoritesListViewModel) -> [Recipe] {
+    func getFavoriteRecipes(favoriteListVM: FavoritesListViewModel) {
         
         if Auth.auth().currentUser != nil {
             
@@ -246,6 +244,5 @@ class WebService {
                 delegateRecipes?.uploadFavorites(self.favoriteRecipeData)
             })
         }
-        return favoriteRecipeData
     }
 }

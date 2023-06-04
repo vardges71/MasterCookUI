@@ -69,6 +69,7 @@ struct ToolBarFavoriteButton: View {
     
         if isExist {
             addToFavorite()
+            isShowAddAlert.toggle()
 
         } else {
             isShowDeleteAlert.toggle()
@@ -104,7 +105,6 @@ struct ToolBarFavoriteButton: View {
     
     func addToFavorite() {
         
-        isShowAddAlert.toggle()
         // Create cleaned version of the data
         let recipeID = recipe.id
         let recipeName = recipe.name
@@ -148,14 +148,15 @@ struct ToolBarFavoriteButton: View {
                     "recipeSugar": recipeSugar as Any,
                     "recipeCarbohydrates": recipeCarbohydrates as Any
                     
-                ]) { (result, err) in
-                    
-                    if err == nil {
-                        
-                        //Show erroe message
-                        print("Error saving user data \(String(describing: err))")
-                    }
-                }
+                ])
+//                { (result, err) in
+//
+//                    if err != nil {
+//
+//                        //Show erroe message
+//                        print("Error saving user data \(String(describing: err))")
+//                    }
+//                }
             }
         })
     }
@@ -171,6 +172,7 @@ struct ToolBarFavoriteButton: View {
                 if snapshot.hasChild(recipeID){
 
                     self.ref.child("users").child(user!.uid).child("favorites").child(recipeID).removeValue()
+                    checkRecipeExist()
                 }
             })
     }

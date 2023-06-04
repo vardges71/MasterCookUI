@@ -29,7 +29,7 @@ struct AboutHeaderView: View {
                                 .font(.headline)
                                 .offset(y: 5)
                             
-                            Text("© 2022 Vardges Gasparyan. All Rights Reserved")
+                            Text("© 2023 Vardges Gasparyan. All Rights Reserved")
                                 .foregroundColor(Colors.textColor)
                                 .offset(y:10)
                                 .font(.footnote)
