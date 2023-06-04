@@ -11,7 +11,6 @@ struct DescriptionView: View {
 //    MARK: - PROPERTIES
     
     let recipe: Recipe
-
     
 //    MARK: - BODY
     
@@ -44,6 +43,7 @@ struct DescriptionView: View {
     }
     
     func convertHTMLTagsToClickableLinks(in text: String) -> NSAttributedString? {
+        
         let pattern = "<a\\b[^>]+href=['\"]([^'\"]*)['\"][^>]*>(.*?)</a>"
         let regex = try! NSRegularExpression(pattern: pattern, options: .caseInsensitive)
 
@@ -73,6 +73,7 @@ struct DescriptionView: View {
 
 //  MARK: - PREVIEW
 struct DescriptionView_Previews: PreviewProvider {
+    
     static var previews: some View {
         let recipes: [Recipe] = [Recipe]()
         DescriptionView(recipe: recipes[0])
