@@ -37,6 +37,8 @@
 		09815CC0291F18290081C63F /* ClearBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09815CBF291F18290081C63F /* ClearBtnView.swift */; };
 		09815CC2291F18FF0081C63F /* SearchBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09815CC1291F18FF0081C63F /* SearchBtnView.swift */; };
 		09815CC42920EE400081C63F /* RecipeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09815CC32920EE400081C63F /* RecipeArray.swift */; };
+		098E795A2A34181E00A2F350 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 098E79592A34181E00A2F350 /* FirebaseAuth */; };
+		098E795C2A34181E00A2F350 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 098E795B2A34181E00A2F350 /* FirebaseDatabase */; };
 		09A9D9DC297A5AD3007ACBC9 /* FavoritesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A9D9DB297A5AD3007ACBC9 /* FavoritesListViewModel.swift */; };
 		09A9D9E2297E3416007ACBC9 /* RecipeVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A9D9E1297E3416007ACBC9 /* RecipeVideoPlayerView.swift */; };
 		09BB74A82934F41B000190EF /* EmailTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB74A72934F41B000190EF /* EmailTextFieldView.swift */; };
@@ -75,7 +77,6 @@
 		09F7B5DC2906603900624256 /* GuestButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7B5DB2906603900624256 /* GuestButtonView.swift */; };
 		09F7B5E229066C4700624256 /* GoToRegisterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7B5E129066C4700624256 /* GoToRegisterButtonView.swift */; };
 		09F7B5E429066C6300624256 /* ForgotPasswordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7B5E329066C6300624256 /* ForgotPasswordButtonView.swift */; };
-		F61659A8C7BC99CE4A50CCBB /* Pods_MyMasterCook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31C1149F79FA50ED5436AD24 /* Pods_MyMasterCook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,9 +150,6 @@
 		09F7B5DB2906603900624256 /* GuestButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestButtonView.swift; sourceTree = "<group>"; };
 		09F7B5E129066C4700624256 /* GoToRegisterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToRegisterButtonView.swift; sourceTree = "<group>"; };
 		09F7B5E329066C6300624256 /* ForgotPasswordButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordButtonView.swift; sourceTree = "<group>"; };
-		1F889E78478CB1863A683B1C /* Pods-MyMasterCook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMasterCook.release.xcconfig"; path = "Target Support Files/Pods-MyMasterCook/Pods-MyMasterCook.release.xcconfig"; sourceTree = "<group>"; };
-		31C1149F79FA50ED5436AD24 /* Pods_MyMasterCook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMasterCook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A01229FCD2D5ACD3F38DF73 /* Pods-MyMasterCook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMasterCook.debug.xcconfig"; path = "Target Support Files/Pods-MyMasterCook/Pods-MyMasterCook.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +157,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F61659A8C7BC99CE4A50CCBB /* Pods_MyMasterCook.framework in Frameworks */,
+				098E795C2A34181E00A2F350 /* FirebaseDatabase in Frameworks */,
+				098E795A2A34181E00A2F350 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,8 +195,6 @@
 			children = (
 				095934AD2901BE9600BF3A98 /* MyMasterCook */,
 				095934AC2901BE9600BF3A98 /* Products */,
-				47492FBB7233698ACBBB9E47 /* Pods */,
-				E4CC8C35CDAC9423ADFBF36E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -388,23 +385,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		47492FBB7233698ACBBB9E47 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9A01229FCD2D5ACD3F38DF73 /* Pods-MyMasterCook.debug.xcconfig */,
-				1F889E78478CB1863A683B1C /* Pods-MyMasterCook.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		E4CC8C35CDAC9423ADFBF36E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				31C1149F79FA50ED5436AD24 /* Pods_MyMasterCook.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -412,17 +392,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 095934B92901BE9A00BF3A98 /* Build configuration list for PBXNativeTarget "MyMasterCook" */;
 			buildPhases = (
-				1B0420747E2C7B0E3FC3A418 /* [CP] Check Pods Manifest.lock */,
 				095934A72901BE9600BF3A98 /* Sources */,
 				095934A82901BE9600BF3A98 /* Frameworks */,
 				095934A92901BE9600BF3A98 /* Resources */,
-				5584543CB2FDF391E4567F80 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = MyMasterCook;
+			packageProductDependencies = (
+				098E79592A34181E00A2F350 /* FirebaseAuth */,
+				098E795B2A34181E00A2F350 /* FirebaseDatabase */,
+			);
 			productName = MyMasterCook;
 			productReference = 095934AB2901BE9600BF3A98 /* MyMasterCook.app */;
 			productType = "com.apple.product-type.application";
@@ -451,6 +433,9 @@
 				Base,
 			);
 			mainGroup = 095934A22901BE9600BF3A98;
+			packageReferences = (
+				098E79582A34181E00A2F350 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 095934AC2901BE9600BF3A98 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -474,48 +459,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1B0420747E2C7B0E3FC3A418 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MyMasterCook-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5584543CB2FDF391E4567F80 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyMasterCook/Pods-MyMasterCook-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyMasterCook/Pods-MyMasterCook-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyMasterCook/Pods-MyMasterCook-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		095934A72901BE9600BF3A98 /* Sources */ = {
@@ -707,7 +650,6 @@
 		};
 		095934BA2901BE9A00BF3A98 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A01229FCD2D5ACD3F38DF73 /* Pods-MyMasterCook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -748,7 +690,6 @@
 		};
 		095934BB2901BE9A00BF3A98 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F889E78478CB1863A683B1C /* Pods-MyMasterCook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -809,6 +750,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		098E79582A34181E00A2F350 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		098E79592A34181E00A2F350 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 098E79582A34181E00A2F350 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		098E795B2A34181E00A2F350 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 098E79582A34181E00A2F350 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 095934A32901BE9600BF3A98 /* Project object */;
 }
