@@ -18,7 +18,18 @@ struct SettingPrivacyButton: View {
             
         } label: {
             NavigationLink(destination:	privacyView) {
-                Label("privacypolicy", systemImage: "exclamationmark.square")
+                
+                HStack {
+                    Image(systemName: "exclamationmark.square")
+                    Text("privacypolicy")
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                }
+                .padding(10)
+                .overlay {
+                    RoundedRectangle(cornerRadius: 5.0).stroke(Colors.textColor, lineWidth: 2)
+                }
+                .background(Colors.alertBackgroundColor)
             }
         }
         .foregroundColor(Colors.textColor)

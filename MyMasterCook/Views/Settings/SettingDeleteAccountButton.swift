@@ -17,9 +17,20 @@ struct SettingDeleteAccountButton: View {
             
             self.showingAlert.toggle()
         } label: {
-            Label("delete account", systemImage: "trash.square")
+            
+            HStack {
+                Image(systemName: "trash.square")
+                Text("delete account")
+                Spacer()
+                Image(systemName: "chevron.right")
+            }
+            .padding(10)
+            .overlay {
+                RoundedRectangle(cornerRadius: 5.0).stroke(.white, lineWidth: 2)
+            }
         }
-        .foregroundColor(Colors.textColor)
+        .background(Colors.tabbarBadgeColor)
+        .foregroundColor(.white)
         .actionSheet(isPresented: $showingAlert) {
             ActionSheet(
                 title: Text("Do you really want to delete your account?"),

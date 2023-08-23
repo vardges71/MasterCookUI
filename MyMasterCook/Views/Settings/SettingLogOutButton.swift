@@ -20,7 +20,19 @@ struct SettingLogOutButton: View {
             self.showingAlert.toggle()
             
         } label: {
-            Label("sign out", systemImage: "arrow.backward.square")
+            
+            HStack {
+                Image(systemName: "arrow.backward.square")
+                Text("sign out")
+                Spacer()
+                Image(systemName: "chevron.right")
+            }
+            .padding(10)
+            .overlay {
+                RoundedRectangle(cornerRadius: 5.0).stroke(Colors.textColor, lineWidth: 2)
+            }
+            .background(Colors.alertBackgroundColor)
+                
         }
         .foregroundColor(Colors.textColor)
         

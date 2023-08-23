@@ -23,26 +23,23 @@ struct SettingsView: View {
                 fullBackground(imageName: backImageName)
                 VStack(spacing: 20) {
                     HStack {
-                        VStack {
-                            HStack {
-                                SettingsAboutButton()
-                                Spacer()
-                            }
-                            HStack {
-                                SettingPrivacyButton()
-                                Spacer()
-                            } .padding(.top, 10)
+                        VStack(alignment: .leading, spacing: 20) {
+                            
+                            SettingsAboutButton()
+                            
+                            SettingPrivacyButton()
+
                             ZStack {
                                 
                                 if Auth.auth().currentUser == nil {
                                     HStack {
                                         SettingLoginButton()
-                                        Spacer()
+                                        
                                     }
                                 } else {
                                     HStack {
                                         SettingLogOutButton()
-                                        Spacer()
+                                        
                                     }
                                 }
                             } .padding(.top, 10)
@@ -56,7 +53,6 @@ struct SettingsView: View {
                                 } else {
                                     SettingDeleteAccountButton()
                                 }
-                                Spacer()
                             } .padding(.top, 10)
                             
                             Spacer()

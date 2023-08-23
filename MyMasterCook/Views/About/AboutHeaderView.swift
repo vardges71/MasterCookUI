@@ -12,9 +12,11 @@ struct AboutHeaderView: View {
     let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
     let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
     
+    var currentYear = Date.now.formatted(.dateTime.year())
+    
     var body: some View {
         VStack(spacing: 0) {
-            Divider()
+            
             ZStack {
                 VStack(spacing: 0) {
                     HStack {
@@ -29,7 +31,7 @@ struct AboutHeaderView: View {
                                 .font(.headline)
                                 .offset(y: 5)
                             
-                            Text("© 2023 Vardges Gasparyan. All Rights Reserved")
+                            Text("© \(currentYear) Vardges Gasparyan.\nAll Rights Reserved")
                                 .foregroundColor(Colors.textColor)
                                 .offset(y:10)
                                 .font(.footnote)

@@ -17,7 +17,18 @@ struct SettingLoginButton: View {
             
             self.showLoginView.toggle()
         } label: {
-            Label("login", systemImage: "arrow.forward.square")
+            
+            HStack {
+                Image(systemName: "arrow.forward.square")
+                Text("login")
+                Spacer()
+                Image(systemName: "chevron.right")
+            }
+            .padding(10)
+            .overlay {
+                RoundedRectangle(cornerRadius: 5.0).stroke(Colors.textColor, lineWidth: 2)
+            }
+            .background(Colors.alertBackgroundColor)
         }
         .foregroundColor(Colors.textColor)
         .fullScreenCover(isPresented: $showLoginView) { LoginView() }

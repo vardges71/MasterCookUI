@@ -114,12 +114,12 @@ struct RegisterButtonView: View {
 
 //  MARK: - PREVIEW
 
-//struct RegisterButtonView_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//
-//        RegisterButtonView()
-//            .previewLayout(.sizeThatFits)
-//            .padding()
-//    }
-//}
+struct RegisterButtonView_Previews: PreviewProvider {
+
+    static var previews: some View {
+
+        RegisterButtonView(email: .constant(""), password: .constant(""), re_password: .constant(""))
+            .previewLayout(.sizeThatFits)
+            .padding()
+    }
+}
