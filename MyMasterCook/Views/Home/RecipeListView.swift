@@ -52,6 +52,7 @@ struct RecipeListView: View {
                         .animation(.default, value: true)
                         .listRowInsets(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 5))
                         .listRowBackground(Color.clear)
+                        .listRowSeparator(.hidden)
                     
                 } //: LIST
                 .scrollContentBackground(.hidden)

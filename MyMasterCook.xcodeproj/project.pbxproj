@@ -27,6 +27,7 @@
 		095D7DCF290A5AD200C174CC /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095D7DCE290A5AD200C174CC /* Recipe.swift */; };
 		095D7DD8290A84F700C174CC /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095D7DD7290A84F700C174CC /* WebService.swift */; };
 		09616CDA2910C2C000154C2C /* RecipeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09616CD92910C2C000154C2C /* RecipeListView.swift */; };
+		096D2C072AA574F100690100 /* FirstVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D2C062AA574F000690100 /* FirstVideoView.swift */; };
 		096F712B2907768800B35636 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F712A2907768800B35636 /* User.swift */; };
 		09815CB2291DB6C50081C63F /* LoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09815CB1291DB6C50081C63F /* LoginButtonView.swift */; };
 		09815CB6291E27DD0081C63F /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09815CB5291E27DD0081C63F /* Ingredient.swift */; };
@@ -102,6 +103,7 @@
 		095D7DCE290A5AD200C174CC /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		095D7DD7290A84F700C174CC /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		09616CD92910C2C000154C2C /* RecipeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListView.swift; sourceTree = "<group>"; };
+		096D2C062AA574F000690100 /* FirstVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVideoView.swift; sourceTree = "<group>"; };
 		096F712A2907768800B35636 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		09815CB1291DB6C50081C63F /* LoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonView.swift; sourceTree = "<group>"; };
 		09815CB5291E27DD0081C63F /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			children = (
 				0907AE62294EDC6400B372BC /* Info.plist */,
 				095934AE2901BE9600BF3A98 /* MyMasterCookApp.swift */,
+				096D2C062AA574F000690100 /* FirstVideoView.swift */,
 				09E1979A290BAD0400D8F881 /* testing.json */,
 				09F7B5C62905DB0700624256 /* AppDelegate.swift */,
 				09F5B5EA2907CBD100AC434B /* SecondaryTabView.swift */,
@@ -474,6 +477,7 @@
 				09DC13FC296F53BC00C42627 /* ActivityIndicator.swift in Sources */,
 				095934BD2901CBDA00BF3A98 /* Styles.swift in Sources */,
 				09D676822903C7CE00F6BE4F /* AboutView.swift in Sources */,
+				096D2C072AA574F100690100 /* FirstVideoView.swift in Sources */,
 				09183378296C734B00C57886 /* RecipeListViewModel.swift in Sources */,
 				095D7DCF290A5AD200C174CC /* Recipe.swift in Sources */,
 				095934C429021A4300BF3A98 /* Colors.swift in Sources */,
@@ -656,17 +660,18 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyMasterCook/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = D2C435SLPG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyMasterCook/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -674,7 +679,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.1;
+				MARKETING_VERSION = 4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.vgstudio.MasterCook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -696,17 +701,18 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyMasterCook/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = D2C435SLPG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyMasterCook/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -714,7 +720,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.1;
+				MARKETING_VERSION = 4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.vgstudio.MasterCook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

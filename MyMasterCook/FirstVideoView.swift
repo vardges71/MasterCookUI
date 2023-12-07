@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct FirstVideoView: View {
+    
+    var backImageName = "backYellow"
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+        ZStack {
+            fullBackground(imageName: backImageName)
+            VStack {
+                
+            }
+        }
     }
 }
 

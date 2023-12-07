@@ -17,6 +17,10 @@ struct SearchBtnView: View {
     
     @State private var showAlert = false
     
+    let errorSentence = """
+Please enter ingredient or cuisine and tap "+", to add in search list
+"""
+    
     //    MARK: - BODY
     
     var body: some View {
@@ -37,7 +41,7 @@ struct SearchBtnView: View {
                     RoundedRectangle(cornerRadius: 5.0).stroke(.white, lineWidth: 2)
                 )
         }
-        .alert(isPresented: self.$showAlert) { Alert(title: Text(" "), message: Text("Please enter ingredient or cuisine"), dismissButton: .default(Text("OK"))) }
+        .alert(isPresented: self.$showAlert) { Alert(title: Text(" "), message: Text("\(errorSentence)"), dismissButton: .default(Text("OK"))) }
     }
     
     func ifIngredientIsEmpty() {

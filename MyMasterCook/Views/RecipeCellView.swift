@@ -23,6 +23,7 @@ struct RecipeCellView: View {
                     Rectangle()
                         .stroke(Color.accentColor, lineWidth: 1)
                         .frame(width: thumbnailWidth + 1, height: thumbnailWidth + 1)
+                        
                     AsyncImage(
                         url: URL(string: recipe.thumbnail_url),
                         content: { image in

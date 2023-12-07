@@ -21,7 +21,7 @@ struct SettingPrivacyButton: View {
                 
                 HStack {
                     Image(systemName: "exclamationmark.square")
-                    Text("privacypolicy")
+                    Text("privacy policy")
                     Spacer()
                     Image(systemName: "chevron.right")
                 }

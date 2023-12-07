@@ -62,7 +62,7 @@ class WebService {
                         
                         for result in results {
                             
-                            var oneRecipe = Recipe(id: "",
+                            let oneRecipe = Recipe(id: "",
                                                    name: "",
                                                    thumbnail_url: "",
                                                    video_url: "",
@@ -136,11 +136,11 @@ class WebService {
                             self.recipeData.append(oneRecipe)
                         }
                         
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                        DispatchQueue.main.async {
                             
                             let delegateRecipes: UploadRecipesDelegate? = recipeListVM
                             delegateRecipes?.uploadRecipes(self.recipeData)
-                        })
+                        }
                     }
                 }
                 catch {
@@ -171,7 +171,7 @@ class WebService {
                 
                 guard let snapChildren = snapshot.value as? [String: Any] else { return }
                 
-                var favRecipe = Recipe(id: "",
+                let favRecipe = Recipe(id: "",
                                        name: "",
                                        thumbnail_url: "",
                                        video_url: "",
