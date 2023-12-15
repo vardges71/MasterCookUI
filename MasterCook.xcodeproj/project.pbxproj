@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0982A3A72B2BC1E000D870D2 /* RePasswordTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3A62B2BC1E000D870D2 /* RePasswordTextFieldView.swift */; };
+		0982A3AB2B2C0F5200D870D2 /* ForgotButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3AA2B2C0F5200D870D2 /* ForgotButtonView.swift */; };
 		09F244B52B27A6AE00A1F3C8 /* MasterCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F244B42B27A6AE00A1F3C8 /* MasterCookApp.swift */; };
 		09F244B72B27A6AE00A1F3C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F244B62B27A6AE00A1F3C8 /* ContentView.swift */; };
 		09F244B92B27A6B100A1F3C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09F244B82B27A6B100A1F3C8 /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0982A3A62B2BC1E000D870D2 /* RePasswordTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RePasswordTextFieldView.swift; sourceTree = "<group>"; };
+		0982A3AA2B2C0F5200D870D2 /* ForgotButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotButtonView.swift; sourceTree = "<group>"; };
 		09F244B12B27A6AE00A1F3C8 /* MasterCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MasterCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F244B42B27A6AE00A1F3C8 /* MasterCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterCookApp.swift; sourceTree = "<group>"; };
 		09F244B62B27A6AE00A1F3C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				09F9CE452B2AEF2500CD8772 /* PasswordTextFieldView.swift */,
 				09F9CE472B2B0E9800CD8772 /* LoginButtonView.swift */,
 				09F9CE492B2B11C500CD8772 /* GuestButtonView.swift */,
+				0982A3A62B2BC1E000D870D2 /* RePasswordTextFieldView.swift */,
+				0982A3AA2B2C0F5200D870D2 /* ForgotButtonView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -252,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09F244F12B2AC3BD00A1F3C8 /* AuthServices.swift in Sources */,
+				0982A3AB2B2C0F5200D870D2 /* ForgotButtonView.swift in Sources */,
 				09F244B72B27A6AE00A1F3C8 /* ContentView.swift in Sources */,
 				09F9CE3B2B2ADABC00CD8772 /* LoginView.swift in Sources */,
 				09F9CE422B2AE9B500CD8772 /* Styles.swift in Sources */,
@@ -261,6 +268,7 @@
 				09F9CE442B2AEF0800CD8772 /* EmailTextFieldView.swift in Sources */,
 				09F244B52B27A6AE00A1F3C8 /* MasterCookApp.swift in Sources */,
 				09F9CE4A2B2B11C500CD8772 /* GuestButtonView.swift in Sources */,
+				0982A3A72B2BC1E000D870D2 /* RePasswordTextFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

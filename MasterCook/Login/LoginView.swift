@@ -13,9 +13,13 @@ struct LoginView: View {
     
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var re_password: String = ""
     
-    @State private var showingAlert = false
+    @State private var showLoginAlert = false
+    @State private var isShowRegAlert = false
     @State private var errorDescription: String = ""
+    
+    @State private var isShowReg = false
     
     var body: some View {
         ZStack {
@@ -30,15 +34,41 @@ struct LoginView: View {
                 VStack(spacing: 20) {
                     EmailTextFieldView(email: $email)
                     PasswordTextFieldView(password: $password)
-                    LoginButtonView(label: "login") {
+                    if isShowReg {
+                        RePasswordTextFieldView(re_password: $re_password)
+                    }
+                    LoginButtonView(label: isShowReg ? "sign up" : "login") {
                         authenticate()
+                        if isShowReg {
+                            validateFields()
+                        }
                     }
                     GuestButtonView(label: "continue as guest") {
                         print("Guest button tapped!!!")
                     }
+                    HStack {
+                        Button(isShowReg ? "back to login" : "register") {
+                            
+                            isShowReg.toggle()
+                        }
+                        Spacer()
+                        Button("forgot password?") {
+                            forgotButtonTapped()
+                        }
+                    } .foregroundStyle(Color("textColor"))
                 } .padding(40)
             }
-            .alert(isPresented: self.$showingAlert) { Alert(title: Text("Error..."), message: Text("\(errorDescription)"), dismissButton: .default(Text("OK"))) }
+        }
+        .alert(isPresented: self.$showLoginAlert) { Alert(title: Text("Error..."), message: Text(isShowRegAlert ? "Please enter the same password in the \"password\" and \"confirm password\" fields" : "\(errorDescription)"), dismissButton: .default(Text("OK"))) }
+    }
+    
+    func validateFields() {
+        
+        if password != re_password {
+
+            isShowRegAlert = true
+        } else {
+            isShowRegAlert = false
         }
     }
     
@@ -46,11 +76,32 @@ struct LoginView: View {
         
         Task {
             do {
-                try await authServices.login(email: email, password: password)
+                if isShowReg {
+                    if isShowRegAlert {
+                        showLoginAlert.toggle()
+                    } else {
+                        try await authServices.signUp(email, password: password)
+                    }
+                } else {
+                    try await authServices.login(email: email, password: password)
+                }
             } catch {
                 print(error.localizedDescription)
                 errorDescription = error.localizedDescription
-                showingAlert.toggle()
+                showLoginAlert.toggle()
+            }
+        }
+    }
+    
+    func forgotButtonTapped() {
+        
+        Task {
+            do {
+                try await authServices.forgotPassword(email: email)
+            } catch {
+                print(error.localizedDescription)
+                errorDescription = error.localizedDescription
+                showLoginAlert.toggle()
             }
         }
     }

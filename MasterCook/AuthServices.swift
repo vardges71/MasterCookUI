@@ -39,6 +39,20 @@ class AuthServices: ObservableObject {
         }
     }
     
+    func signUp(_ email: String, password: String) async throws {
+        
+        try await Auth.auth().createUser(withEmail: email, password: password)
+        guard uid != "" else { return }
+        try createProfile(email: email)
+    }
+    
+    func createProfile(email: String) throws {
+        
+        let reference: DatabaseReference!
+        reference = Database.database().reference(withPath: "users").child(uid).child("credentials")
+        reference.setValue(["email" : email])
+    }
+    
     func login(email: String, password: String) async throws {
         try await Auth.auth().signIn(withEmail: email, password: password)
     }
@@ -65,5 +79,10 @@ class AuthServices: ObservableObject {
                 print("USER DELETED")
             }
         }
+    }
+    
+    func forgotPassword(email: String) async throws {
+        
+        try await Auth.auth().sendPasswordReset(withEmail: email)
     }
 }

@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct RePasswordTextFieldView: View {
+    
+    @Binding var re_password: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            SecureField("", text: $re_password, prompt: Text("confirm password:").foregroundStyle(Color("phTextColor")))
+                .modifier(TextFieldModifier())
+                .keyboardType(.default)
+                .textContentType(.password)
+                .textInputAutocapitalization(.never)
+            Divider()
+        }
     }
 }
 
-#Preview {
-    RePasswordTextFieldView()
-}
+//#Preview {
+//    RePasswordTextFieldView()
+//}
