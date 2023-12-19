@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject private var authServices: AuthServices
-    
     var body: some View {
         MainTabView()
     }
