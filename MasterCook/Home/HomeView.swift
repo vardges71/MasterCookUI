@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @Binding var tabSelection: Int
+    let title = "My MasterCook"
+    
     var body: some View {
-        Text("HOME")
+        
+        NavigationStack {
+            
+            ZStack {
+                fullBackground(imageName: "backYellow")
+                VStack{
+                    Text("HOME")
+                }
+            }
+            .navigationTitle(title)
+        }
     }
 }
 
+/*
 #Preview {
+    
     HomeView()
 }
+*/

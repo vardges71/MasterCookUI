@@ -20,6 +20,7 @@ struct LoginView: View {
     @State private var errorDescription: String = ""
     
     @State private var isShowReg = false
+    @State private var isShowMainTab = false
     
     var body: some View {
         ZStack {
@@ -45,7 +46,9 @@ struct LoginView: View {
                     }
                     GuestButtonView(label: "continue as guest") {
                         print("Guest button tapped!!!")
+                        isShowMainTab.toggle()
                     }
+
                     HStack {
                         Button(isShowReg ? "back to login" : "register") {
                             
@@ -59,6 +62,7 @@ struct LoginView: View {
                 } .padding(40)
             }
         }
+        .fullScreenCover(isPresented: $isShowMainTab) { MainTabView() }
         .alert(isPresented: self.$showLoginAlert) { Alert(title: Text("Error..."), message: Text(isShowRegAlert ? "Please enter the same password in the \"password\" and \"confirm password\" fields" : "\(errorDescription)"), dismissButton: .default(Text("OK"))) }
     }
     

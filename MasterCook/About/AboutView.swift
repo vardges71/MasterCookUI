@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct AboutView: View {
+    
+    let title = "About"
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            fullBackground(imageName: "backYellow")
+            VStack(spacing: 0) {
+                AboutHeaderView()
+                Divider()
+                AboutTextView()
+            }
+        }
+        .navigationTitle(title)
+        .navigationBarTitleTextColor(Color.accentColor)
     }
 }
 

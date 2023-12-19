@@ -8,7 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		0982A3A72B2BC1E000D870D2 /* RePasswordTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3A62B2BC1E000D870D2 /* RePasswordTextFieldView.swift */; };
-		0982A3AB2B2C0F5200D870D2 /* ForgotButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3AA2B2C0F5200D870D2 /* ForgotButtonView.swift */; };
+		0982A3CB2B30297200D870D2 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3CA2B30297200D870D2 /* MainTabView.swift */; };
+		0982A3CD2B302A6D00D870D2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3CC2B302A6D00D870D2 /* HomeView.swift */; };
+		0982A3CF2B302A9200D870D2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3CE2B302A9200D870D2 /* SearchView.swift */; };
+		0982A3D12B302AA600D870D2 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3D02B302AA600D870D2 /* FavoritesView.swift */; };
+		0982A3D32B302ABB00D870D2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3D22B302ABB00D870D2 /* SettingsView.swift */; };
+		0982A3DB2B3046A800D870D2 /* LogOutButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3DA2B3046A800D870D2 /* LogOutButtonView.swift */; };
+		0982A3DF2B31671400D870D2 /* SettingLoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3DE2B31671400D870D2 /* SettingLoginButtonView.swift */; };
+		0982A3E12B316DF500D870D2 /* DeleteAccountButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3E02B316DF500D870D2 /* DeleteAccountButtonView.swift */; };
+		0982A3E32B3174CF00D870D2 /* AboutButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3E22B3174CF00D870D2 /* AboutButtonView.swift */; };
+		0982A3E52B31754B00D870D2 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3E42B31754B00D870D2 /* AboutView.swift */; };
+		0982A3E82B3175EB00D870D2 /* PrivacyPolicyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3E72B3175EB00D870D2 /* PrivacyPolicyButtonView.swift */; };
+		0982A3EA2B31762200D870D2 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3E92B31762200D870D2 /* PrivacyView.swift */; };
+		0982A3ED2B31772500D870D2 /* PrivacyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3EC2B31772500D870D2 /* PrivacyViewModel.swift */; };
+		0982A3EF2B3178D800D870D2 /* About_MyMasterCook.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0982A3EE2B3178D800D870D2 /* About_MyMasterCook.txt */; };
+		0982A3F12B31793200D870D2 /* AboutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3F02B31793200D870D2 /* AboutHeaderView.swift */; };
+		0982A3F32B3179DE00D870D2 /* AboutTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3F22B3179DE00D870D2 /* AboutTextView.swift */; };
+		0982A3F52B317A8B00D870D2 /* LoadAboutText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3F42B317A8B00D870D2 /* LoadAboutText.swift */; };
 		09F244B52B27A6AE00A1F3C8 /* MasterCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F244B42B27A6AE00A1F3C8 /* MasterCookApp.swift */; };
 		09F244B72B27A6AE00A1F3C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F244B62B27A6AE00A1F3C8 /* ContentView.swift */; };
 		09F244B92B27A6B100A1F3C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09F244B82B27A6B100A1F3C8 /* Assets.xcassets */; };
@@ -47,7 +63,23 @@
 
 /* Begin PBXFileReference section */
 		0982A3A62B2BC1E000D870D2 /* RePasswordTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RePasswordTextFieldView.swift; sourceTree = "<group>"; };
-		0982A3AA2B2C0F5200D870D2 /* ForgotButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotButtonView.swift; sourceTree = "<group>"; };
+		0982A3CA2B30297200D870D2 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		0982A3CC2B302A6D00D870D2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0982A3CE2B302A9200D870D2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		0982A3D02B302AA600D870D2 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		0982A3D22B302ABB00D870D2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0982A3DA2B3046A800D870D2 /* LogOutButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutButtonView.swift; sourceTree = "<group>"; };
+		0982A3DE2B31671400D870D2 /* SettingLoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingLoginButtonView.swift; sourceTree = "<group>"; };
+		0982A3E02B316DF500D870D2 /* DeleteAccountButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountButtonView.swift; sourceTree = "<group>"; };
+		0982A3E22B3174CF00D870D2 /* AboutButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutButtonView.swift; sourceTree = "<group>"; };
+		0982A3E42B31754B00D870D2 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		0982A3E72B3175EB00D870D2 /* PrivacyPolicyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyButtonView.swift; sourceTree = "<group>"; };
+		0982A3E92B31762200D870D2 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
+		0982A3EC2B31772500D870D2 /* PrivacyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewModel.swift; sourceTree = "<group>"; };
+		0982A3EE2B3178D800D870D2 /* About_MyMasterCook.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = About_MyMasterCook.txt; sourceTree = "<group>"; };
+		0982A3F02B31793200D870D2 /* AboutHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutHeaderView.swift; sourceTree = "<group>"; };
+		0982A3F22B3179DE00D870D2 /* AboutTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTextView.swift; sourceTree = "<group>"; };
+		0982A3F42B317A8B00D870D2 /* LoadAboutText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAboutText.swift; sourceTree = "<group>"; };
 		09F244B12B27A6AE00A1F3C8 /* MasterCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MasterCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F244B42B27A6AE00A1F3C8 /* MasterCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterCookApp.swift; sourceTree = "<group>"; };
 		09F244B62B27A6AE00A1F3C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +129,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0982A3D42B302ACC00D870D2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0982A3CC2B302A6D00D870D2 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0982A3D52B302ADA00D870D2 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				0982A3CE2B302A9200D870D2 /* SearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		0982A3D62B302AE600D870D2 /* Favorires */ = {
+			isa = PBXGroup;
+			children = (
+				0982A3D02B302AA600D870D2 /* FavoritesView.swift */,
+			);
+			path = Favorires;
+			sourceTree = "<group>";
+		};
+		0982A3D72B302AF600D870D2 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0982A3D22B302ABB00D870D2 /* SettingsView.swift */,
+				0982A3DA2B3046A800D870D2 /* LogOutButtonView.swift */,
+				0982A3DE2B31671400D870D2 /* SettingLoginButtonView.swift */,
+				0982A3E02B316DF500D870D2 /* DeleteAccountButtonView.swift */,
+				0982A3E22B3174CF00D870D2 /* AboutButtonView.swift */,
+				0982A3E72B3175EB00D870D2 /* PrivacyPolicyButtonView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		0982A3E62B31755300D870D2 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				0982A3E42B31754B00D870D2 /* AboutView.swift */,
+				0982A3F02B31793200D870D2 /* AboutHeaderView.swift */,
+				0982A3F22B3179DE00D870D2 /* AboutTextView.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		0982A3EB2B31762900D870D2 /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				0982A3E92B31762200D870D2 /* PrivacyView.swift */,
+				0982A3EC2B31772500D870D2 /* PrivacyViewModel.swift */,
+			);
+			path = Privacy;
+			sourceTree = "<group>";
+		};
+		0982A3F62B317BA500D870D2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				09F244F02B2AC3BD00A1F3C8 /* AuthServices.swift */,
+				0982A3F42B317A8B00D870D2 /* LoadAboutText.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		09F244A82B27A6AE00A1F3C8 = {
 			isa = PBXGroup;
 			children = (
@@ -118,11 +215,18 @@
 			children = (
 				09F244C22B27AACE00A1F3C8 /* Info.plist */,
 				09F244B42B27A6AE00A1F3C8 /* MasterCookApp.swift */,
-				09F244F02B2AC3BD00A1F3C8 /* AuthServices.swift */,
 				09F244B62B27A6AE00A1F3C8 /* ContentView.swift */,
+				09F9CE3C2B2ADBD300CD8772 /* MainView.swift */,
+				0982A3CA2B30297200D870D2 /* MainTabView.swift */,
 				09F9CE402B2AE97400CD8772 /* Utility */,
 				09F9CE3E2B2AE59400CD8772 /* Login */,
-				09F9CE3C2B2ADBD300CD8772 /* MainView.swift */,
+				0982A3D42B302ACC00D870D2 /* Home */,
+				0982A3D52B302ADA00D870D2 /* Search */,
+				0982A3D62B302AE600D870D2 /* Favorires */,
+				0982A3D72B302AF600D870D2 /* Settings */,
+				0982A3EB2B31762900D870D2 /* Privacy */,
+				0982A3E62B31755300D870D2 /* About */,
+				0982A3F62B317BA500D870D2 /* Services */,
 				09F244B82B27A6B100A1F3C8 /* Assets.xcassets */,
 				09F244C32B27AC9C00A1F3C8 /* GoogleService-Info.plist */,
 				09F244BA2B27A6B100A1F3C8 /* Preview Content */,
@@ -147,7 +251,6 @@
 				09F9CE472B2B0E9800CD8772 /* LoginButtonView.swift */,
 				09F9CE492B2B11C500CD8772 /* GuestButtonView.swift */,
 				0982A3A62B2BC1E000D870D2 /* RePasswordTextFieldView.swift */,
-				0982A3AA2B2C0F5200D870D2 /* ForgotButtonView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -155,6 +258,7 @@
 		09F9CE402B2AE97400CD8772 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				0982A3EE2B3178D800D870D2 /* About_MyMasterCook.txt */,
 				09F9CE412B2AE9B500CD8772 /* Styles.swift */,
 			);
 			path = Utility;
@@ -244,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0982A3EF2B3178D800D870D2 /* About_MyMasterCook.txt in Resources */,
 				09F244BC2B27A6B100A1F3C8 /* Preview Assets.xcassets in Resources */,
 				09F244B92B27A6B100A1F3C8 /* Assets.xcassets in Resources */,
 				09F244C42B27AC9C00A1F3C8 /* GoogleService-Info.plist in Resources */,
@@ -258,17 +363,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				09F244F12B2AC3BD00A1F3C8 /* AuthServices.swift in Sources */,
-				0982A3AB2B2C0F5200D870D2 /* ForgotButtonView.swift in Sources */,
+				0982A3E52B31754B00D870D2 /* AboutView.swift in Sources */,
 				09F244B72B27A6AE00A1F3C8 /* ContentView.swift in Sources */,
+				0982A3CD2B302A6D00D870D2 /* HomeView.swift in Sources */,
 				09F9CE3B2B2ADABC00CD8772 /* LoginView.swift in Sources */,
+				0982A3E12B316DF500D870D2 /* DeleteAccountButtonView.swift in Sources */,
 				09F9CE422B2AE9B500CD8772 /* Styles.swift in Sources */,
+				0982A3E32B3174CF00D870D2 /* AboutButtonView.swift in Sources */,
+				0982A3D12B302AA600D870D2 /* FavoritesView.swift in Sources */,
+				0982A3DB2B3046A800D870D2 /* LogOutButtonView.swift in Sources */,
 				09F9CE482B2B0E9800CD8772 /* LoginButtonView.swift in Sources */,
+				0982A3ED2B31772500D870D2 /* PrivacyViewModel.swift in Sources */,
+				0982A3EA2B31762200D870D2 /* PrivacyView.swift in Sources */,
+				0982A3F32B3179DE00D870D2 /* AboutTextView.swift in Sources */,
+				0982A3F12B31793200D870D2 /* AboutHeaderView.swift in Sources */,
 				09F9CE3D2B2ADBD300CD8772 /* MainView.swift in Sources */,
 				09F9CE462B2AEF2500CD8772 /* PasswordTextFieldView.swift in Sources */,
+				0982A3D32B302ABB00D870D2 /* SettingsView.swift in Sources */,
+				0982A3DF2B31671400D870D2 /* SettingLoginButtonView.swift in Sources */,
 				09F9CE442B2AEF0800CD8772 /* EmailTextFieldView.swift in Sources */,
 				09F244B52B27A6AE00A1F3C8 /* MasterCookApp.swift in Sources */,
+				0982A3E82B3175EB00D870D2 /* PrivacyPolicyButtonView.swift in Sources */,
+				0982A3F52B317A8B00D870D2 /* LoadAboutText.swift in Sources */,
+				0982A3CF2B302A9200D870D2 /* SearchView.swift in Sources */,
 				09F9CE4A2B2B11C500CD8772 /* GuestButtonView.swift in Sources */,
 				0982A3A72B2BC1E000D870D2 /* RePasswordTextFieldView.swift in Sources */,
+				0982A3CB2B30297200D870D2 /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

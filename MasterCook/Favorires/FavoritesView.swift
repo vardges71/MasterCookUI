@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct FavoritesView: View {
+    
+    @Binding var tabSelection: Int
+    let title = "Favorites"
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            
+            ZStack {
+                fullBackground(imageName: "backYellow")
+                VStack{
+                    Text("HOME")
+                }
+            }
+            .navigationTitle(title)
+        }
     }
 }
 
+/*
 #Preview {
     FavoritesView()
 }
+*/
