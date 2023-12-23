@@ -10,6 +10,8 @@ import SwiftUI
 struct MainTabView: View {
     
     @EnvironmentObject private var authServices: AuthServices
+    @EnvironmentObject private var recipe: Recipe
+    @EnvironmentObject private var webServices: WebServices
     
     @State private var tabSelected = 1
     @State private var homeBadgeValue: Int?
@@ -24,9 +26,9 @@ struct MainTabView: View {
                     Label("home", systemImage: tabSelected == 0 ? "house.fill" : "house") .environment(\.symbolVariants, .none)
                     
                 } .tag(0)
-//                .onChange(of: $recipeVM.recipeArray.count, perform: { newValue in
-//                    homeBadgeValue = newValue
-//                })
+                .onChange(of: webServices.recipeArray.count, { oldValue, newValue in
+                    homeBadgeValue = newValue
+                })
                 .badge ( homeBadgeValue ?? 0 )
             
             SearchView(tabSelection: $tabSelected)
