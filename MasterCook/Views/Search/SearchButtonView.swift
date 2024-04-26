@@ -25,6 +25,7 @@ Please enter ingredient or cuisine and tap "+", to add in search list
             
             ifIngredientIsEmpty()
             webServices.recipeArray.removeAll()
+            webServices.recipeDataEmpty = false
             
         } label: {
             

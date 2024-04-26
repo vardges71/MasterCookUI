@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0970E38F2B32A32800DE8374 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E38E2B32A32800DE8374 /* WebServices.swift */; };
+		0970E3912B32A52700DE8374 /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E3902B32A52700DE8374 /* SearchListView.swift */; };
+		0970E3932B32A54300DE8374 /* SearchTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E3922B32A54300DE8374 /* SearchTextFieldView.swift */; };
+		0970E3952B32A56100DE8374 /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E3942B32A56100DE8374 /* AddButtonView.swift */; };
+		0970E3972B32A57800DE8374 /* SearchButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E3962B32A57800DE8374 /* SearchButtonView.swift */; };
+		0970E3992B32A59400DE8374 /* ClearButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E3982B32A59400DE8374 /* ClearButtonView.swift */; };
+		0970E39B2B32B78500DE8374 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E39A2B32B78500DE8374 /* Recipe.swift */; };
+		0970E39D2B33D8B600DE8374 /* HomeRecipeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E39C2B33D8B600DE8374 /* HomeRecipeListView.swift */; };
+		0970E39F2B33D8EC00DE8374 /* testing.json in Resources */ = {isa = PBXBuildFile; fileRef = 0970E39E2B33D8EB00DE8374 /* testing.json */; };
+		0970E3A12B34152C00DE8374 /* SingleRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E3A02B34152C00DE8374 /* SingleRecipeView.swift */; };
+		0970E3A52B3415EB00DE8374 /* RecipeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E3A42B3415EB00DE8374 /* RecipeCellView.swift */; };
+		0970E3AA2B36D03C00DE8374 /* NutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E3A92B36D03C00DE8374 /* NutritionView.swift */; };
+		0970E3AC2B36D05B00DE8374 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E3AB2B36D05B00DE8374 /* DescriptionView.swift */; };
+		0970E3AE2B36D6DA00DE8374 /* SingleRecipeToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E3AD2B36D6DA00DE8374 /* SingleRecipeToolBar.swift */; };
+		0970E3B02B36D70C00DE8374 /* ToolBarPlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E3AF2B36D70C00DE8374 /* ToolBarPlayButton.swift */; };
+		0970E3B22B36D7B600DE8374 /* RecipeVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E3B12B36D7B600DE8374 /* RecipeVideoPlayerView.swift */; };
+		0970E3BA2B36E2DA00DE8374 /* ToolBarPrintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E3B92B36E2DA00DE8374 /* ToolBarPrintButton.swift */; };
+		0970E3BC2B36E37700DE8374 /* ToolBarFavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E3BB2B36E37700DE8374 /* ToolBarFavoriteButton.swift */; };
+		0970E3BE2B36FFCC00DE8374 /* FavoritesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E3BD2B36FFCC00DE8374 /* FavoritesListView.swift */; };
+		0970E3C02B37FF1F00DE8374 /* LoginViewAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970E3BF2B37FF1F00DE8374 /* LoginViewAlerts.swift */; };
 		0982A3A72B2BC1E000D870D2 /* RePasswordTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3A62B2BC1E000D870D2 /* RePasswordTextFieldView.swift */; };
 		0982A3CB2B30297200D870D2 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3CA2B30297200D870D2 /* MainTabView.swift */; };
 		0982A3CD2B302A6D00D870D2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982A3CC2B302A6D00D870D2 /* HomeView.swift */; };
@@ -62,6 +82,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0970E38E2B32A32800DE8374 /* WebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
+		0970E3902B32A52700DE8374 /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
+		0970E3922B32A54300DE8374 /* SearchTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextFieldView.swift; sourceTree = "<group>"; };
+		0970E3942B32A56100DE8374 /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
+		0970E3962B32A57800DE8374 /* SearchButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchButtonView.swift; sourceTree = "<group>"; };
+		0970E3982B32A59400DE8374 /* ClearButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButtonView.swift; sourceTree = "<group>"; };
+		0970E39A2B32B78500DE8374 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		0970E39C2B33D8B600DE8374 /* HomeRecipeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecipeListView.swift; sourceTree = "<group>"; };
+		0970E39E2B33D8EB00DE8374 /* testing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testing.json; sourceTree = "<group>"; };
+		0970E3A02B34152C00DE8374 /* SingleRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRecipeView.swift; sourceTree = "<group>"; };
+		0970E3A42B3415EB00DE8374 /* RecipeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellView.swift; sourceTree = "<group>"; };
+		0970E3A92B36D03C00DE8374 /* NutritionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionView.swift; sourceTree = "<group>"; };
+		0970E3AB2B36D05B00DE8374 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		0970E3AD2B36D6DA00DE8374 /* SingleRecipeToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRecipeToolBar.swift; sourceTree = "<group>"; };
+		0970E3AF2B36D70C00DE8374 /* ToolBarPlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarPlayButton.swift; sourceTree = "<group>"; };
+		0970E3B12B36D7B600DE8374 /* RecipeVideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVideoPlayerView.swift; sourceTree = "<group>"; };
+		0970E3B92B36E2DA00DE8374 /* ToolBarPrintButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarPrintButton.swift; sourceTree = "<group>"; };
+		0970E3BB2B36E37700DE8374 /* ToolBarFavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarFavoriteButton.swift; sourceTree = "<group>"; };
+		0970E3BD2B36FFCC00DE8374 /* FavoritesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListView.swift; sourceTree = "<group>"; };
+		0970E3BF2B37FF1F00DE8374 /* LoginViewAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewAlerts.swift; sourceTree = "<group>"; };
 		0982A3A62B2BC1E000D870D2 /* RePasswordTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RePasswordTextFieldView.swift; sourceTree = "<group>"; };
 		0982A3CA2B30297200D870D2 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		0982A3CC2B302A6D00D870D2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -129,10 +169,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0970E3A22B34153200DE8374 /* SingleRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				0970E3A02B34152C00DE8374 /* SingleRecipeView.swift */,
+				0970E3A92B36D03C00DE8374 /* NutritionView.swift */,
+				0970E3AB2B36D05B00DE8374 /* DescriptionView.swift */,
+				0970E3AD2B36D6DA00DE8374 /* SingleRecipeToolBar.swift */,
+				0970E3AF2B36D70C00DE8374 /* ToolBarPlayButton.swift */,
+				0970E3B12B36D7B600DE8374 /* RecipeVideoPlayerView.swift */,
+				0970E3B92B36E2DA00DE8374 /* ToolBarPrintButton.swift */,
+				0970E3BB2B36E37700DE8374 /* ToolBarFavoriteButton.swift */,
+			);
+			path = SingleRecipe;
+			sourceTree = "<group>";
+		};
+		0970E3A32B3415A900DE8374 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				09F244B62B27A6AE00A1F3C8 /* ContentView.swift */,
+				09F9CE3C2B2ADBD300CD8772 /* MainView.swift */,
+				0982A3CA2B30297200D870D2 /* MainTabView.swift */,
+				0970E3A42B3415EB00DE8374 /* RecipeCellView.swift */,
+				0970E3A22B34153200DE8374 /* SingleRecipe */,
+				09F9CE3E2B2AE59400CD8772 /* Login */,
+				0982A3D42B302ACC00D870D2 /* Home */,
+				0982A3D52B302ADA00D870D2 /* Search */,
+				0982A3D62B302AE600D870D2 /* Favorires */,
+				0982A3D72B302AF600D870D2 /* Settings */,
+				0982A3EB2B31762900D870D2 /* Privacy */,
+				0982A3E62B31755300D870D2 /* About */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0970E3A62B34160300DE8374 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0970E39A2B32B78500DE8374 /* Recipe.swift */,
+				0970E3BF2B37FF1F00DE8374 /* LoginViewAlerts.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0970E3B32B36DEC800DE8374 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0982A3D42B302ACC00D870D2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				0982A3CC2B302A6D00D870D2 /* HomeView.swift */,
+				0970E39C2B33D8B600DE8374 /* HomeRecipeListView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -141,6 +232,11 @@
 			isa = PBXGroup;
 			children = (
 				0982A3CE2B302A9200D870D2 /* SearchView.swift */,
+				0970E3902B32A52700DE8374 /* SearchListView.swift */,
+				0970E3922B32A54300DE8374 /* SearchTextFieldView.swift */,
+				0970E3942B32A56100DE8374 /* AddButtonView.swift */,
+				0970E3962B32A57800DE8374 /* SearchButtonView.swift */,
+				0970E3982B32A59400DE8374 /* ClearButtonView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -149,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				0982A3D02B302AA600D870D2 /* FavoritesView.swift */,
+				0970E3BD2B36FFCC00DE8374 /* FavoritesListView.swift */,
 			);
 			path = Favorires;
 			sourceTree = "<group>";
@@ -190,6 +287,7 @@
 			children = (
 				09F244F02B2AC3BD00A1F3C8 /* AuthServices.swift */,
 				0982A3F42B317A8B00D870D2 /* LoadAboutText.swift */,
+				0970E38E2B32A32800DE8374 /* WebServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -199,6 +297,7 @@
 			children = (
 				09F244B32B27A6AE00A1F3C8 /* MasterCook */,
 				09F244B22B27A6AE00A1F3C8 /* Products */,
+				0970E3B32B36DEC800DE8374 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,18 +313,11 @@
 			isa = PBXGroup;
 			children = (
 				09F244C22B27AACE00A1F3C8 /* Info.plist */,
+				0970E39E2B33D8EB00DE8374 /* testing.json */,
 				09F244B42B27A6AE00A1F3C8 /* MasterCookApp.swift */,
-				09F244B62B27A6AE00A1F3C8 /* ContentView.swift */,
-				09F9CE3C2B2ADBD300CD8772 /* MainView.swift */,
-				0982A3CA2B30297200D870D2 /* MainTabView.swift */,
+				0970E3A32B3415A900DE8374 /* Views */,
+				0970E3A62B34160300DE8374 /* Model */,
 				09F9CE402B2AE97400CD8772 /* Utility */,
-				09F9CE3E2B2AE59400CD8772 /* Login */,
-				0982A3D42B302ACC00D870D2 /* Home */,
-				0982A3D52B302ADA00D870D2 /* Search */,
-				0982A3D62B302AE600D870D2 /* Favorires */,
-				0982A3D72B302AF600D870D2 /* Settings */,
-				0982A3EB2B31762900D870D2 /* Privacy */,
-				0982A3E62B31755300D870D2 /* About */,
 				0982A3F62B317BA500D870D2 /* Services */,
 				09F244B82B27A6B100A1F3C8 /* Assets.xcassets */,
 				09F244C32B27AC9C00A1F3C8 /* GoogleService-Info.plist */,
@@ -350,6 +442,7 @@
 			files = (
 				0982A3EF2B3178D800D870D2 /* About_MyMasterCook.txt in Resources */,
 				09F244BC2B27A6B100A1F3C8 /* Preview Assets.xcassets in Resources */,
+				0970E39F2B33D8EC00DE8374 /* testing.json in Resources */,
 				09F244B92B27A6B100A1F3C8 /* Assets.xcassets in Resources */,
 				09F244C42B27AC9C00A1F3C8 /* GoogleService-Info.plist in Resources */,
 			);
@@ -363,31 +456,50 @@
 			buildActionMask = 2147483647;
 			files = (
 				09F244F12B2AC3BD00A1F3C8 /* AuthServices.swift in Sources */,
+				0970E3B02B36D70C00DE8374 /* ToolBarPlayButton.swift in Sources */,
 				0982A3E52B31754B00D870D2 /* AboutView.swift in Sources */,
+				0970E38F2B32A32800DE8374 /* WebServices.swift in Sources */,
 				09F244B72B27A6AE00A1F3C8 /* ContentView.swift in Sources */,
+				0970E3BE2B36FFCC00DE8374 /* FavoritesListView.swift in Sources */,
+				0970E3BC2B36E37700DE8374 /* ToolBarFavoriteButton.swift in Sources */,
 				0982A3CD2B302A6D00D870D2 /* HomeView.swift in Sources */,
+				0970E39B2B32B78500DE8374 /* Recipe.swift in Sources */,
+				0970E3A12B34152C00DE8374 /* SingleRecipeView.swift in Sources */,
 				09F9CE3B2B2ADABC00CD8772 /* LoginView.swift in Sources */,
 				0982A3E12B316DF500D870D2 /* DeleteAccountButtonView.swift in Sources */,
+				0970E3BA2B36E2DA00DE8374 /* ToolBarPrintButton.swift in Sources */,
+				0970E3AE2B36D6DA00DE8374 /* SingleRecipeToolBar.swift in Sources */,
 				09F9CE422B2AE9B500CD8772 /* Styles.swift in Sources */,
 				0982A3E32B3174CF00D870D2 /* AboutButtonView.swift in Sources */,
 				0982A3D12B302AA600D870D2 /* FavoritesView.swift in Sources */,
 				0982A3DB2B3046A800D870D2 /* LogOutButtonView.swift in Sources */,
+				0970E3992B32A59400DE8374 /* ClearButtonView.swift in Sources */,
 				09F9CE482B2B0E9800CD8772 /* LoginButtonView.swift in Sources */,
+				0970E3AC2B36D05B00DE8374 /* DescriptionView.swift in Sources */,
 				0982A3ED2B31772500D870D2 /* PrivacyViewModel.swift in Sources */,
 				0982A3EA2B31762200D870D2 /* PrivacyView.swift in Sources */,
 				0982A3F32B3179DE00D870D2 /* AboutTextView.swift in Sources */,
 				0982A3F12B31793200D870D2 /* AboutHeaderView.swift in Sources */,
 				09F9CE3D2B2ADBD300CD8772 /* MainView.swift in Sources */,
+				0970E3952B32A56100DE8374 /* AddButtonView.swift in Sources */,
+				0970E3C02B37FF1F00DE8374 /* LoginViewAlerts.swift in Sources */,
 				09F9CE462B2AEF2500CD8772 /* PasswordTextFieldView.swift in Sources */,
 				0982A3D32B302ABB00D870D2 /* SettingsView.swift in Sources */,
 				0982A3DF2B31671400D870D2 /* SettingLoginButtonView.swift in Sources */,
 				09F9CE442B2AEF0800CD8772 /* EmailTextFieldView.swift in Sources */,
 				09F244B52B27A6AE00A1F3C8 /* MasterCookApp.swift in Sources */,
 				0982A3E82B3175EB00D870D2 /* PrivacyPolicyButtonView.swift in Sources */,
+				0970E3A52B3415EB00DE8374 /* RecipeCellView.swift in Sources */,
 				0982A3F52B317A8B00D870D2 /* LoadAboutText.swift in Sources */,
 				0982A3CF2B302A9200D870D2 /* SearchView.swift in Sources */,
+				0970E3B22B36D7B600DE8374 /* RecipeVideoPlayerView.swift in Sources */,
 				09F9CE4A2B2B11C500CD8772 /* GuestButtonView.swift in Sources */,
+				0970E3932B32A54300DE8374 /* SearchTextFieldView.swift in Sources */,
+				0970E3912B32A52700DE8374 /* SearchListView.swift in Sources */,
+				0970E3AA2B36D03C00DE8374 /* NutritionView.swift in Sources */,
 				0982A3A72B2BC1E000D870D2 /* RePasswordTextFieldView.swift in Sources */,
+				0970E39D2B33D8B600DE8374 /* HomeRecipeListView.swift in Sources */,
+				0970E3972B32A57800DE8374 /* SearchButtonView.swift in Sources */,
 				0982A3CB2B30297200D870D2 /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,17 +631,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MasterCook/Preview Content\"";
-				DEVELOPMENT_TEAM = D2C435SLPG;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = D2C435SLPG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MasterCook/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -538,6 +655,8 @@
 				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.vgstudio.MasterCook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = MyMasterCookDev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -549,17 +668,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MasterCook/Preview Content\"";
-				DEVELOPMENT_TEAM = D2C435SLPG;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = D2C435SLPG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MasterCook/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -568,6 +692,8 @@
 				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.vgstudio.MasterCook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = MyMasterCookDev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -11,11 +11,14 @@ struct HomeRecipeListView: View {
     
     @EnvironmentObject private var webServices: WebServices
     
-    @State private var selection: Recipe? = nil
     @State private var shouldAnimate = false
     @State private var isShowAlert = false
+    @State private var selectedRecipe: Recipe? = nil
     
-    @Binding private var tabSelected: Int
+    @Binding var tabSelected: Int
+    
+    let screenWidth = UIScreen.main.bounds.width
+    let screenHeight = UIScreen.main.bounds.height
     
     var body: some View {
         
@@ -24,28 +27,27 @@ struct HomeRecipeListView: View {
             if webServices.recipeArray.isEmpty {
                 
                 ZStack {
-
-                    ProgressView(shouldAnimate: $shouldAnimate)
-//                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
-                        .background( Color.black.opacity(0.7) )
-                        .onChange(of: webServices.recipeArray.isEmpty, { oldValue, newValue in
+                    ProgressView("Loading...")
+                        .padding()
+                        .frame(width: screenWidth, height: screenHeight, alignment: .center)
+                        .font(.system(size: 13))
+                        .tint(.white)
+                        .background(Color(UIColor(white: 0.3, alpha: 0.7)))
+                        .foregroundColor(.white)
+                        .onChange(of: webServices.recipeDataEmpty, { oldValue, newValue in
+                            
                             isShowAlert = newValue
                             withAnimation {
                                 tabSelected = 1
                             }
                         })
-                    Text("Loading...")
-                        .font(.system(size: 15))
-                        .foregroundColor(.white)
-                        .tint(.white)
-                        .padding(.top, 50)
                 }
             } else {
                 
                 List(webServices.recipeArray, id: \.id) { recipe in
                     
-                    RecipeCellView(recipe: recipe)
-                        .onTapGesture { selection = recipe }
+                    RecipeCellView(selectedRecipe: recipe)
+                        .onTapGesture { selectedRecipe = recipe }
                         .animation(.default, value: true)
                         .listRowInsets(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 5))
                         .listRowBackground(Color.clear)
@@ -53,36 +55,30 @@ struct HomeRecipeListView: View {
                     
                 }
                 .scrollContentBackground(.hidden)
-                .sheet(item: $selection,
-                       onDismiss: { selection = nil }) { recipe in
-                    SingleRecipeView(recipe: recipe)
+                .sheet(item: $selectedRecipe,
+                       onDismiss: { selectedRecipe = nil }) { recipe in
+                    SingleRecipeView(selectedRecipe: recipe)
                 }
             }
         }
-    }
-    
-    func checkRecipeDataEmpty() {
-        
-        if webServices.recipeArray.count == 0 {
-            
-            Task {
-                do {
-                    
-                    try await webServices.fetchRecipes()
-                    print("You fetch \(webServices.recipeArray.count) recipes")
-                    
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-        }
-    }
-    
         .onAppear {
-            checkRecipeDataEmpty()
+            
+            DispatchQueue.main.async {
+                
+                if webServices.recipeArray.count == 0 {
+                    Task {
+                        
+                        do {
+                            try await webServices.fetchRecipes()
+                        }
+                    }
+                }
+            }
         }
+        .alert(isPresented: $isShowAlert) { Alert(title: Text("Error..."), message: Text("No result for your keyword"), dismissButton: .default(Text("OK")))}
+    }
 }
 
-#Preview {
-    HomeRecipeListView()
-}
+//#Preview {
+//    HomeRecipeListView()
+//}

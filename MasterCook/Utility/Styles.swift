@@ -30,6 +30,33 @@ public extension View {
         
         return self
     }
+    
+    //  MARK: - Optional Int in Text
+    
+    func optionalIntView(_ property: Int?) -> Text {
+        
+        if let unwrappedProperty = property {
+            
+            return Text("serving \(unwrappedProperty == 0 ? "n/a" : "\(unwrappedProperty)") peoples")
+                .foregroundColor(Color.accentColor)
+                .font(.system(size: 13))
+                .fontWeight(.bold)
+            
+        } else {
+            return Text("n/a")
+        }
+    }
+    
+    func optionalDoubleView(_ property: Int?) -> Text {
+        
+        if let unwrappedProperty = property {
+            
+            return Text("\(unwrappedProperty)")
+            
+        } else {
+            return Text("n/a")
+        }
+    }
 }
 
 struct TextFieldModifier: ViewModifier {

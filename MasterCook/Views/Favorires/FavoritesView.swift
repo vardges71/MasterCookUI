@@ -10,15 +10,17 @@ import SwiftUI
 struct FavoritesView: View {
     
     @Binding var tabSelection: Int
+    @EnvironmentObject private var webServices: WebServices
     let title = "Favorites"
     
     var body: some View {
-        NavigationView {
+        
+        NavigationStack {
             
             ZStack {
                 fullBackground(imageName: "backYellow")
                 VStack{
-                    Text("HOME")
+                    FavoritesListView(tabSelected: $tabSelection)
                 }
             }
             .navigationTitle(title)

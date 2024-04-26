@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class Recipe: ObservableObject {
+class Recipe: ObservableObject, Identifiable {
     
     @Published var ingredient: String = ""
     
@@ -25,20 +25,4 @@ class Recipe: ObservableObject {
     @Published var calories: Int?
     @Published var sugar: Int?
     @Published var carbohydrates: Int?
-
-//    init(id: String, name: String, thumbnail_url: String, video_url: String, instructions: String, description: String, num_servings: Int? = nil, fiber: Int? = nil, protein: Int? = nil, fat: Int? = nil, calories: Int? = nil, sugar: Int? = nil, carbohydrates: Int? = nil) {
-//        self.id = id
-//        self.name = name
-//        self.thumbnail_url = thumbnail_url
-//        self.video_url = video_url
-//        self.instructions = instructions
-//        self.description = description
-//        self.num_servings = num_servings
-//        self.fiber = fiber
-//        self.protein = protein
-//        self.fat = fat
-//        self.calories = calories
-//        self.sugar = sugar
-//        self.carbohydrates = carbohydrates
-//    }
 }

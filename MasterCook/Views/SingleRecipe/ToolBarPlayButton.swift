@@ -8,11 +8,46 @@
 import SwiftUI
 
 struct ToolBarPlayButton: View {
+
+    //    MARK: - PROPERTIES
+    
+    let selectedRecipe: Recipe
+    
+    @State private var isPresented: Bool = false
+    @State private var isShowVideoAlert: Bool = false
+    
+    //    MARK: - BODY
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Button {
+                
+                if selectedRecipe.video_url == "" {
+                    isShowVideoAlert.toggle()
+                } else {
+                    isPresented.toggle()
+                }
+                print("Play button: \(selectedRecipe.video_url)")
+                
+            } label: {
+                VStack {
+                    Image(systemName: "play")
+                    Text("play video")
+                        .font(.caption)
+                }
+                .foregroundStyle(Color.accentColor)
+            }
+        } // VStack
+        .sheet(isPresented: $isPresented) { RecipeVideoPlayerView(selectedRecipe: selectedRecipe) }
+
+        .actionSheet(isPresented: $isShowVideoAlert) {
+            ActionSheet(
+                title: Text("SORRY..."), message: Text("The video instruction does not exist."),
+                buttons: [ .default(Text("OK")) ]
+            )
+        }
     }
 }
 
 #Preview {
-    ToolBarPlayButton()
+    ToolBarPlayButton(selectedRecipe: Recipe())
 }

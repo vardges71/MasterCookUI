@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseDatabase
 
 struct DeleteAccountButtonView: View {
     
@@ -41,8 +42,12 @@ struct DeleteAccountButtonView: View {
             
             Button("Delete", role: .destructive, action: {
                 
-                self.showLoginView.toggle()
                 delete()
+                DispatchQueue.main.async {
+                    
+                    self.showLoginView.toggle()
+                }
+                
             })
             
             Button("Cancel", role: .cancel, action: {})
@@ -51,6 +56,12 @@ struct DeleteAccountButtonView: View {
     }
     
     func delete() {
+        
+        let userID = authServices.uid
+        let db: DatabaseReference!
+        
+        db = Database.database().reference()
+        db.child("users").child(userID).removeValue()
         
         authServices.deleteAccount()
     }

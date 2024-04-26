@@ -39,7 +39,7 @@ class AuthServices: ObservableObject {
         }
     }
     
-    func signUp(_ email: String, password: String) async throws {
+    func signUp(_ email: String, password: String, re_password: String) async throws {
         
         try await Auth.auth().createUser(withEmail: email, password: password)
         guard uid != "" else { return }
@@ -64,19 +64,13 @@ class AuthServices: ObservableObject {
     func deleteAccount() {
         
         let user = Auth.auth().currentUser
-        let ref = Database.database().reference().child("users").child(user!.uid)
-        
-        ref.removeValue { error, _ in
-            print(error as Any)
-        }
         
         user?.delete { error in
             if let error = error {
-                // An error happened.
-                print("ERROR!!! - \(error)")
+                print(error.localizedDescription)
             } else {
                 // Account deleted.
-                print("USER DELETED")
+                print("ACCOUNT DELETED")
             }
         }
     }

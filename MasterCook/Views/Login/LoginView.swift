@@ -16,11 +16,13 @@ struct LoginView: View {
     @State private var re_password: String = ""
     
     @State private var showLoginAlert = false
-    @State private var isShowRegAlert = false
     @State private var errorDescription: String = ""
     
     @State private var isShowReg = false
     @State private var isShowMainTab = false
+    @State private var isErrorExist = false
+    
+    @State private var alertType: LoginViewAlerts = .success
     
     var body: some View {
         ZStack {
@@ -40,15 +42,11 @@ struct LoginView: View {
                     }
                     LoginButtonView(label: isShowReg ? "sign up" : "login") {
                         authenticate()
-                        if isShowReg {
-                            validateFields()
-                        }
                     }
                     GuestButtonView(label: "continue as guest") {
                         print("Guest button tapped!!!")
                         isShowMainTab.toggle()
                     }
-
                     HStack {
                         Button(isShowReg ? "back to login" : "register") {
                             
@@ -63,52 +61,76 @@ struct LoginView: View {
             }
         }
         .fullScreenCover(isPresented: $isShowMainTab) { MainTabView() }
-        .alert(isPresented: self.$showLoginAlert) { Alert(title: Text("Error..."), message: Text(isShowRegAlert ? "Please enter the same password in the \"password\" and \"confirm password\" fields" : "\(errorDescription)"), dismissButton: .default(Text("OK"))) }
+        .alert(isPresented: $showLoginAlert) { getAlert() }
     }
     
     func validateFields() {
-        
-        if password != re_password {
 
-            isShowRegAlert = true
+        if password != re_password {
+            isErrorExist = true
+            alertType = .passwordsNotSame
         } else {
-            isShowRegAlert = false
+            isErrorExist = false
+            alertType = .unowned
         }
     }
     
     func authenticate() {
-        
+        validateFields()
         Task {
             do {
                 if isShowReg {
-                    if isShowRegAlert {
+                    if isErrorExist {
                         showLoginAlert.toggle()
+                        
                     } else {
-                        try await authServices.signUp(email, password: password)
+                        try await authServices.signUp(email, password: password, re_password: re_password)
                     }
                 } else {
                     try await authServices.login(email: email, password: password)
                 }
             } catch {
-                print(error.localizedDescription)
-                errorDescription = error.localizedDescription
                 showLoginAlert.toggle()
+                errorDescription = error.localizedDescription
+                alertType = .wasError
             }
         }
     }
     
     func forgotButtonTapped() {
         
+        showLoginAlert.toggle()
+        
         Task {
             do {
                 try await authServices.forgotPassword(email: email)
+                alertType = .forgotPassword
+                
             } catch {
                 print(error.localizedDescription)
                 errorDescription = error.localizedDescription
-                showLoginAlert.toggle()
+                alertType = .wasError
             }
         }
     }
+    
+    func getAlert() -> Alert {
+        
+        switch alertType {
+            
+        case .passwordsNotSame:
+            return Alert(title: Text("Error..."), message: Text("Please enter the same password in the \"password\" and \"confirm password\" fields"))
+        case .forgotPassword:
+            return Alert(title: Text("Success..."), message: Text("Please check your email inbox"))
+        case.success:
+            return Alert(title: Text("Success..."), message: Text("You are successfully registered!"))
+        case .wasError:
+            return Alert(title: Text("Error..."), message: Text("\(errorDescription)"))
+        case .unowned:
+            return Alert(title: Text("Error..."), message: Text("\(errorDescription)"))
+        }
+    }
+    
 }
 
 #Preview {

@@ -37,11 +37,15 @@ struct MasterCookApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     @StateObject private var authServices = AuthServices()
+    @StateObject private var webServices = WebServices()
+    @StateObject private var recipe = Recipe()
     
     var body: some Scene {
         WindowGroup {
             MainView()
                 .environmentObject(authServices)
+                .environmentObject(webServices)
+                .environmentObject(recipe)
         }
     }
 }

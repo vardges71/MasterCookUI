@@ -22,40 +22,10 @@ struct HomeView: View {
             ZStack {
                 fullBackground(imageName: "backYellow")
                 VStack {
-                    List {
-                        ForEach (webServices.recipeArray, id: \.id) { recipe in
-                            
-                            VStack(alignment: .leading) {
-                                Text(recipe.name)
-                                    .animation(.default, value: true)
-                                Divider()
-                            }
-                        }
-                        .listRowBackground(Color.clear)
-                        .listRowSeparator(.hidden)
-                        .foregroundStyle(Color.accentColor)
-                    } //: LIST
-                    .scrollContentBackground(.hidden)
+                    HomeRecipeListView(tabSelected: $tabSelection)
                 }
             }
             .navigationTitle(title)
-        }
-    }
-    
-    func checkRecipeDataEmpty() {
-        
-        if webServices.recipeArray.count == 0 {
-            
-            Task {
-                do {
-                    
-                    try await webServices.fetchRecipes()
-                    print("You fetch \(webServices.recipeArray.count) recipes")
-                    
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
         }
     }
 }
